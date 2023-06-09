@@ -30,11 +30,11 @@ model_data_presence_only <- function(
     pvals %>%
       tibble::as_tibble %>%
       dplyr::select(-ID) %>%
-      mutate(presence = 1),
+      dplyr::mutate(presence = 1),
     avals %>%
       tibble::as_tibble %>%
       dplyr::select(-ID) %>%
-      mutate(presence = 0)
+      dplyr::mutate(presence = 0)
   ) %>%
     tibble::as_tibble
 
