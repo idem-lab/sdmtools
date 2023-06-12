@@ -2,5 +2,5 @@
 
 export(model_data_presence_absence)
 export(model_data_presence_only)
+export(predict_sdm)
 export(rastpointplot)
-export(sdm_predict)

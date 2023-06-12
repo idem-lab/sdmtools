@@ -1,15 +1,18 @@
-#' Title
+#' @title Predict Species Distribution Model
+#' @description
+#' Produces raster prediction from SDM based on model and covariate layers.
 #'
-#' @param model
-#' @param covariates
-#' @param type
-#' @param layer_name
+#'
+#' @param model A model object.
+#' @param covariates Raster covariate layers.
+#' @param type Scale of prediction (response, model, etc.).
+#' @param layer_name Name for predicted layer.
 #'
 #' @return
 #' @export
 #'
 #' @examples
-sdm_predict <- function(
+predict_sdm <- function(
     model,
     covariates,
     type = NULL,
