@@ -1,4 +1,7 @@
-#' Title
+#' @title Extract covariates for presence only data
+#' @description
+#' Extracts
+#'
 #'
 #' @param presences
 #' @param absences
@@ -9,7 +12,7 @@
 #'
 #' @examples
 #'
-model_data_presence_only <- function(
+extract_covariates <- function(
     presences,
     absences,
     covariates
