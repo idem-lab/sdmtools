@@ -2,13 +2,30 @@
 % Please edit documentation in R/extract_covariates.R
 \name{extract_covariates}
 \alias{extract_covariates}
-\title{Extract covariates for presence only data}
+\title{Extract data from covariate rasters}
 \usage{
-extract_covariates(presences, absences, covariates)
+extract_covariates(
+  covariates,
+  presences = NULL,
+  absences = NULL,
+  presences_and_absences = NULL
+)
 }
 \arguments{
-\item{covariates}{}
+\item{covariates}{\code{SpatRaster} object of one or more layers.}
+
+\item{presences}{\code{data.frame} or \code{tibble} of presence locations contaning longitude and latitude as variables \code{x} and \code{y}.}
+
+\item{absences}{\code{data.frame} or \code{tibble} of absence or background locations contaning longitude and latitude as variables \code{x} and \code{y}.}
+
+\item{presences_and_absences}{\code{data.frame} or \code{tibble} of presence presence and absence locations contaning longitude and latitude as variables \code{x} and \code{y}.}
+}
+\value{
+A \code{tibble} containing values variables \code{presence} and each of the covarite layers at each location.
 }
 \description{
-Extracts
+Extracts data from raster covariate layers for modelling.
+}
+\author{
+Gerry Ryan
 }

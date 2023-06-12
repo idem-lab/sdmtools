@@ -1,44 +1,67 @@
-#' @title Extract covariates for presence only data
+#' @title Extract data from covariate rasters
 #' @description
-#' Extracts
+#' Extracts data from raster covariate layers for modelling.
 #'
 #'
-#' @param presences
-#' @param absences
-#' @param covariates
+#' @param covariates `SpatRaster` object of one or more layers.
+#' @param presences `data.frame` or `tibble` of presence locations contaning longitude and latitude as variables `x` and `y`.
+#' @param absences `data.frame` or `tibble` of absence or background locations contaning longitude and latitude as variables `x` and `y`.
+#' @param presences_and_absences `data.frame` or `tibble` of presence presence and absence locations contaning longitude and latitude as variables `x` and `y`.
 #'
-#' @return
+#' @return A `tibble` containing values variables `presence` and each of the covarite layers at each location.
+#' @author Gerry Ryan
 #' @export
 #'
 #' @examples
 #'
 extract_covariates <- function(
-    presences,
-    absences,
-    covariates
+    covariates,
+    presences = NULL,
+    absences = NULL,
+    presences_and_absences = NULL
 ){
 
-  pvals <- terra::extract(
-    covariates,
-    presences %>%
-      dplyr::select(x, y)
-  )
-  avals <- terra::extract(
-    covariates,
-    absences %>%
-      dplyr::select(x, y)
-  )
+  if(!is.null(presences)){
+    pvals <- terra::extract(
+      covariates,
+      presences %>%
+        dplyr::select(x, y)
+    )
+    avals <- terra::extract(
+      covariates,
+      absences %>%
+        dplyr::select(x, y)
+    )
 
-  rbind(
-    pvals %>%
-      tibble::as_tibble %>%
-      dplyr::select(-ID) %>%
-      dplyr::mutate(presence = 1),
-    avals %>%
-      tibble::as_tibble %>%
-      dplyr::select(-ID) %>%
-      dplyr::mutate(presence = 0)
-  ) %>%
-    tibble::as_tibble
+    result <- rbind(
+      pvals %>%
+        tibble::as_tibble %>%
+        dplyr::select(-ID) %>%
+        dplyr::mutate(presence = 1),
+      avals %>%
+        tibble::as_tibble %>%
+        dplyr::select(-ID) %>%
+        dplyr::mutate(presence = 0)
+    ) %>%
+      tibble::as_tibble
 
+    return(result)
+  } else {
+    vals <- terra::extract(
+      covariates,
+      pa_data %>%
+        dplyr::select(x, y)
+    )
+
+    result <- cbind(
+      pa_data %>%
+        dplyr::select(-x, -y),
+      vals %>%
+        tibble::as_tibble %>%
+        dplyr::select(-ID)
+    ) %>%
+      tibble::as_tibble
+
+    return(result)
+  }
 }
