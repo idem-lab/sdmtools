@@ -1,6 +1,7 @@
 #' @title Import rasters from directory
 #' @description
 #' Imports all rasters of a given extension type from a specified directory using `terra::rast`.
+#' Based on `seegSDM::importRasters`.
 #'
 #'
 #'
