@@ -1,9 +1,9 @@
 library(tibble)
 
-# equivalent functions (or near equivalent)
-# from raster and terra
-#argument names may differ
-
+# equivalent functions (or near equivalent) from raster and terra
+# arguments names may differ
+# some notable changes to arguments, return values, etc
+# are in the comment column
 raster_to_terra <- tibble::tribble(
   ~raster,             ~terra, ~comment,
          "brick",         "c", NA,
