@@ -12,9 +12,11 @@
 `sdmtools` is a set of helper functions to facilitate species
 distribution modelling and spatial data manipulation. It uses the `terra` package for raster manipulation, though some functions may work with other formats.
 
+The package is under active development and subject to change and breaking.
+
 ## Installation
 
-You can install the development version of sdmtools from
+You can install from
 [GitHub](https://github.com/) with:
 
 ``` r
