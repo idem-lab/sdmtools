@@ -12,6 +12,7 @@ raster_to_terra <- tibble::tribble(
   "disaggregate",    "disagg", NA,
        "extract",   "extract", "cellnumbers = cells",
      "getValues", "as.vector", NA,
+          "plot",      "plot", "maxpixels = maxcells",
         "raster",      "rast", NA,
       "resample",  "resample", NA,
          "stack",         "c", NA
