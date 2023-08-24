@@ -1,13 +1,16 @@
 library(tibble)
 
+# equivalent functions (or near equivalent)
+# from raster and terra
+#argument names may differ
 
 raster_to_terra <- tibble::tribble(
   ~raster,             ~terra, ~comment,
          "brick",         "c", NA,
-     "cellStats",    "global", NA,
+     "cellStats",    "global", "global returns df not vector",
           "crop",      "crop", NA,
   "disaggregate",    "disagg", NA,
-       "extract",   "extract", NA,
+       "extract",   "extract", "cellnumbers = cells",
      "getValues", "as.vector", NA,
         "raster",      "rast", NA,
       "resample",  "resample", NA,
