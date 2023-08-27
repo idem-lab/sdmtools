@@ -16,7 +16,7 @@ raster_to_terra <- tibble::tribble(
         "raster",        "rast", NA,
       "resample",    "resample", NA,
          "stack",           "c", NA,
-   "writeRaster", "writeRaster", "need to specify file type in terra"
+   "writeRaster", "writeRaster", "need to specify file type (suffix) in terra"
 )
 
 usethis::use_data(raster_to_terra, overwrite = TRUE)
