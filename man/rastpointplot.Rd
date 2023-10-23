@@ -2,13 +2,22 @@
 % Please edit documentation in R/rastpointplot.R
 \name{rastpointplot}
 \alias{rastpointplot}
-\title{Title}
+\title{Raster plot with points}
 \usage{
 rastpointplot(r, v, pch = 16, cex = 0.5)
 }
 \arguments{
-\item{cex}{}
+\item{r}{\code{spatRaster} object}
+
+\item{v}{\code{spatVector} object}
+
+\item{pch}{\code{integer } point symbol. See \code{?par}}
+
+\item{cex}{\code{numeric} point size multiplier. See \code{?par}}
+}
+\value{
+graphical plot
 }
 \description{
-Title
+Simple convenience function to plot points over a raster. Useful for quick data checks.
 }

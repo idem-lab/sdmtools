@@ -1,11 +1,14 @@
-#' Title
+#' @title Raster plot with points
+#' @description
+#' Simple convenience function to plot points over a raster. Useful for quick data checks.
 #'
-#' @param r
-#' @param v
-#' @param pch
-#' @param cex
 #'
-#' @return
+#' @param r `spatRaster` object
+#' @param v `spatVector` object
+#' @param pch  `integer ` point symbol. See `?par`
+#' @param cex `numeric` point size multiplier. See `?par`
+#'
+#' @return graphical plot
 #' @export
 #'
 #' @examples

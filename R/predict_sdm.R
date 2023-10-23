@@ -4,11 +4,11 @@
 #'
 #'
 #' @param model A model object.
-#' @param covariates Raster covariate layers.
+#' @param covariates `spatRaster` covariate layers.
 #' @param type Scale of prediction (response, model, etc.).
 #' @param layer_name Name for predicted layer.
 #'
-#' @return
+#' @return `spatRaster` prediction from model
 #' @export
 #'
 #' @examples

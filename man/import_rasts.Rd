@@ -11,7 +11,7 @@ import_rasts(path, ext = ".grd", as_list = c(FALSE, TRUE))
 
 \item{ext}{Extension type}
 
-\item{as_list}{Should the \code{spatRaster} objects be returned as a \code{list} (\code{TRUE}) or concatenated into a single \code{spatRaster} (\code{FALSE})}
+\item{as_list}{Should the \code{spatRaster} objects be returned as a \code{list} (\code{TRUE}) or concatenated as layers in a single \code{spatRaster} object (\code{FALSE}; default)}
 }
 \value{
 A \code{spatRaster} if \code{as_list = FALSE}, or list of \code{spatRaster} objects.
