@@ -10,13 +10,14 @@ raster_to_terra <- tibble::tribble(
      "cellStats",      "global", "global returns df not vector",
           "crop",        "crop", NA,
   "disaggregate",      "disagg", NA,
-       "extract",     "extract", "cellnumbers = cells",
+       "extract",     "extract", "cellnumbers in raster becomes cells in terra",
      "getValues",   "as.vector", NA,
-          "plot",        "plot", "maxpixels = maxcells",
+          "plot",        "plot", "maxpixels in raster becomes maxcells in terra",
         "raster",        "rast", NA,
+ "rasterFromXYZ",        "rast",  "with arg `type = xyz`; where xyx is a string in quotes",
       "resample",    "resample", NA,
          "stack",           "c", NA,
-   "writeRaster", "writeRaster", "need to specify file type (suffix) in terra"
+   "writeRaster", "writeRaster", "need to specify file type (suffix) in terra",
 )
 
 usethis::use_data(raster_to_terra, overwrite = TRUE)
