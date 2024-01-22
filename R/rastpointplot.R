@@ -12,6 +12,7 @@
 #' @export
 #'
 #' @examples
+#' rastpointplot(r,v)
 rastpointplot <- function(
     r,
     v,
@@ -19,7 +20,7 @@ rastpointplot <- function(
     cex = 0.5
 ){
 
-  plot(r)
-  points(v, pch = pch, cex = cex)
+  terra::plot(r)
+  terra::points(v, pch = pch, cex = cex)
 
 }

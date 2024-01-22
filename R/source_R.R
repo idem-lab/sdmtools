@@ -10,6 +10,9 @@
 #' @export
 #'
 #' @examples
+#' #' \dontrun{
+#'   source_R(/Users/frankenstein/project/R)
+#' }
 source_R <- function(
     path = "R",
     print.names = TRUE

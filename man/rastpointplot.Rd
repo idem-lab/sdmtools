@@ -21,3 +21,6 @@ graphical plot
 \description{
 Simple convenience function to plot points over a raster. Useful for quick data checks.
 }
+\examples{
+rastpointplot(r,v)
+}

@@ -26,3 +26,11 @@ predict_sdm(
 \description{
 Produces raster prediction from SDM based on model and covariate layers.
 }
+\examples{
+\dontrun{
+  m <- glm(z ~ cov1, cov2, data = sdm_data)
+
+  prediction <- predict_sdm(m, covs)
+
+}
+}

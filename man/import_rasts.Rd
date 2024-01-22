@@ -20,3 +20,8 @@ A \code{spatRaster} if \code{as_list = FALSE}, or list of \code{spatRaster} obje
 Imports all rasters of a given extension type from a specified directory using \code{terra::rast}.
 Based on \code{seegSDM::importRasters}.
 }
+\examples{
+\dontrun{
+  rasters <- import_rasts("/data/grids/covariates")
+}
+}

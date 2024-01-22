@@ -13,6 +13,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#'   rasters <- import_rasts("/data/grids/covariates")
+#' }
 import_rasts <- function (path, ext = ".grd", as_list = c(FALSE, TRUE))
 {
   files <- gtools::mixedsort(list.files(path, pattern = ext))

@@ -18,10 +18,10 @@ extract_covariates(
 
 \item{absences}{\code{data.frame} or \code{tibble} of absence or background locations contaning longitude and latitude as variables \code{x} and \code{y}.}
 
-\item{presences_and_absences}{\code{data.frame} or \code{tibble} of presence presence and absence locations contaning longitude and latitude as variables \code{x} and \code{y}.}
+\item{presences_and_absences}{\code{data.frame} or \code{tibble} of presence presence and absence locations containing longitude and latitude as variables \code{x} and \code{y}.}
 }
 \value{
-A \code{tibble} containing values variables \code{presence} and each of the covarite layers at each location.
+A \code{tibble} containing values variables \code{presence} and each of the covariate layers at each location.
 }
 \description{
 Extracts data from raster covariate layers for modelling.
