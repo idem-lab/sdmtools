@@ -27,7 +27,7 @@ You can install the development version of sdmtools from [GitHub](https://github
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("geryan/sdmtools")
+remotes::install_github("idem-lab/sdmtools")
 ```
 
 ## Data
