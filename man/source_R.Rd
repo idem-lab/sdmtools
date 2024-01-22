@@ -19,6 +19,6 @@ Sources all scripts in a specified directory and optionally prints paths.
 }
 \examples{
 #' \dontrun{
-  source_R(/Users/frankenstein/project/R)
+  source_R("/Users/frankenstein/project/R")
 }
 }

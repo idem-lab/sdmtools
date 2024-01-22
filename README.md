@@ -80,7 +80,7 @@ plot(v)
 `source_R` — source all R files in a target directory
 
 ``` r
-source_R(/Users/frankenstein/project/R)
+source_R("/Users/frankenstein/project/R")
 ```
 
 `predict_sdm` — made a spatial prediction from a species distribution
