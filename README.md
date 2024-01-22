@@ -4,9 +4,8 @@
 # sdmtools
 
 <!-- badges: start -->
+
 [![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
-<hr>
-<hr>
 <!-- badges: end -->
 
 `sdmtools` is a set of helper functions to facilitate species

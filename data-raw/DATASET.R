@@ -22,22 +22,3 @@ raster_to_terra <- tibble::tribble(
 
 # run this line each time I update the thing.
 usethis::use_data(raster_to_terra, overwrite = TRUE)
-
-
-set.seed(2024)
-r <- matrix(
-  data = rlnorm(100),
-  nrow = 10,
-  ncol = 10
-) %>%
-  rast
-names(r) <- "example"
-ex <- ext(r)
-
-
-v <- matrix(runif(20, 0, 10), nrow = 10) %>%
-  vect(type = "points")
-
-
-usethis::use_data(r, overwrite = TRUE)
-usethis::use_data(v, overwrite = TRUE)
