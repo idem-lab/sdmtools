@@ -23,7 +23,7 @@ source_R <- function(
     full.names = TRUE
   )
 
-  for (i in 1:length(files)){
+  for (i in seq_length(files)){
     source(files[i])
     if(print.names){
       cat(
