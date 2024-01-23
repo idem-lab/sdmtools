@@ -28,7 +28,9 @@ library(sdmtools)
 ```
 
 `raster_to_terra` an annotated equivalence table of functions from the
-`raster` and `terra` packages
+`raster` and `terra` packages incorporating section **XXVIII New method
+names** from `terra`’s [package
+notes](https://cran.r-project.org/web/packages/terra/terra.pdf)
 <table>
 <thead>
 <tr>
