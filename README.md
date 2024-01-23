@@ -18,7 +18,7 @@ You can install the development version of sdmtools from
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("geryan/sdmtools")
+remotes::install_github("idem-lab/sdmtools")
 ```
 
 ## Data
@@ -29,36 +29,155 @@ library(sdmtools)
 
 `raster_to_terra` an annotated equivalence table of functions from the
 `raster` and `terra` packages
-
-``` r
-raster_to_terra
-#>           raster       terra
-#> 1          brick           c
-#> 2      cellStats      global
-#> 3           crop        crop
-#> 4   disaggregate      disagg
-#> 5        extract     extract
-#> 6      getValues   as.vector
-#> 7           plot        plot
-#> 8         raster        rast
-#> 9  rasterFromXYZ        rast
-#> 10      resample    resample
-#> 11         stack           c
-#> 12   writeRaster writeRaster
-#>                                                   comment
-#> 1                                                    <NA>
-#> 2                            global returns df not vector
-#> 3                                                    <NA>
-#> 4                                                    <NA>
-#> 5            cellnumbers in raster becomes cells in terra
-#> 6                                                    <NA>
-#> 7           maxpixels in raster becomes maxcells in terra
-#> 8                                                    <NA>
-#> 9  with arg `type = xyz`; where xyx is a string in quotes
-#> 10                                                   <NA>
-#> 11                                                   <NA>
-#> 12            need to specify file type (suffix) in terra
-```
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+raster
+</th>
+<th style="text-align:left;">
+terra
+</th>
+<th style="text-align:left;">
+comment for terra use
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+brick
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cellStats
+</td>
+<td style="text-align:left;">
+global
+</td>
+<td style="text-align:left;">
+global returns df not vector
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+crop
+</td>
+<td style="text-align:left;">
+crop
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+disaggregate
+</td>
+<td style="text-align:left;">
+disagg
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+extract
+</td>
+<td style="text-align:left;">
+extract
+</td>
+<td style="text-align:left;">
+cellnumbers in raster becomes cells in terra
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+getValues
+</td>
+<td style="text-align:left;">
+as.vector
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+plot
+</td>
+<td style="text-align:left;">
+plot
+</td>
+<td style="text-align:left;">
+maxpixels in raster becomes maxcells in terra
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+raster
+</td>
+<td style="text-align:left;">
+rast
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rasterFromXYZ
+</td>
+<td style="text-align:left;">
+rast
+</td>
+<td style="text-align:left;">
+with arg `type = xyz`; where xyx is a string in quotes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+resample
+</td>
+<td style="text-align:left;">
+resample
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+stack
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+writeRaster
+</td>
+<td style="text-align:left;">
+writeRaster
+</td>
+<td style="text-align:left;">
+need to specify file type (suffix) in terra
+</td>
+</tr>
+</tbody>
+</table>
 
 `r` an example `spatRaster`
 
