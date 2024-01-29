@@ -561,8 +561,12 @@ rasters <- import_rasts("/data/grids/covariates")
 `rastpointplot` — plot a raster with points over it
 
 ``` r
+r <- example_raster()
+v <- example_vector()
 rastpointplot(r,v)
 ```
+
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
 `extract_covariates` — extract covariate values from `spatRaster` or
 `raster` layers for a given set of points
