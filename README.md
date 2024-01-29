@@ -511,19 +511,28 @@ need to specify file type (suffix) in terra
 </tbody>
 </table>
 
-`r` an example `spatRaster`
+### Data-generating functions
+
+`example_raster` an example `spatRaster`
 
 ``` r
-r
+library(terra)
+#> terra 1.7.65
+r <- example_raster()
 plot(r)
 ```
 
-`v` an example `spatVector`
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+
+`example_vector` an example `spatVector`
 
 ``` r
-v
+library(terra)
+v <- example_vector()
 plot(v)
 ```
+
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
 ## Function examples
 
@@ -537,7 +546,7 @@ source_R("/Users/frankenstein/project/R")
 model and covariate layers
 
 ``` r
-m <- glm(z ~ cov1, cov2, data = sdm_data)
+m <- glm(z ~ cov1 + cov2, data = sdm_data)
 
 prediction <- predict_sdm(m, covs)
 ```

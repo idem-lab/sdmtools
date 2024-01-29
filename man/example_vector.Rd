@@ -4,10 +4,13 @@
 \alias{example_vector}
 \title{Create an example vector}
 \usage{
-example_vector()
+example_vector(seed = NULL)
+}
+\arguments{
+\item{seed}{A seed to pass to \code{set.seed(seed)}}
 }
 \value{
-vector
+A \code{spatVector}
 }
 \description{
 Create an example vector

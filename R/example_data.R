@@ -1,12 +1,19 @@
 #' Create example raster for use in examples
 #'
-#' @return raster
+#' @return A `spatRaster`.
+#' @param seed A seed to pass to `set.seed(seed)`
 #' @export
 #'
 #' @examples
 #' example_raster
-example_raster <- function(){
-set.seed(2024-01-22-1330)
+example_raster <- function(seed = NULL){
+
+  if(is.null(seed)){
+    set.seed(2024-01-22-1330)
+  } else{
+    set.seed(seed)
+  }
+
   raster_log_norm <- matrix(
   data = rlnorm(100),
   nrow = 10,
@@ -20,13 +27,20 @@ set.seed(2024-01-22-1330)
 
 #' Create an example vector
 #'
-#' @return vector
+#' @return A `spatVector`
+#' @param seed A seed to pass to `set.seed(seed)`
 #' @export
 #'
 #' @examples
 #' example_vector()
-example_vector <- function(){
-  set.seed(2024-01-22-1331)
+example_vector <- function(seed = NULL){
+
+  if(is.null(seed)){
+    set.seed(2024-01-22-1331)
+  } else{
+    set.seed(seed)
+  }
+
   vector_unif <- matrix(
     data = runif(20, 0, 10),
     nrow = 10) %>%
