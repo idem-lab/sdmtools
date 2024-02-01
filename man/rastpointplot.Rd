@@ -22,5 +22,7 @@ graphical plot
 Simple convenience function to plot points over a raster. Useful for quick data checks.
 }
 \examples{
+r <- example_raster()
+v <- example_vector()
 rastpointplot(r,v)
 }

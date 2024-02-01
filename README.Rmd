@@ -48,15 +48,19 @@ knitr::kable(
 ```
 
 
-`r` an example `spatRaster`
-```r
-r
+### Data-generating functions
+
+`example_raster` an example `spatRaster`
+```{r}
+library(terra)
+r <- example_raster()
 plot(r)
 ```
 
-`v` an example `spatVector`
-```r
-v
+`example_vector` an example `spatVector`
+```{r}
+library(terra)
+v <- example_vector()
 plot(v)
 ```
 
@@ -71,7 +75,7 @@ source_R("/Users/frankenstein/project/R")
 
 `predict_sdm` — made a spatial prediction from a species distribution model and covariate layers
 ```r
-m <- glm(z ~ cov1, cov2, data = sdm_data)
+m <- glm(z ~ cov1 + cov2, data = sdm_data)
 
 prediction <- predict_sdm(m, covs)
 ```
@@ -81,8 +85,10 @@ prediction <- predict_sdm(m, covs)
 rasters <- import_rasts("/data/grids/covariates")
 ```
 
-`rastpointplot` — plot a raster with points over it
-```r
+`rastpointplot` — simple utility to plot a raster with points over it
+```{r}
+r <- example_raster()
+v <- example_vector()
 rastpointplot(r,v)
 ```
 

@@ -12,6 +12,8 @@
 #' @export
 #'
 #' @examples
+#' r <- example_raster()
+#' v <- example_vector()
 #' rastpointplot(r,v)
 rastpointplot <- function(
     r,

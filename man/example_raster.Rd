@@ -4,10 +4,13 @@
 \alias{example_raster}
 \title{Create example raster for use in examples}
 \usage{
-example_raster()
+example_raster(seed = NULL)
+}
+\arguments{
+\item{seed}{A seed to pass to \code{set.seed(seed)}}
 }
 \value{
-raster
+A \code{spatRaster}.
 }
 \description{
 Create example raster for use in examples
