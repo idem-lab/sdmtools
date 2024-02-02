@@ -7,7 +7,7 @@
 \format{
 \subsection{\code{global_regions}}{
 
-A tibble with 194 rows and 5 columns:
+A tibble with 42 rows and 3 columns:
 \describe{
 \item{raster}{function name in \code{raster}}
 \item{terra}{function name in \code{terra}}
@@ -16,7 +16,7 @@ A tibble with 194 rows and 5 columns:
 }
 }
 \source{
-Initially produced by Gerry Ryan and supplemented with "New method names" section in https://cran.r-project.org/web/packages/terra/terra.pdf
+Initially produced by Gerry Ryan and supplemented with "New method names" section in https://cran.r-project.org/web/packages/terra/terra.pdf, annotations added by IDEM members
 }
 \usage{
 raster_to_terra
