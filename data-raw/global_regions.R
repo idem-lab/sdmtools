@@ -43,3 +43,5 @@ global_regions <- full_join(
   arrange(country) |>
   print(n = 200)
 
+# run this line each time I update the thing.
+usethis::use_data(global_regions, overwrite = TRUE)
