@@ -26,7 +26,22 @@ https://www.un.org/dgacm/en/content/regional-groups
 
 2024-02-02
 
-*Special cases
+\code{who-regions.csv} was downloaded from
+
+https://ourworldindata.org/grapher/who-regions
+
+2024-02-02
+
+World Health Organization – processed by Our World in Data. “WHO region” \link{dataset}. World Health Organization \link{original data}.
+}
+\usage{
+global_regions
+}
+\description{
+A table of showing the United Nations Regional groups of Member States and World Health Organisation regions of nation states.
+}
+\details{
+Special cases of UN regional groupings
 
 Israel
 
@@ -43,19 +58,5 @@ Türkiye participates fully in both the Group of Western European and other Stat
 United States of America
 
 The United States of America is not a member of any regional group, but attends meetings of the Group of Western European and other States as an observer and is considered to be a member of that group for electoral purposes.
-
-\code{who-regions.csv} was downloaded from
-
-https://ourworldindata.org/grapher/who-regions
-
-2024-02-02
-
-World Health Organization – processed by Our World in Data. “WHO region” \link{dataset}. World Health Organization \link{original data}.
-}
-\usage{
-global_regions
-}
-\description{
-A table of showing the United Nations Regional groups of Member States and World Health Organisation regions of nation states.
 }
 \keyword{datasets}
