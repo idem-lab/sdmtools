@@ -1,0 +1,3 @@
+who-regions.csv was downloaded from https://ourworldindata.org/grapher/who-regions on 2024-02-02
+
+World Health Organization – processed by Our World in Data. “WHO region” [dataset]. World Health Organization [original data].
