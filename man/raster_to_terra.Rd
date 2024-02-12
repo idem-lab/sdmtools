@@ -5,9 +5,8 @@
 \alias{raster_to_terra}
 \title{\code{raster} to \code{terra} equivalence table}
 \format{
-\subsection{\code{global_regions}}{
+\subsection{\code{global_regions} A tibble with 42 rows and 3 columns:}{
 
-A tibble with 42 rows and 3 columns:
 \describe{
 \item{raster}{function name in \code{raster}}
 \item{terra}{function name in \code{terra}}
@@ -16,13 +15,16 @@ A tibble with 42 rows and 3 columns:
 }
 }
 \source{
-Initially produced by Gerry Ryan and supplemented with "New method names" section in https://cran.r-project.org/web/packages/terra/terra.pdf, annotations added by IDEM members
+Initially produced by Gerry Ryan and supplemented with "New method
+names" section in https://cran.r-project.org/web/packages/terra/terra.pdf,
+annotations added by IDEM members
 }
 \usage{
 raster_to_terra
 }
 \description{
-A table of equivalent functions (or near equivalent) from the \code{raster} and \code{terra} packages.
+A table of equivalent functions (or near equivalent) from the
+\code{raster} and \code{terra} packages.
 }
 \details{
 Some argument names may differ.
