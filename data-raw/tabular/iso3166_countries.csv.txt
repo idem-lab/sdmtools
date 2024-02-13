@@ -1,0 +1,5 @@
+iso3166_countries.csv
+
+manually created from table in Online Browsling Platform linked at https://www.iso.org/iso-3166-country-codes.html
+
+20204-02-13
