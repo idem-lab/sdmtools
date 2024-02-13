@@ -35,11 +35,11 @@ extract_covariates <- function(
 
     result <- rbind(
       pvals %>%
-        tibble::as_tibble %>%
+        tibble::as_tibble() %>%
         dplyr::select(-ID) %>%
         dplyr::mutate(presence = 1),
       avals %>%
-        tibble::as_tibble %>%
+        tibble::as_tibble() %>%
         dplyr::select(-ID) %>%
         dplyr::mutate(presence = 0)
     ) %>%
@@ -57,10 +57,10 @@ extract_covariates <- function(
       pa_data %>%
         dplyr::select(-x, -y),
       vals %>%
-        tibble::as_tibble %>%
+        tibble::as_tibble() %>%
         dplyr::select(-ID)
     ) %>%
-      tibble::as_tibble
+      tibble::as_tibble()
 
     return(result)
   }
