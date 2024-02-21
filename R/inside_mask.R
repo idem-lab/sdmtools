@@ -26,6 +26,7 @@ inside_mask <- function(points, mask){
       stopifnot(sum(colnames(points) %in% c("longitude", "latitude"))==2)
   message("points object must contain columns 'longitude' and 'latitude'.")
 
+
     # get indexes of points which fall inside the mask
     inside_idx <- which(
       !(is.na(extract(mask, points[,c('longitude', 'latitude')], ID=FALSE)))
