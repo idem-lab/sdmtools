@@ -43,7 +43,7 @@ extract_covariates <- function(
         dplyr::select(-ID) %>%
         dplyr::mutate(presence = 0)
     ) %>%
-      tibble::as_tibble
+      tibble::as_tibble()
 
     return(result)
   } else {
