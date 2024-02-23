@@ -64,11 +64,17 @@ v <- example_vector()
 plot(v)
 ```
 
+
+`rastpointplot` — simple utility to plot a raster with points over it
+```{r}
+rastpointplot(r,v)
+```
+
 ## Function examples
 
 `source_R` — source all R files in a target directory
 ```r
-source_R("/Users/frankenstein/project/R")
+source_R("/Users/frankenstein/project/R") # do not run
 ```
 
 
@@ -76,7 +82,7 @@ source_R("/Users/frankenstein/project/R")
 
 `import_rasts` — Import all rasters from a directory into a single object
 ```r
-rasters <- import_rasts("/data/grids/covariates")
+rasters <- import_rasts("/data/grids/covariates") # do not run
 ```
 
 *A species distribution modelling workflow:*
@@ -102,13 +108,16 @@ presences <- example_vector(seed = 68) %>%
   as.data.frame(geom = "xy")
 absences <- example_vector(seed = 9.6) %>%
   as.data.frame(geom = "xy")
+
+presences
 ```
 
 
 `extract_covariates` — extract covariate values from `spatRaster` or `raster` layers for a given set of points
-```{r}
 
-extract_covariates(
+Pass in either `presences` and `absences` as a `data.frame` or `tibble` of with , or `presences_and_absences` as a single data frame points with a presence or ID column(s)
+```{r}
+sdm_data <- extract_covariates(
   covariates = covs,
   presences = presences,
   absences = absences
@@ -117,18 +126,13 @@ extract_covariates(
 
 `predict_sdm` — made a spatial prediction from a species distribution model and covariate layers
 ```{r}
+# first we make a simple model, using data from above
+m <- glm(presence ~ cov1 + cov2, data = sdm_data)
 
+prediction_rast <- predict_sdm(m, covs)
 
-
-m <- glm(z ~ cov1 + cov2, data = sdm_data)
-
-prediction <- predict_sdm(m, covs)
+plot(prediction_rast)
 ```
 
 
-`rastpointplot` — simple utility to plot a raster with points over it
-```{r}
-r <- example_raster()
-v <- example_vector()
-rastpointplot(r,v)
-```
+

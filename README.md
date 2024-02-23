@@ -517,7 +517,7 @@ need to specify file type (suffix) in terra
 
 ``` r
 library(terra)
-#> terra 1.7.65
+#> terra 1.7.71
 r <- example_raster()
 plot(r)
 ```
@@ -534,43 +534,96 @@ plot(v)
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
+`rastpointplot` — simple utility to plot a raster with points over it
+
+``` r
+rastpointplot(r,v)
+```
+
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+
 ## Function examples
 
 `source_R` — source all R files in a target directory
 
 ``` r
-source_R("/Users/frankenstein/project/R")
-```
-
-`predict_sdm` — made a spatial prediction from a species distribution
-model and covariate layers
-
-``` r
-m <- glm(z ~ cov1 + cov2, data = sdm_data)
-
-prediction <- predict_sdm(m, covs)
+source_R("/Users/frankenstein/project/R") # do not run
 ```
 
 `import_rasts` — Import all rasters from a directory into a single
 object
 
 ``` r
-rasters <- import_rasts("/data/grids/covariates")
+rasters <- import_rasts("/data/grids/covariates") # do not run
 ```
 
-`rastpointplot` — plot a raster with points over it
+*A species distribution modelling workflow:*
+
+We have some covariate layers: `cov1` and `cov2`
 
 ``` r
-r <- example_raster()
-v <- example_vector()
-rastpointplot(r,v)
+library(terra)
+
+cov1 <- example_raster(seed = -44)
+cov2 <- example_raster(seed = 15.3)
+
+names(cov1) <- "cov1"
+names(cov2) <- "cov2"
+
+covs <- c(cov1, cov2)
+
+plot(covs)
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
+
+We have some presences and absences
+
+``` r
+presences <- example_vector(seed = 68) %>%
+  as.data.frame(geom = "xy")
+absences <- example_vector(seed = 9.6) %>%
+  as.data.frame(geom = "xy")
+
+presences
+#>           x        y
+#> 1  9.244899 5.033042
+#> 2  6.612025 1.559797
+#> 3  4.024099 8.750261
+#> 4  6.370063 4.438317
+#> 5  3.526324 6.598762
+#> 6  7.476441 7.754586
+#> 7  7.175489 8.123659
+#> 8  1.935898 5.082858
+#> 9  3.331217 7.974853
+#> 10 1.365547 5.741829
+```
 
 `extract_covariates` — extract covariate values from `spatRaster` or
 `raster` layers for a given set of points
 
+Pass in either `presences` and `absences` as a `data.frame` or `tibble`
+of with , or `presences_and_absences` as a single data frame points with
+a presence or ID column(s)
+
 ``` r
-# example
+sdm_data <- extract_covariates(
+  covariates = covs,
+  presences = presences,
+  absences = absences
+)
 ```
+
+`predict_sdm` — made a spatial prediction from a species distribution
+model and covariate layers
+
+``` r
+# first we make a simple model, using data from above
+m <- glm(presence ~ cov1 + cov2, data = sdm_data)
+
+prediction_rast <- predict_sdm(m, covs)
+
+plot(prediction_rast)
+```
+
+<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
