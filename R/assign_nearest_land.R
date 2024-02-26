@@ -19,10 +19,15 @@ assign_nearest_land <- function(dat_object,
                                 max_distance,
                                 verbose=TRUE) {
 
+  stopifnot(sum(colnames(dat_object) %in% c("longitude", "latitude"))==2)
+  message("dat_object object must contain columns 'longitude' and 'latitude'.")
+
   # ensure that data object is spatial data frame
   spat_dat <- st_as_sf(dat_object)
 
-  # assert that mask is spatRaster
+  # assert that mask is SpatRaster
+  stopifnot(inherits(mask, 'SpatRaster'))
+  message("mask must be a SpatRaster")
 
   # isolate coord info from spatial data frame
   data_coords <- st_coordinates(spat_dat)
