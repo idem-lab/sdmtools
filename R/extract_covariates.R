@@ -14,6 +14,31 @@
 #'
 #' @examples
 #'
+#'library(terra)
+#'
+#'cov1 <- example_raster(
+#'  seed = -44,
+#'  layername = "cov1"
+#')
+#'cov2 <- example_raster(
+#'  seed = 15.3,
+#'  layername = "cov2"
+#')
+#'
+#'covs <- c(cov1, cov2)
+#'
+#'
+#'presences <- example_vector(seed = 68) %>%
+#'  as.data.frame(geom = "xy")
+#'absences <- example_vector(seed = 9.6) %>%
+#'  as.data.frame(geom = "xy")
+#'
+#'extract_covariates(
+#'  covariates = covs,
+#'  presences = presences,
+#'  absences = absences
+#')
+#'
 extract_covariates <- function(
     covariates,
     presences = NULL,

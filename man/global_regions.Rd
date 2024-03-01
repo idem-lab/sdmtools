@@ -12,7 +12,7 @@
 \item{iso2, iso3}{Alpha-2 & Alpha-3 ISO3166 country codes}
 \item{who_region}{World Health Organisation region}
 \item{un_region}{United Nations Regional group of Member States}
-\item{continent}{Continent, defined by World Bank via \code{countrycode::codelist$continent}}
+\item{continent}{Continent}
 }
 }
 }
@@ -35,13 +35,17 @@ https://ourworldindata.org/grapher/who-regions
 
 World Health Organization – processed by Our World in Data. “WHO region”
 \link{dataset}. World Health Organization \link{original data}.
+
+\code{continent} defined bty \code{countrycode::codelist$continent}, (largely?) by
+World Bank.
 }
 \usage{
 global_regions
 }
 \description{
 A table of showing the United Nations Regional groups of Member
-States and World Health Organisation regions of nation states and all states with Officially Assigned ISO3166 Alpha-3 country codes.
+States and World Health Organisation regions of nation states and all states
+with Officially Assigned ISO3166 Alpha-3 country codes.
 }
 \details{
 Includes all Officially Assigned ISO3166 Alpha-3 country codes.
@@ -52,10 +56,10 @@ Special cases of UN regional groupings
 
 Israel
 
-In May 2000, Israel became a full member of the Group of Western European
-and other States on a temporary basis (subject to renewal), thereby enabling
-it to put forward candidates for election to various bodies of the General
-Assembly. In 2004, Israel obtained a permanent renewal to its membership.
+In May 2000, Israel became a full member of the Group of Western European and
+other States on a temporary basis (subject to renewal), thereby enabling it to
+put forward candidates for election to various bodies of the General Assembly.
+In 2004, Israel obtained a permanent renewal to its membership.
 
 Kiribati
 

@@ -4,10 +4,12 @@
 \alias{example_raster}
 \title{Create example raster for use in examples}
 \usage{
-example_raster(seed = NULL)
+example_raster(seed = NULL, layername = NULL)
 }
 \arguments{
 \item{seed}{A seed to pass to \code{set.seed(seed)}}
+
+\item{layername}{\code{character} for layer name passed to \code{names}}
 }
 \value{
 A \code{spatRaster}.
@@ -16,5 +18,10 @@ A \code{spatRaster}.
 Create example raster for use in examples
 }
 \examples{
-example_raster
+example_raster()
+
+example_raster(
+  seed = 3.142,
+  layername = "jabberwock_density"
+)
 }
