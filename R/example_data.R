@@ -2,11 +2,20 @@
 #'
 #' @return A `spatRaster`.
 #' @param seed A seed to pass to `set.seed(seed)`
+#' @param layername `character` for layer name passed to `names`
 #' @export
 #'
 #' @examples
-#' example_raster
-example_raster <- function(seed = NULL){
+#' example_raster()
+#'
+#' example_raster(
+#'   seed = 3.142,
+#'   layername = "jabberwock_density"
+#' )
+example_raster <- function(
+    seed = NULL,
+    layername = NULL
+  ){
 
   if(is.null(seed)){
     set.seed(2024-01-22-1330)
@@ -21,6 +30,11 @@ example_raster <- function(seed = NULL){
 ) %>%
   terra::rast() %>%
   setNames("example")
+
+
+  if(!is.null(layername)){
+    names(raster_log_norm) <- layername
+  }
 
   raster_log_norm
 }

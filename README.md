@@ -8,7 +8,7 @@
 [![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
 <!-- badges: end -->
 
-`sdmtools` is a set of helper functions to facilitate species
+`sdmtools` — a set of helper functions to facilitate species
 distribution modelling.
 
 ## Installation
@@ -27,11 +27,9 @@ remotes::install_github("idem-lab/sdmtools")
 library(sdmtools)
 ```
 
-`raster_to_terra` an annotated equivalence table of functions from the
-`raster` and `terra` packages incorporating section **XXVIII New method
-names** from `terra`’s [package
-notes](https://cran.r-project.org/web/packages/terra/terra.pdf). First 5
-lines:
+`raster_to_terra` — an annotated equivalence table of functions from the
+`raster` and `terra`. First 5 lines:
+
 <table>
 <thead>
 <tr>
@@ -104,8 +102,10 @@ NA
 </tr>
 </tbody>
 </table>
-`global_regions` a tibble showing for 249 “countries” the WHO and UN
-regions, and continent. First 5 lines:
+
+`global_regions` — a tibble showing the WHO region, UN region, and
+continent for for 249 countries and country-like things. First 5 lines:
+
 <table>
 <thead>
 <tr>
@@ -235,28 +235,50 @@ Europe
 
 ### Data-generating functions
 
-`example_raster` an example `spatRaster`
+The package `terra` is fiddly about storing its `spat...` objects in
+packages, so we chose to generate example spatial data on demand using
+functions, rather than storing it.
+
+`example_raster` — an example `spatRaster`.
 
 ``` r
 library(terra)
 #> terra 1.7.71
 r <- example_raster()
+r
+#> class       : SpatRaster 
+#> dimensions  : 10, 10, 1  (nrow, ncol, nlyr)
+#> resolution  : 1, 1  (x, y)
+#> extent      : 0, 10, 0, 10  (xmin, xmax, ymin, ymax)
+#> coord. ref. :  
+#> source(s)   : memory
+#> name        :   example 
+#> min value   : 0.0627102 
+#> max value   : 7.3352526
 plot(r)
 ```
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
-`example_vector` an example `spatVector`
+`example_vector` — an example `spatVector`.
 
 ``` r
 library(terra)
 v <- example_vector()
+v
+#>  class       : SpatVector 
+#>  geometry    : points 
+#>  dimensions  : 10, 0  (geometries, attributes)
+#>  extent      : 0.2293562, 8.00672, 1.375653, 8.951683  (xmin, xmax, ymin, ymax)
+#>  coord. ref. :
 plot(v)
 ```
 
 <img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
-`rastpointplot` — simple utility to plot a raster with points over it
+## Function examples
+
+`rastpointplot` — simple utility to plot a raster with points over it.
 
 ``` r
 rastpointplot(r,v)
@@ -264,33 +286,34 @@ rastpointplot(r,v)
 
 <img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
 
-## Function examples
-
 `source_R` — source all R files in a target directory
 
 ``` r
 source_R("/Users/frankenstein/project/R") # do not run
 ```
 
-`import_rasts` — Import all rasters from a directory into a single
+`import_rasts` — import all rasters from a directory into a single
 object
 
 ``` r
 rasters <- import_rasts("/data/grids/covariates") # do not run
 ```
 
-*A species distribution modelling workflow:*
+### Functions for a species distribution modelling workflow
 
 We have some covariate layers: `cov1` and `cov2`
 
 ``` r
 library(terra)
 
-cov1 <- example_raster(seed = -44)
-cov2 <- example_raster(seed = 15.3)
-
-names(cov1) <- "cov1"
-names(cov2) <- "cov2"
+cov1 <- example_raster(
+  seed = -44,
+  layername = "cov1"
+)
+cov2 <- example_raster(
+  seed = 15.3,
+  layername = "cov2"
+)
 
 covs <- c(cov1, cov2)
 
