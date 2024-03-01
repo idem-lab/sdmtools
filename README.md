@@ -30,7 +30,8 @@ library(sdmtools)
 `raster_to_terra` an annotated equivalence table of functions from the
 `raster` and `terra` packages incorporating section **XXVIII New method
 names** from `terra`’s [package
-notes](https://cran.r-project.org/web/packages/terra/terra.pdf)
+notes](https://cran.r-project.org/web/packages/terra/terra.pdf). First 5
+lines:
 <table>
 <thead>
 <tr>
@@ -101,411 +102,132 @@ cellSize or expanse
 NA
 </td>
 </tr>
+</tbody>
+</table>
+`global_regions` a tibble showing for 249 “countries” the WHO and UN
+regions, and continent. First 5 lines:
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+country
+</th>
+<th style="text-align:left;">
+iso2
+</th>
+<th style="text-align:left;">
+iso3
+</th>
+<th style="text-align:left;">
+who_region
+</th>
+<th style="text-align:left;">
+un_region
+</th>
+<th style="text-align:left;">
+continent
+</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td style="text-align:left;">
-approxNA
+Afghanistan
 </td>
 <td style="text-align:left;">
-approximate
+AF
+</td>
+<td style="text-align:left;">
+AFG
+</td>
+<td style="text-align:left;">
+Eastern Mediterranean
+</td>
+<td style="text-align:left;">
+Asia-Pacific States
+</td>
+<td style="text-align:left;">
+Asia
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Albania
+</td>
+<td style="text-align:left;">
+AL
+</td>
+<td style="text-align:left;">
+ALB
+</td>
+<td style="text-align:left;">
+Europe
+</td>
+<td style="text-align:left;">
+Eastern European States
+</td>
+<td style="text-align:left;">
+Europe
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Algeria
+</td>
+<td style="text-align:left;">
+DZ
+</td>
+<td style="text-align:left;">
+DZA
+</td>
+<td style="text-align:left;">
+Africa
+</td>
+<td style="text-align:left;">
+African states
+</td>
+<td style="text-align:left;">
+Africa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+American Samoa
+</td>
+<td style="text-align:left;">
+AS
+</td>
+<td style="text-align:left;">
+ASM
 </td>
 <td style="text-align:left;">
 NA
 </td>
-</tr>
-<tr>
-<td style="text-align:left;">
-calc
-</td>
-<td style="text-align:left;">
-app
-</td>
-<td style="text-align:left;">
-think apply family, i.e., app(x, fun…)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-cellFromLine, cellFromPolygon
-</td>
-<td style="text-align:left;">
-cells
-</td>
 <td style="text-align:left;">
 NA
 </td>
-</tr>
-<tr>
 <td style="text-align:left;">
-cellsFromExtent
-</td>
-<td style="text-align:left;">
-cells
-</td>
-<td style="text-align:left;">
-NA
+Oceania
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-cellStats
+Andorra
 </td>
 <td style="text-align:left;">
-global
+AD
 </td>
 <td style="text-align:left;">
-global returns df not vector
+AND
 </td>
-</tr>
-<tr>
 <td style="text-align:left;">
-clump
+Europe
 </td>
 <td style="text-align:left;">
-patches
+Western European and other States
 </td>
 <td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-compareRaster
-</td>
-<td style="text-align:left;">
-compareGeom
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-corLocal
-</td>
-<td style="text-align:left;">
-focalPairs
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-coordinates
-</td>
-<td style="text-align:left;">
-crds
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-couldBeLonLat
-</td>
-<td style="text-align:left;">
-is.lonlat
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-crop
-</td>
-<td style="text-align:left;">
-crop
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-disaggregate
-</td>
-<td style="text-align:left;">
-disagg
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-distanceFromPoints
-</td>
-<td style="text-align:left;">
-distance
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-drawExtent
-</td>
-<td style="text-align:left;">
-draw
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-dropLayer
-</td>
-<td style="text-align:left;">
-subset
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-extent
-</td>
-<td style="text-align:left;">
-ext
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-extract
-</td>
-<td style="text-align:left;">
-extract
-</td>
-<td style="text-align:left;">
-cellnumbers in raster becomes cells in terra
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-getValues
-</td>
-<td style="text-align:left;">
-values
-</td>
-<td style="text-align:left;">
-as.vector an alternative approach
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-isLonLat, isGlobalLonLat
-</td>
-<td style="text-align:left;">
-is.lonlat
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-layerize
-</td>
-<td style="text-align:left;">
-segregate
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-layerStats
-</td>
-<td style="text-align:left;">
-layerCor
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-movingFun
-</td>
-<td style="text-align:left;">
-roll
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-NAvalue
-</td>
-<td style="text-align:left;">
-NAflag
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-nlayers
-</td>
-<td style="text-align:left;">
-nlyr
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-overlay
-</td>
-<td style="text-align:left;">
-lapp
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-projectRaster
-</td>
-<td style="text-align:left;">
-project
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-plot
-</td>
-<td style="text-align:left;">
-plot
-</td>
-<td style="text-align:left;">
-maxpixels in raster becomes maxcells in terra
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-rasterToPoints
-</td>
-<td style="text-align:left;">
-as.points
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-rasterToPolygons
-</td>
-<td style="text-align:left;">
-as.polygons
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-reclassify, subs, cut
-</td>
-<td style="text-align:left;">
-classify
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-resample
-</td>
-<td style="text-align:left;">
-resample
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-sampleRandom, sampleRegular
-</td>
-<td style="text-align:left;">
-spatSample
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-shapefile
-</td>
-<td style="text-align:left;">
-vect
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-stackApply
-</td>
-<td style="text-align:left;">
-tapp
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-stackSelect
-</td>
-<td style="text-align:left;">
-selectRange
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-unstack
-</td>
-<td style="text-align:left;">
-as.list
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-writeRaster
-</td>
-<td style="text-align:left;">
-writeRaster
-</td>
-<td style="text-align:left;">
-need to specify file type (suffix) in terra
+Europe
 </td>
 </tr>
 </tbody>
@@ -522,7 +244,7 @@ r <- example_raster()
 plot(r)
 ```
 
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
 `example_vector` an example `spatVector`
 
@@ -532,7 +254,7 @@ v <- example_vector()
 plot(v)
 ```
 
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
 `rastpointplot` — simple utility to plot a raster with points over it
 
@@ -540,7 +262,7 @@ plot(v)
 rastpointplot(r,v)
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
 
 ## Function examples
 
@@ -575,7 +297,7 @@ covs <- c(cov1, cov2)
 plot(covs)
 ```
 
-<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
 We have some presences and absences
 
@@ -626,4 +348,4 @@ prediction_rast <- predict_sdm(m, covs)
 plot(prediction_rast)
 ```
 
-<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-11-1.png" width="100%" />
