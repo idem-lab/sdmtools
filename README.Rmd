@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 [![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
 <!-- badges: end -->
 
-`sdmtools` is a set of helper functions to facilitate species distribution modelling.
+`sdmtools` — a set of helper functions to facilitate species distribution modelling.
 
 ## Installation
 
@@ -36,10 +36,11 @@ library(sdmtools)
 ```
 
 
-`raster_to_terra` an annotated equivalence table of functions from the `raster` and `terra` packages incorporating section **XXVIII New method names** from `terra`'s [package notes](https://cran.r-project.org/web/packages/terra/terra.pdf) 
+`raster_to_terra` — an annotated equivalence table of functions from the `raster` and `terra`. First 5 lines:
+
 ```{r, echo=FALSE}
 knitr::kable(
-  raster_to_terra,
+  raster_to_terra[1:5,],
   format = "html",
   col.names = c("raster", "terra", "comment for terra use"),
   column.spec = c("c", "c", ">{\\raggedright}p{8cm}")
@@ -48,53 +49,114 @@ knitr::kable(
 ```
 
 
+ `global_regions` — a tibble showing the WHO region,  UN region, and continent for for 249 countries and country-like things. First 5 lines:
+ 
+```{r, echo=FALSE}
+knitr::kable(
+  global_regions[1:5,],
+  format = "html",
+  #col.names = c("raster", "terra", "comment for terra use"),
+  column.spec = c("c", "c", ">{\\raggedright}p{8cm}")
+)
+
+```
+
+
 ### Data-generating functions
 
-`example_raster` an example `spatRaster`
+The package `terra` is fiddly about storing its `spat...` objects in packages, so we chose to generate example spatial data on demand using functions, rather than storing it.
+
+`example_raster` — an example `spatRaster`.
+
 ```{r}
 library(terra)
 r <- example_raster()
+r
 plot(r)
 ```
 
-`example_vector` an example `spatVector`
+`example_vector` — an example `spatVector`.
+
 ```{r}
 library(terra)
 v <- example_vector()
+v
 plot(v)
 ```
 
+
 ## Function examples
 
-`source_R` — source all R files in a target directory
-```r
-source_R("/Users/frankenstein/project/R")
-```
+`rastpointplot` — simple utility to plot a raster with points over it.
 
-
-
-`predict_sdm` — made a spatial prediction from a species distribution model and covariate layers
-```r
-m <- glm(z ~ cov1 + cov2, data = sdm_data)
-
-prediction <- predict_sdm(m, covs)
-```
-
-`import_rasts` — Import all rasters from a directory into a single object
-```r
-rasters <- import_rasts("/data/grids/covariates")
-```
-
-`rastpointplot` — simple utility to plot a raster with points over it
 ```{r}
-r <- example_raster()
-v <- example_vector()
 rastpointplot(r,v)
 ```
 
-`extract_covariates` — extract covariate values from `spatRaster` or `raster` layers for a given set of points
+`source_R` — source all R files in a target directory
 ```r
-# example
+source_R("/Users/frankenstein/project/R") # do not run
 ```
+
+
+
+
+`import_rasts` — import all rasters from a directory into a single object
+```r
+rasters <- import_rasts("/data/grids/covariates") # do not run
+```
+
+### Functions for a species distribution modelling workflow
+
+We have some covariate layers: `cov1` and `cov2`
+```{r}
+library(terra)
+
+cov1 <- example_raster(
+  seed = -44,
+  layername = "cov1"
+)
+cov2 <- example_raster(
+  seed = 15.3,
+  layername = "cov2"
+)
+
+covs <- c(cov1, cov2)
+
+plot(covs)
+```
+
+We have some presences and absences
+```{r}
+presences <- example_vector(seed = 68) %>%
+  as.data.frame(geom = "xy")
+absences <- example_vector(seed = 9.6) %>%
+  as.data.frame(geom = "xy")
+
+presences
+```
+
+
+`extract_covariates` — extract covariate values from `spatRaster` or `raster` layers for a given set of points
+
+Pass in either `presences` and `absences` as a `data.frame` or `tibble` of with , or `presences_and_absences` as a single data frame points with a presence or ID column(s)
+```{r}
+sdm_data <- extract_covariates(
+  covariates = covs,
+  presences = presences,
+  absences = absences
+)
+```
+
+`predict_sdm` — made a spatial prediction from a species distribution model and covariate layers
+```{r}
+# first we make a simple model, using data from above
+m <- glm(presence ~ cov1 + cov2, data = sdm_data)
+
+prediction_rast <- predict_sdm(m, covs)
+
+plot(prediction_rast)
+```
+
 
 

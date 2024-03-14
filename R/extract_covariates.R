@@ -14,6 +14,31 @@
 #'
 #' @examples
 #'
+#'library(terra)
+#'
+#'cov1 <- example_raster(
+#'  seed = -44,
+#'  layername = "cov1"
+#')
+#'cov2 <- example_raster(
+#'  seed = 15.3,
+#'  layername = "cov2"
+#')
+#'
+#'covs <- c(cov1, cov2)
+#'
+#'
+#'presences <- example_vector(seed = 68) %>%
+#'  as.data.frame(geom = "xy")
+#'absences <- example_vector(seed = 9.6) %>%
+#'  as.data.frame(geom = "xy")
+#'
+#'extract_covariates(
+#'  covariates = covs,
+#'  presences = presences,
+#'  absences = absences
+#')
+#'
 extract_covariates <- function(
     covariates,
     presences = NULL,
@@ -35,15 +60,15 @@ extract_covariates <- function(
 
     result <- rbind(
       pvals %>%
-        tibble::as_tibble %>%
+        tibble::as_tibble() %>%
         dplyr::select(-ID) %>%
         dplyr::mutate(presence = 1),
       avals %>%
-        tibble::as_tibble %>%
+        tibble::as_tibble() %>%
         dplyr::select(-ID) %>%
         dplyr::mutate(presence = 0)
     ) %>%
-      tibble::as_tibble
+      tibble::as_tibble()
 
     return(result)
   } else {
@@ -57,10 +82,10 @@ extract_covariates <- function(
       pa_data %>%
         dplyr::select(-x, -y),
       vals %>%
-        tibble::as_tibble %>%
+        tibble::as_tibble() %>%
         dplyr::select(-ID)
     ) %>%
-      tibble::as_tibble
+      tibble::as_tibble()
 
     return(result)
   }

@@ -8,7 +8,7 @@
 [![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
 <!-- badges: end -->
 
-`sdmtools` is a set of helper functions to facilitate species
+`sdmtools` — a set of helper functions to facilitate species
 distribution modelling.
 
 ## Installation
@@ -27,10 +27,9 @@ remotes::install_github("idem-lab/sdmtools")
 library(sdmtools)
 ```
 
-`raster_to_terra` an annotated equivalence table of functions from the
-`raster` and `terra` packages incorporating section **XXVIII New method
-names** from `terra`’s [package
-notes](https://cran.r-project.org/web/packages/terra/terra.pdf)
+`raster_to_terra` — an annotated equivalence table of functions from the
+`raster` and `terra`. First 5 lines:
+
 <table>
 <thead>
 <tr>
@@ -101,411 +100,134 @@ cellSize or expanse
 NA
 </td>
 </tr>
+</tbody>
+</table>
+
+`global_regions` — a tibble showing the WHO region, UN region, and
+continent for for 249 countries and country-like things. First 5 lines:
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+country
+</th>
+<th style="text-align:left;">
+iso2
+</th>
+<th style="text-align:left;">
+iso3
+</th>
+<th style="text-align:left;">
+who_region
+</th>
+<th style="text-align:left;">
+un_region
+</th>
+<th style="text-align:left;">
+continent
+</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td style="text-align:left;">
-approxNA
+Afghanistan
 </td>
 <td style="text-align:left;">
-approximate
+AF
+</td>
+<td style="text-align:left;">
+AFG
+</td>
+<td style="text-align:left;">
+Eastern Mediterranean
+</td>
+<td style="text-align:left;">
+Asia-Pacific States
+</td>
+<td style="text-align:left;">
+Asia
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Albania
+</td>
+<td style="text-align:left;">
+AL
+</td>
+<td style="text-align:left;">
+ALB
+</td>
+<td style="text-align:left;">
+Europe
+</td>
+<td style="text-align:left;">
+Eastern European States
+</td>
+<td style="text-align:left;">
+Europe
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Algeria
+</td>
+<td style="text-align:left;">
+DZ
+</td>
+<td style="text-align:left;">
+DZA
+</td>
+<td style="text-align:left;">
+Africa
+</td>
+<td style="text-align:left;">
+African states
+</td>
+<td style="text-align:left;">
+Africa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+American Samoa
+</td>
+<td style="text-align:left;">
+AS
+</td>
+<td style="text-align:left;">
+ASM
 </td>
 <td style="text-align:left;">
 NA
 </td>
-</tr>
-<tr>
-<td style="text-align:left;">
-calc
-</td>
-<td style="text-align:left;">
-app
-</td>
-<td style="text-align:left;">
-think apply family, i.e., app(x, fun…)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-cellFromLine, cellFromPolygon
-</td>
-<td style="text-align:left;">
-cells
-</td>
 <td style="text-align:left;">
 NA
 </td>
-</tr>
-<tr>
 <td style="text-align:left;">
-cellsFromExtent
-</td>
-<td style="text-align:left;">
-cells
-</td>
-<td style="text-align:left;">
-NA
+Oceania
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-cellStats
+Andorra
 </td>
 <td style="text-align:left;">
-global
+AD
 </td>
 <td style="text-align:left;">
-global returns df not vector
+AND
 </td>
-</tr>
-<tr>
 <td style="text-align:left;">
-clump
+Europe
 </td>
 <td style="text-align:left;">
-patches
+Western European and other States
 </td>
 <td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-compareRaster
-</td>
-<td style="text-align:left;">
-compareGeom
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-corLocal
-</td>
-<td style="text-align:left;">
-focalPairs
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-coordinates
-</td>
-<td style="text-align:left;">
-crds
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-couldBeLonLat
-</td>
-<td style="text-align:left;">
-is.lonlat
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-crop
-</td>
-<td style="text-align:left;">
-crop
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-disaggregate
-</td>
-<td style="text-align:left;">
-disagg
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-distanceFromPoints
-</td>
-<td style="text-align:left;">
-distance
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-drawExtent
-</td>
-<td style="text-align:left;">
-draw
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-dropLayer
-</td>
-<td style="text-align:left;">
-subset
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-extent
-</td>
-<td style="text-align:left;">
-ext
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-extract
-</td>
-<td style="text-align:left;">
-extract
-</td>
-<td style="text-align:left;">
-cellnumbers in raster becomes cells in terra
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-getValues
-</td>
-<td style="text-align:left;">
-values
-</td>
-<td style="text-align:left;">
-as.vector an alternative approach
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-isLonLat, isGlobalLonLat
-</td>
-<td style="text-align:left;">
-is.lonlat
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-layerize
-</td>
-<td style="text-align:left;">
-segregate
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-layerStats
-</td>
-<td style="text-align:left;">
-layerCor
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-movingFun
-</td>
-<td style="text-align:left;">
-roll
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-NAvalue
-</td>
-<td style="text-align:left;">
-NAflag
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-nlayers
-</td>
-<td style="text-align:left;">
-nlyr
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-overlay
-</td>
-<td style="text-align:left;">
-lapp
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-projectRaster
-</td>
-<td style="text-align:left;">
-project
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-plot
-</td>
-<td style="text-align:left;">
-plot
-</td>
-<td style="text-align:left;">
-maxpixels in raster becomes maxcells in terra
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-rasterToPoints
-</td>
-<td style="text-align:left;">
-as.points
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-rasterToPolygons
-</td>
-<td style="text-align:left;">
-as.polygons
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-reclassify, subs, cut
-</td>
-<td style="text-align:left;">
-classify
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-resample
-</td>
-<td style="text-align:left;">
-resample
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-sampleRandom, sampleRegular
-</td>
-<td style="text-align:left;">
-spatSample
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-shapefile
-</td>
-<td style="text-align:left;">
-vect
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-stackApply
-</td>
-<td style="text-align:left;">
-tapp
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-stackSelect
-</td>
-<td style="text-align:left;">
-selectRange
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-unstack
-</td>
-<td style="text-align:left;">
-as.list
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-writeRaster
-</td>
-<td style="text-align:left;">
-writeRaster
-</td>
-<td style="text-align:left;">
-need to specify file type (suffix) in terra
+Europe
 </td>
 </tr>
 </tbody>
@@ -513,64 +235,140 @@ need to specify file type (suffix) in terra
 
 ### Data-generating functions
 
-`example_raster` an example `spatRaster`
+The package `terra` is fiddly about storing its `spat...` objects in
+packages, so we chose to generate example spatial data on demand using
+functions, rather than storing it.
+
+`example_raster` — an example `spatRaster`.
 
 ``` r
 library(terra)
-#> terra 1.7.65
+#> terra 1.7.71
 r <- example_raster()
+r
+#> class       : SpatRaster 
+#> dimensions  : 10, 10, 1  (nrow, ncol, nlyr)
+#> resolution  : 1, 1  (x, y)
+#> extent      : 0, 10, 0, 10  (xmin, xmax, ymin, ymax)
+#> coord. ref. :  
+#> source(s)   : memory
+#> name        :   example 
+#> min value   : 0.0627102 
+#> max value   : 7.3352526
 plot(r)
-```
-
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
-
-`example_vector` an example `spatVector`
-
-``` r
-library(terra)
-v <- example_vector()
-plot(v)
 ```
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
+`example_vector` — an example `spatVector`.
+
+``` r
+library(terra)
+v <- example_vector()
+v
+#>  class       : SpatVector 
+#>  geometry    : points 
+#>  dimensions  : 10, 0  (geometries, attributes)
+#>  extent      : 0.2293562, 8.00672, 1.375653, 8.951683  (xmin, xmax, ymin, ymax)
+#>  coord. ref. :
+plot(v)
+```
+
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+
 ## Function examples
+
+`rastpointplot` — simple utility to plot a raster with points over it.
+
+``` r
+rastpointplot(r,v)
+```
+
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
 
 `source_R` — source all R files in a target directory
 
 ``` r
-source_R("/Users/frankenstein/project/R")
+source_R("/Users/frankenstein/project/R") # do not run
+```
+
+`import_rasts` — import all rasters from a directory into a single
+object
+
+``` r
+rasters <- import_rasts("/data/grids/covariates") # do not run
+```
+
+### Functions for a species distribution modelling workflow
+
+We have some covariate layers: `cov1` and `cov2`
+
+``` r
+library(terra)
+
+cov1 <- example_raster(
+  seed = -44,
+  layername = "cov1"
+)
+cov2 <- example_raster(
+  seed = 15.3,
+  layername = "cov2"
+)
+
+covs <- c(cov1, cov2)
+
+plot(covs)
+```
+
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
+
+We have some presences and absences
+
+``` r
+presences <- example_vector(seed = 68) %>%
+  as.data.frame(geom = "xy")
+absences <- example_vector(seed = 9.6) %>%
+  as.data.frame(geom = "xy")
+
+presences
+#>           x        y
+#> 1  9.244899 5.033042
+#> 2  6.612025 1.559797
+#> 3  4.024099 8.750261
+#> 4  6.370063 4.438317
+#> 5  3.526324 6.598762
+#> 6  7.476441 7.754586
+#> 7  7.175489 8.123659
+#> 8  1.935898 5.082858
+#> 9  3.331217 7.974853
+#> 10 1.365547 5.741829
+```
+
+`extract_covariates` — extract covariate values from `spatRaster` or
+`raster` layers for a given set of points
+
+Pass in either `presences` and `absences` as a `data.frame` or `tibble`
+of with , or `presences_and_absences` as a single data frame points with
+a presence or ID column(s)
+
+``` r
+sdm_data <- extract_covariates(
+  covariates = covs,
+  presences = presences,
+  absences = absences
+)
 ```
 
 `predict_sdm` — made a spatial prediction from a species distribution
 model and covariate layers
 
 ``` r
-m <- glm(z ~ cov1 + cov2, data = sdm_data)
+# first we make a simple model, using data from above
+m <- glm(presence ~ cov1 + cov2, data = sdm_data)
 
-prediction <- predict_sdm(m, covs)
+prediction_rast <- predict_sdm(m, covs)
+
+plot(prediction_rast)
 ```
 
-`import_rasts` — Import all rasters from a directory into a single
-object
-
-``` r
-rasters <- import_rasts("/data/grids/covariates")
-```
-
-`rastpointplot` — plot a raster with points over it
-
-``` r
-r <- example_raster()
-v <- example_vector()
-rastpointplot(r,v)
-```
-
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
-
-`extract_covariates` — extract covariate values from `spatRaster` or
-`raster` layers for a given set of points
-
-``` r
-# example
-```
+<img src="man/figures/README-unnamed-chunk-11-1.png" width="100%" />
