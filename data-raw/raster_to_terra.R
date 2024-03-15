@@ -28,7 +28,7 @@ raster_to_terra <- tibble::tribble(
                    "drawExtent",                "draw", NA,
                     "dropLayer",              "subset", NA,
                        "extent",                 "ext", NA,
-                      "extract",             "extract", "cellnumbers in raster becomes cells in terra",
+                      "extract",             "extract", "cellnumbers in raster becomes cells in terra\nbuffer argument not replaced, use st_buffer in a prior step?",
                     "getValues",              "values", "as.vector an alternative approach",
      "isLonLat, isGlobalLonLat",           "is.lonlat", NA,
                      "layerize",           "segregate", NA,
