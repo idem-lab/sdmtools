@@ -1,43 +1,47 @@
 library(dplyr)
 library(sdmtools)
-library(terra)
-library(geodata)
+# library(terra)
+# library(geodata)
 
 african_countries <- global_regions %>%
-  dplyr::filter(un_region == "African states") %>%
+  dplyr::filter(continent == "Africa") %>%
   dplyr::pull(iso3)
 
 
-africa_polys <- gadm(
-  country = african_countries,
-  path = "data-raw/geodata",
-  level = 0,
-  resolution = 1
-)
-
-library(sf)
-aps_sf <- st_as_sf(africa_polys)
-
-ap <- st_union(aps_sf)
-
-africa_spatVec
-
-
-# library(sf)
-# library(malariaAtlas)
-# trying to use MAP data, notworkign.
-# allpoly <- malariaAtlas::getShp(
-#   ISO = african_countries
+# africa_polys <- gadm(
+#   country = african_countries,
+#   path = "data-raw/geodata",
+#   level = 0,
+#   resolution = 1
 # )
 #
-# africa_sf <- sf::st_union(allpoly[50:54,])
+# library(sf)
+# aps_sf <- st_as_sf(africa_polys)
 #
-# sf::sf_use_s2(FALSE)
-# somken <- malariaAtlas::getShp(ISO = c("SOM", "KEN"))
-# sf::sf_use_s2(FALSE)
-# sf::st_union(somken)
+# ap <- st_union(aps_sf)
 #
-#
-# someth <- malariaAtlas::getShp(ISO = c("SOM", "ETH"))
-#
-# sf::st_union(someth)
+# africa_spatVec
+
+
+library(sf)
+library(malariaAtlas)
+
+africa_polys <- malariaAtlas::getShp(
+  ISO = african_countries
+) %>%
+  sf::st_make_valid()
+
+
+
+africa_sf <- sf::st_union(africa_polys)
+
+
+sf::sf_use_s2(FALSE)
+somken <- malariaAtlas::getShp(ISO = c("SOM", "KEN"))
+sf::sf_use_s2(FALSE)
+sf::st_union(somken)
+
+
+someth <- malariaAtlas::getShp(ISO = c("SOM", "ETH"))
+
+sf::st_union(someth)
