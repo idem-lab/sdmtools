@@ -10,5 +10,9 @@ inside_mask(points, mask)
 \item{raster}{}
 }
 \description{
-# checks whether lats/longs fall on non-missing pixels of a raster
+checks whether lats/longs fall on non-missing pixels of a
+raster takes two arguments: points, a dataframe containing columns named
+longitude' and 'latitude' mask is a raster returns a dataframe containing
+only those rows with points falling on non-missing pixels if all points fall
+on missing pixels, the function throws an error
 }

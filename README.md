@@ -276,6 +276,31 @@ plot(v)
 
 <img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
+`make_africa_mask` — makes a mask layer of Africa based on shapefiles
+from `malariaAtlas::getShp`
+
+``` r
+africa_mask <- make_africa_mask(res = "low")
+#> Please Note: Because you did not provide a version, by default the version being used is 202206 (This is the most recent version of admin unit shape data. To see other version options use function listShpVersions)
+#> although coordinates are longitude/latitude, st_union assumes that they are
+#> planar
+#> Warning: [crs<-] not all geometries were transferred, use svc for a geometry
+#> collection
+#> Checking if the following Surface-Year combinations are available to download:
+#> 
+#>     DATASET ID  YEAR
+#>   - Explorer__2020_Africa_ITN_Use:  DEFAULT
+#> 
+#> Loading required package: sf
+#> Linking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is FALSE
+#> <GMLEnvelope>
+#> ....|-- lowerCorner: -40.3706 -25.3587 "2000-01-01T00:00:00"
+#> ....|-- upperCorner: 37.5439 63.5002 "2019-01-01T00:00:00"
+plot(africa_mask)
+```
+
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
+
 ## Function examples
 
 `rastpointplot` — simple utility to plot a raster with points over it.
@@ -284,7 +309,7 @@ plot(v)
 rastpointplot(r,v)
 ```
 
-<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
 `source_R` — source all R files in a target directory
 
@@ -320,7 +345,7 @@ covs <- c(cov1, cov2)
 plot(covs)
 ```
 
-<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
 
 We have some presences and absences
 
@@ -371,4 +396,4 @@ prediction_rast <- predict_sdm(m, covs)
 plot(prediction_rast)
 ```
 
-<img src="man/figures/README-unnamed-chunk-11-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-12-1.png" width="100%" />
