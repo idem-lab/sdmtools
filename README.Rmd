@@ -87,6 +87,7 @@ plot(v)
 `make_africa_mask` — makes a mask layer of Africa based on shapefiles from `malariaAtlas::getShp`
 
 ```{r}
+library(terra)
 africa_mask <- make_africa_mask(res = "low")
 plot(africa_mask)
 ```

@@ -280,6 +280,7 @@ plot(v)
 from `malariaAtlas::getShp`
 
 ``` r
+library(terra)
 africa_mask <- make_africa_mask(res = "low")
 #> Please Note: Because you did not provide a version, by default the version being used is 202206 (This is the most recent version of admin unit shape data. To see other version options use function listShpVersions)
 #> although coordinates are longitude/latitude, st_union assumes that they are
