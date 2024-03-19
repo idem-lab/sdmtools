@@ -1,10 +1,12 @@
 
 #' @title title
-#' @description  checks whether lats/longs fall on non-missing pixels of a
-#' raster takes two arguments: points, a dataframe containing columns named
-#' longitude' and 'latitude' mask is a raster returns a dataframe containing
-#' only those rows with points falling on non-missing pixels if all points fall
-#' on missing pixels, the function throws an error
+#' @description  Checks whether longitude and latitude coincide with
+#' non-missing pixels of a raster. The function takes two arguments:
+#' points, a dataframe containing columns named
+#' longitude' and 'latitude', and mask is a raster. Returns a dataframe
+#' of longitude and latitude only those rows with points falling on
+#' non-missing pixels. If all points fall on missing pixels,
+#' the function throws an error.
 #'
 #' @param points
 #' @param raster
@@ -16,15 +18,17 @@
 inside_mask <- function(points, mask){
 
     # check whether arguments are in the correct format
-    stopifnot(inherits(mask, 'SpatRaster'))
-  message("mask must be a SpatRaster")
+    stopifnot(
+      "mask must be a SpatRaster" = inherits(mask, 'SpatRaster')
+      )
 
-    stopifnot(inherits(points, 'data.frame'))
-  message("points object must be a data.frame with columns 'longitude' and 'latitude'.")
+    stopifnot(
+      "points object must be a data.frame with columns 'longitude' and 'latitude'." = inherits(points, 'data.frame')
+      )
 
-      stopifnot(sum(colnames(points) %in% c("longitude", "latitude"))==2)
-  message("points object must contain columns 'longitude' and 'latitude'.")
-
+      stopifnot(
+        "points object must contain columns 'longitude' and 'latitude'." = sum(colnames(points) %in% c("longitude", "latitude"))==2
+        )
 
     # get indexes of points which fall inside the mask
     inside_idx <- which(
