@@ -23,11 +23,11 @@ inside_mask <- function(points, mask){
       )
 
     stopifnot(
-      "points object must be a data.frame with columns 'longitude' and 'latitude'." = inherits(points, 'data.frame')
+      "points object must be a data.frame." = inherits(points, 'data.frame')
       )
 
       stopifnot(
-        "points object must contain columns 'longitude' and 'latitude'." = sum(colnames(points) %in% c("longitude", "latitude"))==2
+        "points data.frame must contain columns 'longitude' and 'latitude'." = sum(colnames(points) %in% c("longitude", "latitude"))==2
         )
 
     # get indexes of points which fall inside the mask
