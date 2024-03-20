@@ -3,12 +3,10 @@
 
 # sdmtools
 
-<!-- badges: start -->
-
 ![GitHub
 License](https://img.shields.io/github/license/idem-lab/sdmtools)
-![Lifecycle:](https://img.shields.io/badge/lifecycle-experimental-orange.svg)\](<https://lifecycle.r-lib.org/articles/stages.html#experimental>)
-<!-- badges: end -->
+[![Lifecycle:](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+<!-- badges: start --> <!-- badges: end -->
 
 `sdmtools` — a set of helper functions to facilitate species
 distribution modelling.
