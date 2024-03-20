@@ -18,6 +18,11 @@ knitr::opts_chunk$set(
 
 ![GitHub License](https://img.shields.io/github/license/idem-lab/sdmtools)
 [![Lifecycle:](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/idem-lab/sdmtools)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/idem-lab/sdmtools/total)
+![GitHub commits since latest release](https://img.shields.io/github/commits-since/idem-lab/sdmtols/latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/idem-lab/sdmtools)
+![GitHub commits since latest release](https://img.shields.io/github/commits-since/idem-lab/sdmtools/latest)
 <!-- badges: start -->
 <!-- badges: end -->
 
