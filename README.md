@@ -5,7 +5,9 @@
 
 <!-- badges: start -->
 
-[![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
+![GitHub
+License](https://img.shields.io/github/license/idem-lab/sdmtools)
+![Lifecycle:](https://img.shields.io/badge/lifecycle-experimental-orange.svg)\](<https://lifecycle.r-lib.org/articles/stages.html#experimental>)
 <!-- badges: end -->
 
 `sdmtools` — a set of helper functions to facilitate species
