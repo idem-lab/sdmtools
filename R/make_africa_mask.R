@@ -53,7 +53,7 @@ make_africa_mask <- function(file_name = NULL, res = c("high", "low")){
   afmask <- afrast
   afmask[which(!is.na(afmask[]))] <- 0
 
-  varnames(afmask) <- names(afmask) <- "mask"
+  terra::varnames(afmask) <- names(afmask) <- "mask"
 
 
   if(!is.null(file_name)){
