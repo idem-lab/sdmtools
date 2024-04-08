@@ -6,11 +6,16 @@
 ![GitHub
 License](https://img.shields.io/github/license/idem-lab/sdmtools)
 [![Lifecycle:](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/w/idem-lab/sdmtools)
-![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/idem-lab/sdmtools/total)
-![GitHub commits since latest release](https://img.shields.io/github/commits-since/idem-lab/sdmtols/latest)
-![GitHub last commit](https://img.shields.io/github/last-commit/idem-lab/sdmtools)
-![GitHub commits since latest release](https://img.shields.io/github/commits-since/idem-lab/sdmtools/latest)
+![GitHub commit
+activity](https://img.shields.io/github/commit-activity/w/idem-lab/sdmtools)
+![GitHub Downloads (all assets, all
+releases)](https://img.shields.io/github/downloads/idem-lab/sdmtools/total)
+![GitHub commits since latest
+release](https://img.shields.io/github/commits-since/idem-lab/sdmtols/latest)
+![GitHub last
+commit](https://img.shields.io/github/last-commit/idem-lab/sdmtools)
+![GitHub commits since latest
+release](https://img.shields.io/github/commits-since/idem-lab/sdmtools/latest)
 <!-- badges: start --> <!-- badges: end -->
 
 `sdmtools` — a set of helper functions to facilitate species
@@ -345,13 +350,32 @@ cov2 <- example_raster(
   seed = 15.3,
   layername = "cov2"
 )
+```
 
-covs <- c(cov1, cov2)
+`standardise_rast` — standardise a `spatRaster` by transforming it to
+have a mean of zero and standard deviation of one
+
+``` r
+cov1_st <- standardise_rast(cov1)
+cov2_st <- standardise_rast(cov2)
+
+covs <- c(cov1_st, cov2_st)
+
+covs
+#> class       : SpatRaster 
+#> dimensions  : 10, 10, 2  (nrow, ncol, nlyr)
+#> resolution  : 1, 1  (x, y)
+#> extent      : 0, 10, 0, 10  (xmin, xmax, ymin, ymax)
+#> coord. ref. :  
+#> source(s)   : memory
+#> names       :      cov1,       cov2 
+#> min values  : -1.038908, -0.8272874 
+#> max values  :  4.216948,  4.9053485
 
 plot(covs)
 ```
 
-<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
 
 We have some presences and absences
 
@@ -390,16 +414,17 @@ sdm_data <- extract_covariates(
 )
 ```
 
-`predict_sdm` — made a spatial prediction from a species distribution
-model and covariate layers
+We can then make a spatial prediction of our model using `predict_sdm`
+and write and read it out in a single step with `writereadrast`:
 
 ``` r
 # first we make a simple model, using data from above
 m <- glm(presence ~ cov1 + cov2, data = sdm_data)
 
-prediction_rast <- predict_sdm(m, covs)
+prediction_rast <- predict_sdm(m, covs) |>
+  writereadrast(filename = "sdm_pred.tif")
 
 plot(prediction_rast)
 ```
 
-<img src="man/figures/README-unnamed-chunk-12-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-13-1.png" width="100%" />
