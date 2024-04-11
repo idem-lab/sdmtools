@@ -71,7 +71,7 @@ knitr::kable(
 
 ### Data-generating functions
 
-The package `terra` is fiddly about storing its `spat...` objects in packages, so we chose to generate example spatial data on demand using functions, rather than storing it.
+The package `terra` is fiddly about storing its `spat...` objects in packages, so we chose to generate example spatial data on-demand using functions, rather than storing it.
 
 `example_raster` — an example `spatRaster`.
 
