@@ -1,19 +1,24 @@
-#' @title Extract data from covariate rasters
-#' @description
-#' Extracts data from raster covariate layers for modelling.
+#'@title Extract data from covariate rasters
+#'@description Extracts data from raster covariate layers for modelling.
 #'
 #'
-#' @param covariates `SpatRaster` object of one or more layers.
-#' @param presences `data.frame` or `tibble` of presence locations contaning longitude and latitude as variables `x` and `y`.
-#' @param absences `data.frame` or `tibble` of absence or background locations contaning longitude and latitude as variables `x` and `y`.
-#' @param presences_and_absences `data.frame` or `tibble` of presence presence and absence locations containing longitude and latitude as variables `x` and `y`.
+#'@param covariates `SpatRaster` object of one or more layers.
+#'@param presences `data.frame` or `tibble` of presence locations contaning
+#'  longitude and latitude as variables `x` and `y`.
+#'@param absences `data.frame` or `tibble` of absence or background locations
+#'  contaning longitude and latitude as variables `x` and `y`.
+#'@param presences_and_absences `data.frame` or `tibble` of presence presence
+#'  and absence locations containing longitude and latitude as variables `x` and
+#'  `y`.
 #'
-#' @return A `tibble` containing values variables `presence` and each of the covariate layers at each location.
-#' @author Gerry Ryan
-#' @export
+#'@return A `tibble` containing values variables `presence` and each of the
+#'  covariate layers at each location.
+#'@author Gerry Ryan
+#'@export
 #'
-#' @details
-#' `extract_covariates` will run correctly with either `presences` only, `presences` and `absences`, or `presences_and_absences` only. (If all three are included it will ignore the last one).
+#'@details `extract_covariates` will run correctly with either `presences` only,
+#'`presences` and `absences`, or `presences_and_absences` only. (If all three
+#'are included it will ignore the last one).
 #'
 #'
 #' @examples
