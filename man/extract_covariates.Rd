@@ -26,6 +26,9 @@ A \code{tibble} containing values variables \code{presence} and each of the cova
 \description{
 Extracts data from raster covariate layers for modelling.
 }
+\details{
+\code{extract_covariates} will run correctly with either \code{presences} only, \code{presences} and \code{absences}, or \code{presences_and_absences} only. (If all three are included it will ignore the last one).
+}
 \examples{
 
 library(terra)

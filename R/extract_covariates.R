@@ -12,6 +12,10 @@
 #' @author Gerry Ryan
 #' @export
 #'
+#' @details
+#' `extract_covariates` will run correctly with either `presences` only, `presences` and `absences`, or `presences_and_absences` only. (If all three are included it will ignore the last one).
+#'
+#'
 #' @examples
 #'
 #'library(terra)
@@ -52,26 +56,39 @@ extract_covariates <- function(
       presences %>%
         dplyr::select(x, y)
     )
-    avals <- terra::extract(
-      covariates,
-      absences %>%
-        dplyr::select(x, y)
-    )
 
-    result <- rbind(
-      pvals %>%
+    if(!is.null(absences)){
+      avals <- terra::extract(
+        covariates,
+        absences %>%
+          dplyr::select(x, y)
+      )
+
+      result <- rbind(
+        pvals %>%
+          tibble::as_tibble() %>%
+          dplyr::select(-ID) %>%
+          dplyr::mutate(presence = 1),
+        avals %>%
+          tibble::as_tibble() %>%
+          dplyr::select(-ID) %>%
+          dplyr::mutate(presence = 0)
+      ) %>%
+        tibble::as_tibble()
+
+      return(result)
+    } else{
+      result <- pvals %>%
         tibble::as_tibble() %>%
         dplyr::select(-ID) %>%
-        dplyr::mutate(presence = 1),
-      avals %>%
-        tibble::as_tibble() %>%
-        dplyr::select(-ID) %>%
-        dplyr::mutate(presence = 0)
-    ) %>%
-      tibble::as_tibble()
+        dplyr::mutate(presence = 1)
 
-    return(result)
+      return(result)
+    }
+
   } else {
+    pa_data <- presences_and_absences
+
     vals <- terra::extract(
       covariates,
       pa_data %>%
