@@ -14,20 +14,27 @@ extract_covariates(
 \arguments{
 \item{covariates}{\code{SpatRaster} object of one or more layers.}
 
-\item{presences}{\code{data.frame} or \code{tibble} of presence locations contaning longitude and latitude as variables \code{x} and \code{y}.}
+\item{presences}{\code{data.frame} or \code{tibble} of presence locations contaning
+longitude and latitude as variables \code{x} and \code{y}.}
 
-\item{absences}{\code{data.frame} or \code{tibble} of absence or background locations contaning longitude and latitude as variables \code{x} and \code{y}.}
+\item{absences}{\code{data.frame} or \code{tibble} of absence or background locations
+contaning longitude and latitude as variables \code{x} and \code{y}.}
 
-\item{presences_and_absences}{\code{data.frame} or \code{tibble} of presence presence and absence locations containing longitude and latitude as variables \code{x} and \code{y}.}
+\item{presences_and_absences}{\code{data.frame} or \code{tibble} of presence presence
+and absence locations containing longitude and latitude as variables \code{x} and
+\code{y}.}
 }
 \value{
-A \code{tibble} containing values variables \code{presence} and each of the covariate layers at each location.
+A \code{tibble} containing values variables \code{presence} and each of the
+covariate layers at each location.
 }
 \description{
 Extracts data from raster covariate layers for modelling.
 }
 \details{
-\code{extract_covariates} will run correctly with either \code{presences} only, \code{presences} and \code{absences}, or \code{presences_and_absences} only. (If all three are included it will ignore the last one).
+\code{extract_covariates} will run correctly with either \code{presences} only,
+\code{presences} and \code{absences}, or \code{presences_and_absences} only. (If all three
+are included it will ignore the last one).
 }
 \examples{
 
