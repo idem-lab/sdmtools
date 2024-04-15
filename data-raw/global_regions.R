@@ -54,6 +54,9 @@ global_regions <- full_join(
   dplyr::arrange(country) #|>
   #print(n = 300)
 
+# set class so prints long by default
+class(global_regions) <- c("long_tibble", class(global_regions))
+
 # run this line each time I update the thing.
 usethis::use_data(global_regions, overwrite = TRUE)
 
