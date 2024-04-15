@@ -51,5 +51,7 @@ raster_to_terra <- tibble::tribble(
                   "writeRaster",         "writeRaster", "need to specify file type (suffix) in terra",
 )
 
+class(raster_to_terra) <- c("long_tibble", class(raster_to_terra))
+
 # run this line each time I update the thing.
 usethis::use_data(raster_to_terra, overwrite = TRUE)

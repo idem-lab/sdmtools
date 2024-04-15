@@ -1,43 +1,22 @@
-library(tibble)
-
-long_tibble <- setClass(
-  Class = "long_tibble",
-  slots = c(tab = "tbl_df"),
-  contains = "tbl_df"
-)
-
+#' @title Print method for class `long_tibble`
+#' @description
+#' Prints data tables stored in `sdmtools` for their entire length*, but maintains other nice print features
+#' of `tbl_df`, i.e., tibbles.
+#'
+#' @param x An object of class `long_tibble`.
+#'
+#' @export
+#'
+#' @examples
+#' print(raster_to_terra)
+#'
+#' @details
+#' *"entire length" — well really, up to
+#' 999 lines, which none currently are.
+#'
+#'
 print.long_tibble <- function(x){
-  x@tab |>
+  x |>
     tibble::as_tibble() |>
-    print(n = 3)
+    print(n = 999)
 }
-
-zz <- tibble::tibble(a = 1:10)
-class(zz) <- "long_tibble"
-zz
-
-xx <- long_tibble(tab = zz)
-zz
-
-
-long_tibble <- setClass(
-  +   Class = "long_tibble",
-  +   #slots = c(tab = "tbl_df"),
-    +   contains = "tbl_df"
-  + )
-print.long_tibble <- function(x){
-  +   print(x, n = 3)
-  + }
-
-xx <- setClass("xx", slots = c("tbl_df"))
-zz <- tibble::tibble(a = 1:10)
-class(zz) <- "xx"
-print.xx <- function(z){z$a |> tibble::as_tibble() |> print(n = 3)}
-zz
-
-
-xx <- setClass("xx", slots = c("tbl_df"))
-zz <- tibble::tibble(a = 1:10)
-class(zz) <- "xx"
-print.xx <- function(z){z |> tibble::as_tibble() |> print(n = 3)}
-zz
