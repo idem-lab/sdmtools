@@ -27,7 +27,8 @@ make_mpp_list <- function(x, id){
 
   mapply(
     function(name, tibble) {
-      filter(tibble, {{id}} == name)
+      filter(tibble, {{id}} == name) |>
+        select(-{{id}})
     },
     names(y),
     y,
