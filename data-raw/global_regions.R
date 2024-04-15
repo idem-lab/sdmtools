@@ -51,11 +51,8 @@ global_regions <- full_join(
     by = join_by(iso3 == iso3c)
   ) |>
   dplyr::select(country, iso2, iso3, who_region, un_region, continent) |>
-  dplyr::arrange(country) #|>
-  #print(n = 300)
-
-# set class so prints long by default
-class(global_regions) <- c("long_tibble", class(global_regions))
+  dplyr::arrange(country) |>
+  new_long_tibble() # set class to long_tibble
 
 # run this line each time I update the thing.
 usethis::use_data(global_regions, overwrite = TRUE)

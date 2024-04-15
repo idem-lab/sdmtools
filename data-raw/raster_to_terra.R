@@ -49,9 +49,8 @@ raster_to_terra <- tibble::tribble(
                   "stackSelect",         "selectRange", NA,
                       "unstack",             "as.list", NA,
                   "writeRaster",         "writeRaster", "need to specify file type (suffix) in terra",
-)
-
-class(raster_to_terra) <- c("long_tibble", class(raster_to_terra))
+) |>
+  new_long_tibble() # set class to long_tibble
 
 # run this line each time I update the thing.
 usethis::use_data(raster_to_terra, overwrite = TRUE)

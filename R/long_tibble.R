@@ -1,3 +1,16 @@
+#' @title `long_tibble` constructor function
+#'
+#' @param x A `tbl_df` object.
+#'
+#' @return `long_tibble`.
+#' @export
+#'
+new_long_tibble <- function(x){
+  stopifnot(dplyr::is.tbl(x))
+  structure(x, class = c("long_tibble", class(x)))
+
+}
+
 #' @title Print method for class `long_tibble`
 #' @description
 #' Prints data tables stored in `sdmtools` for their entire length*, but maintains other nice print features

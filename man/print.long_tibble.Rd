@@ -7,7 +7,7 @@
 \method{print}{long_tibble}(x)
 }
 \arguments{
-\item{x}{An object of class \code{long_tibble},}
+\item{x}{An object of class \code{long_tibble}.}
 }
 \description{
 Prints data tables stored in \code{sdmtools} for their entire length*, but maintains other nice print features
