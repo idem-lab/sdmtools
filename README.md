@@ -10,13 +10,15 @@ License](https://img.shields.io/github/license/idem-lab/sdmtools)
 activity](https://img.shields.io/github/commit-activity/w/idem-lab/sdmtools)
 ![GitHub Downloads (all assets, all
 releases)](https://img.shields.io/github/downloads/idem-lab/sdmtools/total)
-![GitHub commits since latest
-release](https://img.shields.io/github/commits-since/idem-lab/sdmtols/latest)
 ![GitHub last
 commit](https://img.shields.io/github/last-commit/idem-lab/sdmtools)
+![GitHub R package
+version](https://img.shields.io/github/r-package/v/idem-lab/sdmtools)
 ![GitHub commits since latest
 release](https://img.shields.io/github/commits-since/idem-lab/sdmtools/latest)
-<!-- badges: start --> <!-- badges: end -->
+
+<!-- badges: start -->
+<!-- badges: end -->
 
 `sdmtools` — a set of helper functions to facilitate species
 distribution modelling.
@@ -246,14 +248,15 @@ Europe
 ### Data-generating functions
 
 The package `terra` is fiddly about storing its `spat...` objects in
-packages, so we chose to generate example spatial data on demand using
+packages, so we chose to generate example spatial data on-demand using
 functions, rather than storing it.
 
 `example_raster` — an example `spatRaster`.
 
 ``` r
 library(terra)
-#> terra 1.7.71
+#> Warning: package 'terra' was built under R version 4.3.3
+#> terra 1.7.74
 r <- example_raster()
 r
 #> class       : SpatRaster 

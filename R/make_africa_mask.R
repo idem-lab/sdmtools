@@ -23,14 +23,16 @@
 #' africa_mask <- make_africa_mask("africa_mask.tif")
 make_africa_mask <- function(file_name = NULL, res = c("high", "low")){
 
-  if(file.exists(file_name)){
+  if(!is.null(file_name)){
+    if(file.exists(file_name)){
 
-    warning(sprintf(
-      "%s exists\nUsing existing file\nto re-generate, delete existing %s",
-      file_name,
-      file_name
-    ))
-    return(terra::rast(file_name))
+      warning(sprintf(
+        "%s exists\nUsing existing file\nto re-generate, delete existing %s",
+        file_name,
+        file_name
+      ))
+      return(terra::rast(file_name))
+    }
   }
 
   res <- match.arg(res)
