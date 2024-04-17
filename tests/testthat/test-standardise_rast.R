@@ -1,8 +1,8 @@
 test_that("mean is zero", {
   expect_equal(
-    example_rast() |>
+    sdmtools::example_raster() |>
       standardise_rast() |>
-      values() |>
+      terra::values() |>
       mean(na.rm = TRUE),
     0
   )
@@ -10,9 +10,9 @@ test_that("mean is zero", {
 
 test_that("standard deviation is one", {
   expect_equal(
-    example_rast() |>
+    sdmtools::example_raster() |>
       standardise_rast() |>
-      values() |>
+      terra::values() |>
       sd(na.rm = TRUE),
     1
   )
