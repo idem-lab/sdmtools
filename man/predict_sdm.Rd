@@ -14,14 +14,14 @@ predict_sdm(
 \arguments{
 \item{model}{A model object.}
 
-\item{covariates}{\code{spatRaster} covariate layers.}
+\item{covariates}{\code{SpatRaster} covariate layers.}
 
 \item{type}{Scale of prediction (response, model, etc.).}
 
 \item{layer_name}{Name for predicted layer.}
 }
 \value{
-\code{spatRaster} prediction from model
+\code{SpatRaster} prediction from model
 }
 \description{
 Produces raster prediction from SDM based on model and covariate layers.

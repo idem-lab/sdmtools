@@ -1,10 +1,10 @@
 #' @title Standardise Raster
 #' @description
-#' Standardises `spatRaster` objects to mean of zero and standard deviation of one.
+#' Standardises `SpatRaster` objects to mean of zero and standard deviation of one.
 #'
-#' @param x A `spatRaster` object.
+#' @param x A `SpatRaster` object.
 #'
-#' @return A `spatRaster` objects with mean of zero and standard deviation of one.
+#' @return A `SpatRaster` objects with mean of zero and standard deviation of one.
 #' @export
 #'
 #' @examples

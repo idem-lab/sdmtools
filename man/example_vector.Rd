@@ -10,7 +10,7 @@ example_vector(seed = NULL)
 \item{seed}{A seed to pass to \code{set.seed(seed)}}
 }
 \value{
-A \code{spatVector}
+A \code{SpatVector}
 }
 \description{
 Create an example vector

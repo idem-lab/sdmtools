@@ -7,15 +7,15 @@
 writereadrast(x, filename)
 }
 \arguments{
-\item{x}{A \code{terra::spatRaster}}
+\item{x}{A \code{terra::SpatRaster}}
 
 \item{filename}{A \code{character} file path and name to save \code{x} to disc.}
 }
 \value{
-A \code{terra::spatRaster} object reading from disc at \code{filename}.
+A \code{terra::SpatRaster} object reading from disc at \code{filename}.
 }
 \description{
-When a new \code{terra::spatRaster} is created it is stored in
+When a new \code{terra::SpatRaster} is created it is stored in
 memory. Writing it to disc and reading the object back from file requires two
 steps: \code{terra::writeRaster} then reading and re-assigning via \code{terra::rast}.
 \code{writereadrast} wraps these into a single step.

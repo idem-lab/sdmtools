@@ -9,7 +9,7 @@
 #' @param ext Extension type
 #' @param as_list Should the `spatRaster` objects be returned as a `list` (`TRUE`) or concatenated as layers in a single `spatRaster` object (`FALSE`; default)
 #'
-#' @return A `spatRaster` if `as_list = FALSE`, or list of `spatRaster` objects.
+#' @return A `SpatRaster` if `as_list = FALSE`, or list of `SpatRaster` objects.
 #' @export
 #'
 #' @examples

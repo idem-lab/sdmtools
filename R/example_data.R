@@ -1,6 +1,6 @@
 #' Create example raster for use in examples
 #'
-#' @return A `spatRaster`.
+#' @return A `SpatRaster`.
 #' @param seed A seed to pass to `set.seed(seed)`
 #' @param layername `character` for layer name passed to `names`
 #' @export
@@ -41,7 +41,7 @@ example_raster <- function(
 
 #' Create an example vector
 #'
-#' @return A `spatVector`
+#' @return A `SpatVector`
 #' @param seed A seed to pass to `set.seed(seed)`
 #' @export
 #'

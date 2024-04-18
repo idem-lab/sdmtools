@@ -14,7 +14,7 @@ import_rasts(path, ext = ".grd", as_list = c(FALSE, TRUE))
 \item{as_list}{Should the \code{spatRaster} objects be returned as a \code{list} (\code{TRUE}) or concatenated as layers in a single \code{spatRaster} object (\code{FALSE}; default)}
 }
 \value{
-A \code{spatRaster} if \code{as_list = FALSE}, or list of \code{spatRaster} objects.
+A \code{SpatRaster} if \code{as_list = FALSE}, or list of \code{SpatRaster} objects.
 }
 \description{
 Imports all rasters of a given extension type from a specified directory using \code{terra::rast}.

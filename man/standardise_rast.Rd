@@ -7,13 +7,13 @@
 standardise_rast(x)
 }
 \arguments{
-\item{x}{A \code{spatRaster} object.}
+\item{x}{A \code{SpatRaster} object.}
 }
 \value{
-A \code{spatRaster} objects with mean of zero and standard deviation of one.
+A \code{SpatRaster} objects with mean of zero and standard deviation of one.
 }
 \description{
-Standardises \code{spatRaster} objects to mean of zero and standard deviation of one.
+Standardises \code{SpatRaster} objects to mean of zero and standard deviation of one.
 }
 \examples{
 r <- example_rast()

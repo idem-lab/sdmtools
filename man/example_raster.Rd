@@ -12,7 +12,7 @@ example_raster(seed = NULL, layername = NULL)
 \item{layername}{\code{character} for layer name passed to \code{names}}
 }
 \value{
-A \code{spatRaster}.
+A \code{SpatRaster}.
 }
 \description{
 Create example raster for use in examples
