@@ -56,7 +56,9 @@ make_africa_mask <- function(
     ISO = african_countries
   ) |>
     sf::st_make_valid() |>
-    sf::st_union()
+    sf::st_union() |>
+    terra::vect() |>
+    terra::fillHoles()
 
   if(type == "vector"){
     return(afvect)
@@ -70,7 +72,8 @@ make_africa_mask <- function(
   }
 
 
-  afrast <-afvect |>
+  afrast <- afvect |>
+    st_as_sf() |>
     malariaAtlas::getRaster(
       dataset_id = layer,
       shp = _
