@@ -4,15 +4,21 @@
 \alias{make_africa_mask}
 \title{Make Africa Mask}
 \usage{
-make_africa_mask(file_name = NULL, res = c("high", "low"))
+make_africa_mask(
+  file_name = NULL,
+  type = c("raster", "vector"),
+  res = c("high", "low")
+)
 }
 \arguments{
 \item{file_name}{Character of file path and name if  mask is to be written to disc.}
 
-\item{res}{Character \code{"high"} or \code{"low"}; correspondiing to resolution of 0.008333333 or 0.04166667 decimal degrees}
+\item{type}{Character \code{raster} or \code{vector}; to return mask as either \code{SpatRaster} or \code{SpatVector}.}
+
+\item{res}{Character \code{"high"} or \code{"low"}; corresponding to resolution of 0.008333333 or 0.04166667 decimal degrees}
 }
 \value{
-\code{spatRaster} mask of Africa; WGS 84 (EPSG:4326).
+\code{SpatRaster} or \code{SpatVector} mask of Africa; WGS 84 (EPSG:4326).
 }
 \description{
 Makes a \code{spatRaster} mask layer of Africa, based on shapefiles for African nations from the \code{malaraAtlas} package. Function is a little slow, so writing to disc may be preferred.

@@ -4,9 +4,10 @@
 #'
 #'
 #' @param file_name Character of file path and name if  mask is to be written to disc.
-#' @param res Character `"high"` or `"low"`; correspondiing to resolution of 0.008333333 or 0.04166667 decimal degrees
+#' @param type Character `raster` or `vector`; to return mask as either `SpatRaster` or `SpatVector`.
+#' @param res Character `"high"` or `"low"`; corresponding to resolution of 0.008333333 or 0.04166667 decimal degrees
 #'
-#' @return `spatRaster` mask of Africa; WGS 84 (EPSG:4326).
+#' @return `SpatRaster` or `SpatVector` mask of Africa; WGS 84 (EPSG:4326).
 #' @export
 #'
 #' @details
@@ -21,7 +22,11 @@
 #'
 #' # or do both at once
 #' africa_mask <- make_africa_mask("africa_mask.tif")
-make_africa_mask <- function(file_name = NULL, res = c("high", "low")){
+make_africa_mask <- function(
+    file_name = NULL,
+    type = c("raster", "vector"),
+    res = c("high", "low")
+  ){
 
   if(!is.null(file_name)){
     if(file.exists(file_name)){
@@ -35,12 +40,7 @@ make_africa_mask <- function(file_name = NULL, res = c("high", "low")){
     }
   }
 
-  res <- match.arg(res)
-  if(res == "high"){
-    layer <- "Explorer__2020_walking_only_travel_time_to_healthcare"  # 0.008333333
-  } else if (res == "low"){
-    layer <- "Explorer__2020_Africa_ITN_Use" # 0.04166667
-  }
+  type <- match.arg(type)
 
   # get list of African countries
   african_countries <- sdmtools::global_regions %>%
@@ -52,11 +52,25 @@ make_africa_mask <- function(file_name = NULL, res = c("high", "low")){
   #library(sf)
   #library(malariaAtlas)
 
-  afrast <- malariaAtlas::getShp(
+  afvect <- malariaAtlas::getShp(
     ISO = african_countries
   ) |>
     sf::st_make_valid() |>
-    sf::st_union() |>
+    sf::st_union()
+
+  if(type == "vector"){
+    return(afvect)
+  }
+
+  res <- match.arg(res)
+  if(res == "high"){
+    layer <- "Explorer__2020_walking_only_travel_time_to_healthcare"  # 0.008333333
+  } else if (res == "low"){
+    layer <- "Explorer__2020_Africa_ITN_Use" # 0.04166667
+  }
+
+
+  afrast <-afvect |>
     malariaAtlas::getRaster(
       dataset_id = layer,
       shp = _
@@ -83,31 +97,33 @@ make_africa_mask <- function(file_name = NULL, res = c("high", "low")){
   afmask
 
 
-  # small example to illustrate validity issue with MAP shapefiles
-  # sf::sf_use_s2(FALSE)
-  # somken <- malariaAtlas::getShp(ISO = c("SOM", "KEN"))
-  # sf::sf_use_s2(FALSE)
-  # sf::st_union(somken)
-  #
-  # someth <- malariaAtlas::getShp(ISO = c("SOM", "ETH"))
-  #
-  # sf::st_union(someth)
-
-  # using geodata
-  # africa_polys <- gadm(
-  #   country = african_countries,
-  #   path = "data-raw/geodata",
-  #   level = 0,
-  #   resolution = 1
-  # )
-  #
-  # library(sf)
-  # aps_sf <- st_as_sf(africa_polys)
-  #
-  # sf_use_s2(FALSE)
-  # ap <- st_union(aps_sf)
-  #
-  # africa_spatVec
 
 }
 
+
+
+# small example to illustrate validity issue with MAP shapefiles
+# sf::sf_use_s2(FALSE)
+# somken <- malariaAtlas::getShp(ISO = c("SOM", "KEN"))
+# sf::sf_use_s2(FALSE)
+# sf::st_union(somken)
+#
+# someth <- malariaAtlas::getShp(ISO = c("SOM", "ETH"))
+#
+# sf::st_union(someth)
+
+# using geodata
+# africa_polys <- gadm(
+#   country = african_countries,
+#   path = "data-raw/geodata",
+#   level = 0,
+#   resolution = 1
+# )
+#
+# library(sf)
+# aps_sf <- st_as_sf(africa_polys)
+#
+# sf_use_s2(FALSE)
+# ap <- st_union(aps_sf)
+#
+# africa_spatVec
