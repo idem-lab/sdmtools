@@ -36,7 +36,14 @@ make_africa_mask <- function(
         file_name,
         file_name
       ))
-      return(terra::rast(file_name))
+
+      if(type == "raster") {
+        return(terra::rast(file_name))
+      } else if(type == "vector"){
+        return(terra::vect(file_name))
+      }
+
+
     }
   }
 
