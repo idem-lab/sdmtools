@@ -61,6 +61,16 @@ make_africa_mask <- function(
     terra::fillHoles()
 
   if(type == "vector"){
+
+    if(!is.null(file_name)){
+      terra::writeVector(
+        x = afvect,
+        filename = file_name
+      )
+
+      afvect <- terra::vect(file_name)
+    }
+
     return(afvect)
   }
 
