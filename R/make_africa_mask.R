@@ -109,14 +109,12 @@ make_africa_mask <- function(
       overwrite = TRUE
     )
 
-    afmask <- rast(file_name)
+    afmask <- terra::rast(file_name)
   }
 
   gc()
 
   afmask
-
-
 
 }
 
