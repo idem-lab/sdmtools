@@ -6,6 +6,7 @@
 #'
 #' @param x A `terra::SpatRaster`
 #' @param filename A `character` file path and name to save `x` to disc.
+#' @param overwrite `logical`; overwrite existing raster.
 #'
 #' @return A `terra::SpatRaster` object reading from disc at `filename`.
 #' @export
@@ -20,12 +21,16 @@
 #' q <- sdmtools::example_raster() |>
 #'   writereadrast("frankstonfreeway.tif")
 #' }
-writereadrast <- function(x, filename){
+writereadrast <- function(
+    x,
+    filename,
+    overwrite = TRUE
+  ){
 
   terra::writeRaster(
     x = x,
     filename = filename,
-    overwrite = TRUE
+    overwrite = overwrite
   )
 
   terra::rast(x = filename)
