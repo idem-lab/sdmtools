@@ -6,12 +6,13 @@
 #' @param file_name Character of file path and name if  mask is to be written to disc.
 #' @param type Character `raster` or `vector`; to return mask as either `SpatRaster` or `SpatVector`.
 #' @param res Character `"high"` or `"low"`; corresponding to resolution of 0.008333333 or 0.04166667 decimal degrees
+#' @param countries Character of ISO3 country names. If `NULL` returns all countries in Africa.
 #'
-#' @return `SpatRaster` or `SpatVector` mask of Africa; WGS 84 (EPSG:4326).
+#' @return `SpatRaster` or `SpatVector` in WGS 84 (EPSG:4326).
 #' @export
 #'
 #' @details
-#' Created using countries where `sdmtools::global_regions$continent == "Africa"` and either the "Explorer__2020_Africa_ITN_Use" or  ""Explorer__2020_walking_only_travel_time_to_healthcare" raster from `malariaAtlas::getShp`
+#' Created using countries where `sdmtools::global_regions$continent == "Africa"` from `malariaAtlas::getShp` and if `type = "raster"` either the "Explorer__2020_Africa_ITN_Use" or  ""Explorer__2020_walking_only_travel_time_to_healthcare" layer.
 #'
 #' @examples
 #' # Create an object in workspace
@@ -25,7 +26,8 @@
 make_africa_mask <- function(
     file_name = NULL,
     type = c("raster", "vector"),
-    res = c("high", "low")
+    res = c("high", "low"),
+    countries = NULL
   ){
 
   if(!is.null(file_name)){
@@ -50,9 +52,11 @@ make_africa_mask <- function(
   type <- match.arg(type)
 
   # get list of African countries
-  african_countries <- sdmtools::global_regions %>%
-    dplyr::filter(continent == "Africa") %>%
-    dplyr::pull(iso3)
+  if(is.null(countries)){
+    countries <- sdmtools::global_regions %>%
+      dplyr::filter(continent == "Africa") %>%
+      dplyr::pull(iso3)
+  }
 
   # make using MAP data
   # has issue with validity, st_make_valid 'fixes' this however...?
@@ -60,7 +64,7 @@ make_africa_mask <- function(
   #library(malariaAtlas)
 
   afvect <- malariaAtlas::getShp(
-    ISO = african_countries
+    ISO = countries
   ) |>
     sf::st_make_valid() |>
     sf::st_union() |>

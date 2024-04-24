@@ -7,7 +7,8 @@
 make_africa_mask(
   file_name = NULL,
   type = c("raster", "vector"),
-  res = c("high", "low")
+  res = c("high", "low"),
+  countries = NULL
 )
 }
 \arguments{
@@ -16,15 +17,17 @@ make_africa_mask(
 \item{type}{Character \code{raster} or \code{vector}; to return mask as either \code{SpatRaster} or \code{SpatVector}.}
 
 \item{res}{Character \code{"high"} or \code{"low"}; corresponding to resolution of 0.008333333 or 0.04166667 decimal degrees}
+
+\item{countries}{Character of ISO3 country names. If \code{NULL} returns all countries in Africa.}
 }
 \value{
-\code{SpatRaster} or \code{SpatVector} mask of Africa; WGS 84 (EPSG:4326).
+\code{SpatRaster} or \code{SpatVector} in WGS 84 (EPSG:4326).
 }
 \description{
 Makes a \code{spatRaster} mask layer of Africa, based on shapefiles for African nations from the \code{malaraAtlas} package. Function is a little slow, so writing to disc may be preferred.
 }
 \details{
-Created using countries where \code{sdmtools::global_regions$continent == "Africa"} and either the "Explorer__2020_Africa_ITN_Use" or  ""Explorer__2020_walking_only_travel_time_to_healthcare" raster from \code{malariaAtlas::getShp}
+Created using countries where \code{sdmtools::global_regions$continent == "Africa"} from \code{malariaAtlas::getShp} and if \code{type = "raster"} either the "Explorer__2020_Africa_ITN_Use" or  ""Explorer__2020_walking_only_travel_time_to_healthcare" layer.
 }
 \examples{
 # Create an object in workspace
