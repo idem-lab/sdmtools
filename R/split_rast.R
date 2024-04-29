@@ -1,39 +1,60 @@
+#'@title Split rasters
+#'@details Splits a `SpatRaster` up into a `grain^2` list of approximately equal
+#'geographic sized rasters covering the extent of  `x`
+#'
+#'@param x A `SpatRaster`
+#'@param grain Grain of splitting.
+#'@param write_temp
+#'
+#'@return A list of `SpatRaster`s of length `grain^2`.
+#'@export
+#'
+#' @examples
+#'
+#'# split into four rasters
+#'example_raster() |>
+#'  split_rast(grain = 2)
+#'
 split_rast <- function(
     x,
     grain = 4,
-    write_temp = TRUE
+    write_temp = FALSE
 ){
 
   dimx <- dim(x)[1]
   dimy <- dim(x)[2]
 
-  resx <- res(x)[1]
-  resy <- res(x)[2]
+  if(grain > dimx | grain > dimy){
+    stop("grain is > x or y dimension.\nCannot split into rasters smaller than cells.")
+  }
 
-  xminx <- xmin(x)
-  yminx <- ymin(x)
+  resx <- terra::res(x)[1]
+  resy <- terra::res(x)[2]
+
+  xminx <- terra::xmin(x)
+  yminx <- terra::ymin(x)
 
   xseq <- seq(
     from = 1,
-    to = dimx,
+    to = dimx + 1,
     length.out = grain + 1
   ) |>
     round()
 
   yseq <- seq(
     from = 1,
-    to = dimy,
+    to = dimy + 1,
     length.out = grain + 1
   ) |>
     round()
 
   xminseq <- xseq[1:grain]
   xmaxseq <- xseq[2:(grain + 1)]
-  xmaxseq[1:(grain - 1)] <- xmaxseq[1:(grain - 1)] - 1
+  #xmaxseq[1:(grain - 1)] <- xmaxseq[1:(grain - 1)] - 1
 
   yminseq <- yseq[1:grain]
   ymaxseq <- yseq[2:(grain + 1)]
-  ymaxseq[1:(grain - 1)] <- ymaxseq[1:(grain - 1)] - 1
+  #ymaxseq[1:(grain - 1)] <- ymaxseq[1:(grain - 1)] - 1
 
   tidyr::expand_grid(
     tibble::tibble(
@@ -47,10 +68,10 @@ split_rast <- function(
   ) |>
     dplyr::mutate(
       dplyr::across(starts_with("x"), ~ (.x - 1)*resx + xminx),
-      across(starts_with("y"), ~ (.x - 1)*resy + yminx)
+      dplyr::across(starts_with("y"), ~ (.x - 1)*resy + yminx)
     ) |>
-    mutate(
-      r = pmap(
+    dplyr::mutate(
+      r = purrr::pmap(
         .l = list(xmin, xmax, ymin, ymax, x, write_temp),
         .f = function(xmin, xmax, ymin, ymax, x, write_temp){
 
@@ -69,6 +90,6 @@ split_rast <- function(
         }
       )
     ) |>
-    pull(r)
+    dplyr::pull(r)
 
 }
