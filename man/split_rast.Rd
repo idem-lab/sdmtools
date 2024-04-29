@@ -25,8 +25,19 @@ geographic sized rasters covering the extent of  \code{x}
 }
 \examples{
 
-# split into four rasters
-example_raster() |>
- split_rast(grain = 2)
+# Split a raster into four
+r <- example_raster()
+s <- split_rast(r, grain = 2)
+s
+
+# plot with original
+ ps <- lapply(
+   s,
+   FUN = extend,
+   y = r
+ ) |>
+   rast()
+
+ c(r, ps) |>  plot()
 
 }
