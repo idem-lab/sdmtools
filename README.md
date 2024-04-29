@@ -255,8 +255,7 @@ functions, rather than storing it.
 
 ``` r
 library(terra)
-#> Warning: package 'terra' was built under R version 4.3.3
-#> terra 1.7.74
+#> terra 1.7.71
 r <- example_raster()
 r
 #> class       : SpatRaster 
@@ -290,26 +289,19 @@ plot(v)
 <img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
 `make_africa_mask` — makes a mask layer of Africa based on shapefiles
-from `malariaAtlas::getShp`
+from `malariaAtlas::getShp`. Can produce either a `SpatRaster` or
+`SpatVector`.
 
 ``` r
 library(terra)
-africa_mask <- make_africa_mask(res = "low")
-#> Please Note: Because you did not provide a version, by default the version being used is 202206 (This is the most recent version of admin unit shape data. To see other version options use function listShpVersions)
+africa_mask <- make_africa_mask(type = "vector")
+#> Loading ISO 19139 XML schemas...
+#> Loading ISO 19115 codelists...
+#> Please Note: Because you did not provide a version, by default the version being used is 202403 (This is the most recent version of admin unit shape data. To see other version options use function listShpVersions)
 #> although coordinates are longitude/latitude, st_union assumes that they are
 #> planar
 #> Warning: [crs<-] not all geometries were transferred, use svc for a geometry
 #> collection
-#> Checking if the following Surface-Year combinations are available to download:
-#> 
-#>     DATASET ID  YEAR
-#>   - Explorer__2020_Africa_ITN_Use:  DEFAULT
-#> 
-#> Loading required package: sf
-#> Linking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is FALSE
-#> <GMLEnvelope>
-#> ....|-- lowerCorner: -40.3706 -25.3587 "2000-01-01T00:00:00"
-#> ....|-- upperCorner: 37.5439 63.5002 "2019-01-01T00:00:00"
 plot(africa_mask)
 ```
 
@@ -337,6 +329,76 @@ object
 ``` r
 rasters <- import_rasts("/data/grids/covariates") # do not run
 ```
+
+`split_rast` — split a raster.
+
+``` r
+r <- example_raster()
+
+s <- split_rast(r, grain = 2)
+
+s
+#> [[1]]
+#> class       : SpatRaster 
+#> dimensions  : 5, 5, 1  (nrow, ncol, nlyr)
+#> resolution  : 1, 1  (x, y)
+#> extent      : 0, 5, 0, 5  (xmin, xmax, ymin, ymax)
+#> coord. ref. :  
+#> source(s)   : memory
+#> name        :   example 
+#> min value   : 0.1587361 
+#> max value   : 7.3352526 
+#> 
+#> [[2]]
+#> class       : SpatRaster 
+#> dimensions  : 5, 5, 1  (nrow, ncol, nlyr)
+#> resolution  : 1, 1  (x, y)
+#> extent      : 0, 5, 5, 10  (xmin, xmax, ymin, ymax)
+#> coord. ref. :  
+#> source(s)   : memory
+#> name        :   example 
+#> min value   : 0.1028045 
+#> max value   : 4.0001839 
+#> 
+#> [[3]]
+#> class       : SpatRaster 
+#> dimensions  : 5, 5, 1  (nrow, ncol, nlyr)
+#> resolution  : 1, 1  (x, y)
+#> extent      : 5, 10, 0, 5  (xmin, xmax, ymin, ymax)
+#> coord. ref. :  
+#> source(s)   : memory
+#> name        :    example 
+#> min value   : 0.09802478 
+#> max value   : 3.23820739 
+#> 
+#> [[4]]
+#> class       : SpatRaster 
+#> dimensions  : 5, 5, 1  (nrow, ncol, nlyr)
+#> resolution  : 1, 1  (x, y)
+#> extent      : 5, 10, 5, 10  (xmin, xmax, ymin, ymax)
+#> coord. ref. :  
+#> source(s)   : memory
+#> name        :   example 
+#> min value   : 0.0627102 
+#> max value   : 5.7145289
+```
+
+``` r
+ps <- lapply(
+  s,
+  FUN = extend,
+  y = r
+) |>
+  rast()
+
+c(
+  r,
+  ps
+) |>
+  plot()
+```
+
+<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
 
 ### Functions for a species distribution modelling workflow
 
@@ -378,7 +440,7 @@ covs
 plot(covs)
 ```
 
-<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-12-1.png" width="100%" />
 
 We have some presences and absences
 
@@ -430,4 +492,4 @@ prediction_rast <- predict_sdm(m, covs) |>
 plot(prediction_rast)
 ```
 
-<img src="man/figures/README-unnamed-chunk-13-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-15-1.png" width="100%" />

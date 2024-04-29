@@ -93,11 +93,13 @@ v
 plot(v)
 ```
 
-`make_africa_mask` — makes a mask layer of Africa based on shapefiles from `malariaAtlas::getShp`
+`make_africa_mask` — makes a mask layer of Africa based on shapefiles from `malariaAtlas::getShp`.
+Can produce either a `SpatRaster` or `SpatVector`.
+
 
 ```{r}
 library(terra)
-africa_mask <- make_africa_mask(res = "low")
+africa_mask <- make_africa_mask(type = "vector")
 plot(africa_mask)
 ```
 
@@ -115,12 +117,36 @@ source_R("/Users/frankenstein/project/R") # do not run
 ```
 
 
-
-
 `import_rasts` — import all rasters from a directory into a single object
 ```r
 rasters <- import_rasts("/data/grids/covariates") # do not run
 ```
+
+
+`split_rast` — split a raster.
+```{r}
+r <- example_raster()
+
+s <- split_rast(r, grain = 2)
+
+s
+```
+```{r}
+ps <- lapply(
+  s,
+  FUN = extend,
+  y = r
+) |>
+  rast()
+
+c(
+  r,
+  ps
+) |>
+  plot()
+
+```
+
 
 ### Functions for a species distribution modelling workflow
 
