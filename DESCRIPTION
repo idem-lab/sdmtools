@@ -1,9 +1,11 @@
 Package: sdmtools
 Title: Utility tools for Species Distribution Modelling
 Version: 0.0.0.9000
-Authors@R: 
+Authors@R: c(
     person("Gerry", "Ryan", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0003-0183-7630"))
+           comment = c(ORCID = "0000-0003-0183-7630")),
+    person("David", "Duncan", role = "ctb")
+  )
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 URL: https://github.com/geryan/sdmtools
@@ -14,8 +16,10 @@ Imports:
     dplyr,
     gtools,
     magrittr,
+    purrr,
     terra,
-    tibble
+    tibble,
+    tidyr
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
