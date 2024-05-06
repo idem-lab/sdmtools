@@ -4,4 +4,4 @@
 .Ruserdata
 *.DS_Store
 /data-raw/geodata/
-sdm_pred.tif
+*.tif
