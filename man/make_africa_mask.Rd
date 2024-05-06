@@ -27,15 +27,15 @@ make_africa_mask(
 Makes a \code{spatRaster} mask layer of Africa, based on shapefiles for African nations from the \code{malaraAtlas} package. Function is a little slow, so writing to disc may be preferred.
 }
 \details{
-Created using countries where \code{sdmtools::global_regions$continent == "Africa"} from \code{malariaAtlas::getShp} and if \code{type = "raster"} either the "Explorer__2020_Africa_ITN_Use" or  ""Explorer__2020_walking_only_travel_time_to_healthcare" layer.
+Raster layers creates with extent of \code{terra::ext(-18.0000019073486, 52.0416647593181, -34.9999987284343, 37.5416679382324)}
 }
 \examples{
 # Create an object in workspace
-africa_mask <- make_africa_mask()
+africa_mask_v <- make_africa_mask(type = "vector")
 
 # Save to disk
-make_africa_mask("africa_mask.tif")
+make_africa_mask(file_name = "africa_mask.tif", type = "raster")
 
 # or do both at once
-africa_mask <- make_africa_mask("africa_mask.tif")
+africa_mask_r <- make_africa_mask("africa_mask.tif")
 }
