@@ -94,7 +94,7 @@ make_africa_mask <- function(
 
 
   afrast <- afvect |>
-    st_as_sf() |>
+    sf::st_as_sf() |>
     malariaAtlas::getRaster(
       dataset_id = layer,
       shp = _
