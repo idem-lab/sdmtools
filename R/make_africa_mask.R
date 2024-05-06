@@ -12,17 +12,17 @@
 #' @export
 #'
 #' @details
-#' Created using countries where `sdmtools::global_regions$continent == "Africa"` from `malariaAtlas::getShp` and if `type = "raster"` either the "Explorer__2020_Africa_ITN_Use" or  ""Explorer__2020_walking_only_travel_time_to_healthcare" layer.
+#' Raster layers creates with extent of `terra::ext(-18.0000019073486, 52.0416647593181, -34.9999987284343, 37.5416679382324)`
 #'
 #' @examples
 #' # Create an object in workspace
-#' africa_mask <- make_africa_mask()
+#' africa_mask_v <- make_africa_mask(type = "vector")
 #'
 #' # Save to disk
-#' make_africa_mask("africa_mask.tif")
+#' make_africa_mask(file_name = "africa_mask.tif", type = "raster")
 #'
 #' # or do both at once
-#' africa_mask <- make_africa_mask("africa_mask.tif")
+#' africa_mask_r <- make_africa_mask("africa_mask.tif")
 make_africa_mask <- function(
     file_name = NULL,
     type = c("raster", "vector"),
@@ -87,38 +87,44 @@ make_africa_mask <- function(
 
   res <- match.arg(res)
   if(res == "high"){
-    layer <- "Explorer__2020_walking_only_travel_time_to_healthcare"  # 0.008333333
+
+    afrast <- rast(
+      nlyrs=1,
+      crs = crs("EPSG:4326"),
+      #extent = ext(-25.3583333333333, 63.5, -40.3666666666667, 37.5416666666667),
+      extent = ext(-18.0000019073486, 52.0416647593181, -34.9999987284343, 37.5416679382324), # extent based on malariaAtlas::getRaster("Explorer__2020_Africa_ITN_Use")
+      resolution = c(0.008333333, 0.008333333),
+      vals = 1,
+      names = "mask"
+    ) |>
+      mask(afvect)
+
   } else if (res == "low"){
-    layer <- "Explorer__2020_Africa_ITN_Use" # 0.04166667
+    afrast <- rast(
+      nlyrs=1,
+      crs = crs("EPSG:4326"),
+      #extent = ext(-25.3583333333333, 63.5, -40.3666666666667, 37.5416666666667),
+      extent = ext(-18.0000019073486, 52.0416647593181, -34.9999987284343, 37.5416679382324),
+      resolution = c(0.04166667, 0.04166667),
+      vals = 1,
+      names = "mask"
+    ) |>
+      mask(afvect)
   }
-
-
-  afrast <- afvect |>
-    sf::st_as_sf() |>
-    malariaAtlas::getRaster(
-      dataset_id = layer,
-      shp = _
-    )
-
-  afmask <- afrast
-  afmask[which(!is.na(afmask[]))] <- 0
-
-  terra::varnames(afmask) <- names(afmask) <- "mask"
-
 
   if(!is.null(file_name)){
     terra::writeRaster(
-      x = afmask,
+      x = afrast,
       filename = file_name,
       overwrite = TRUE
     )
 
-    afmask <- terra::rast(file_name)
+    afrast <- terra::rast(file_name)
   }
 
   gc()
 
-  afmask
+  afrast
 
 }
 
