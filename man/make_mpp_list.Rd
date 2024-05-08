@@ -14,7 +14,7 @@ and an identity (species) column}
 a column name in \code{x}.}
 }
 \value{
-A named list.
+A named list or data frames.
 }
 \description{
 Make presence-only list for \code{multispeciesPP}

@@ -10,7 +10,7 @@
 #' @param id The name of the identity column in `tidyselect` form. `id` must be
 #'   a column name in `x`.
 #'
-#' @return A named list.
+#' @return A named list or data frames.
 #' @export
 #'
 #' @examples
@@ -28,7 +28,8 @@ make_mpp_list <- function(x, id){
   mapply(
     function(name, tibble) {
       filter(tibble, {{id}} == name) |>
-        select(-{{id}})
+        select(-{{id}}) |>
+        as.data.frame()
     },
     names(y),
     y,
