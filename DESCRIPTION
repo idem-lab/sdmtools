@@ -7,7 +7,7 @@ Authors@R: c(
     person("David", "Duncan", role = "ctb")
   )
 Description: What the package does (one paragraph).
-License: MIT + file LICENSE
+License: MIT + file LICENSE.Md
 URL: https://github.com/geryan/sdmtools
 BugReports: https://github.com/geryan/sdmtools/issues
 Depends: 
