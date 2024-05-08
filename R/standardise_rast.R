@@ -16,7 +16,7 @@ standardise_rast <- function(x){
 
   vals <- terra::values(x)
   meanx <- mean(vals, na.rm = TRUE)
-  sdx <- sd(vals, na.rm = TRUE)
+  sdx <- stats::sd(vals, na.rm = TRUE)
 
   (x - meanx)/sdx
 

@@ -76,8 +76,8 @@ split_rast <- function(
     )
   ) |>
     dplyr::mutate(
-      dplyr::across(starts_with("x"), ~ (.x - 1)*resx + xminx),
-      dplyr::across(starts_with("y"), ~ (.x - 1)*resy + yminx)
+      dplyr::across(tidyselect::starts_with("x"), ~ (.x - 1)*resx + xminx),
+      dplyr::across(tidyselect::starts_with("y"), ~ (.x - 1)*resy + yminx)
     ) |>
     dplyr::mutate(
       r = purrr::pmap(

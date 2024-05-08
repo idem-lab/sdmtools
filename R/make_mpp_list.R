@@ -20,15 +20,15 @@
 make_mpp_list <- function(x, id){
 
   y <- x %>%
-    group_by({{id}}) %>%
-    summarise(named_vec = list(.)) %>%
-    deframe() |>
-    lapply(ungroup)
+    dplyr::group_by({{id}}) %>%
+    dplyr::summarise(named_vec = list(.)) %>%
+    tibble::deframe() |>
+    lapply(dplyr::ungroup)
 
   mapply(
     function(name, tibble) {
-      filter(tibble, {{id}} == name) |>
-        select(-{{id}}) |>
+      dplyr::filter(tibble, {{id}} == name) |>
+        dplyr::select(-{{id}}) |>
         as.data.frame()
     },
     names(y),

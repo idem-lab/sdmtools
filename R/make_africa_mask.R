@@ -88,28 +88,28 @@ make_africa_mask <- function(
   res <- match.arg(res)
   if(res == "high"){
 
-    afrast <- rast(
+    afrast <- terra::rast(
       nlyrs=1,
-      crs = crs("EPSG:4326"),
+      crs = terra::crs("EPSG:4326"),
       #extent = ext(-25.3583333333333, 63.5, -40.3666666666667, 37.5416666666667),
-      extent = ext(-18.0000019073486, 52.0416647593181, -34.9999987284343, 37.5416679382324), # extent based on malariaAtlas::getRaster("Explorer__2020_Africa_ITN_Use")
+      extent = terra::ext(-18.0000019073486, 52.0416647593181, -34.9999987284343, 37.5416679382324), # extent based on malariaAtlas::getRaster("Explorer__2020_Africa_ITN_Use")
       resolution = c(0.008333333, 0.008333333),
       vals = 1,
       names = "mask"
     ) |>
-      mask(afvect)
+      terra::mask(afvect)
 
   } else if (res == "low"){
-    afrast <- rast(
+    afrast <- terra::rast(
       nlyrs=1,
-      crs = crs("EPSG:4326"),
+      crs = terra::crs("EPSG:4326"),
       #extent = ext(-25.3583333333333, 63.5, -40.3666666666667, 37.5416666666667),
-      extent = ext(-18.0000019073486, 52.0416647593181, -34.9999987284343, 37.5416679382324),
+      extent = terra::ext(-18.0000019073486, 52.0416647593181, -34.9999987284343, 37.5416679382324),
       resolution = c(0.04166667, 0.04166667),
       vals = 1,
       names = "mask"
     ) |>
-      mask(afvect)
+      terra::mask(afvect)
   }
 
   if(!is.null(file_name)){
