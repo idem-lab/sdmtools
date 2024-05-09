@@ -480,14 +480,15 @@ sdm_data <- extract_covariates(
 ```
 
 We can then make a spatial prediction of our model using `predict_sdm`
-and write and read it out in a single step with `writereadrast`:
+and write and read it out in a single step with `writereadrast`, and
+write it to a temporary file with `temptif`:
 
 ``` r
 # first we make a simple model, using data from above
 m <- glm(presence ~ cov1 + cov2, data = sdm_data)
 
 prediction_rast <- predict_sdm(m, covs) |>
-  writereadrast(filename = "sdm_pred.tif")
+  writereadrast(filename = temptif())
 
 plot(prediction_rast)
 ```
