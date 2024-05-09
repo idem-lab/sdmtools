@@ -11,7 +11,7 @@ License: MIT + file LICENSE.Md
 URL: https://github.com/geryan/sdmtools
 BugReports: https://github.com/geryan/sdmtools/issues
 Depends: 
-    R (>= 2.10)
+    R (>= 4.1.0)
 Imports:
     dplyr,
     gtools,
