@@ -1,5 +1,5 @@
-test_that("mean is zero", {
-  expect_equal(
+testthat::test_that("mean is zero", {
+  testthat::expect_equal(
     sdmtools::example_raster() |>
       standardise_rast() |>
       terra::values() |>
@@ -8,8 +8,8 @@ test_that("mean is zero", {
   )
 })
 
-test_that("standard deviation is one", {
-  expect_equal(
+testthat::test_that("standard deviation is one", {
+  testthat::expect_equal(
     sdmtools::example_raster() |>
       standardise_rast() |>
       terra::values() |>
