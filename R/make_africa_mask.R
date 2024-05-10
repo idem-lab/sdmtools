@@ -1,6 +1,6 @@
 #' @title Make Africa Mask
 #' @description
-#' Makes a `spatRaster` mask layer of Africa, based on shapefiles for African nations from the `malaraAtlas` package. Function is a little slow, so writing to disc may be preferred.
+#' Makes a `SpatRaster` or `SpatVector` mask layer of Africa, based on shapefiles for African nations from the `malaraAtlas` package.
 #'
 #'
 #' @param file_name Character of file path and name if  mask is to be written to disc.
