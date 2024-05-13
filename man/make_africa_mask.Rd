@@ -24,7 +24,7 @@ make_africa_mask(
 \code{SpatRaster} or \code{SpatVector} in WGS 84 (EPSG:4326).
 }
 \description{
-Makes a \code{spatRaster} mask layer of Africa, based on shapefiles for African nations from the \code{malaraAtlas} package. Function is a little slow, so writing to disc may be preferred.
+Makes a \code{SpatRaster} or \code{SpatVector} mask layer of Africa, based on shapefiles for African nations from the \code{malaraAtlas} package.
 }
 \details{
 Raster layers creates with extent of \code{terra::ext(-18.0000019073486, 52.0416647593181, -34.9999987284343, 37.5416679382324)}
