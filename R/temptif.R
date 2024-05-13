@@ -1,7 +1,7 @@
 #' @title temptif
 #' @description Returns a temporary file with a `*.tif` extenstion
 #'
-#' @return
+#' @return `character`
 #' @export
 #'
 #' @examples

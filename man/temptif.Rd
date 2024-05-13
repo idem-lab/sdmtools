@@ -6,6 +6,9 @@
 \usage{
 temptif()
 }
+\value{
+\code{character}
+}
 \description{
 Returns a temporary file with a \verb{*.tif} extenstion
 }
