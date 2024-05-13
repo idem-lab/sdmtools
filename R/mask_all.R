@@ -38,6 +38,20 @@ mask_all <- function(
     overwrite = FALSE
   ){
 
+  if(!is.null(filename)){
+
+    if(file.exists(filename)){
+      warning(sprintf(
+        "%s exists\nUsing existing file\nto re-generate, delete existing %s",
+        filename,
+        filename
+      ))
+
+      terra::rast(filename)
+    }
+
+  }
+
   rvs <- terra::values(rasts)
 
   naidx <- apply(rvs, 1, FUN = anyNA)
@@ -45,6 +59,14 @@ mask_all <- function(
   rvs[naidx, 1:3] <- NA
 
   rasts[] <- rvs
+
+  if(!is.null(filename)){
+    rasts <- sdmtools::writereadrast(
+      rasts,
+      filename,
+      overwrite = overwrite
+    )
+  }
 
   rasts
 
