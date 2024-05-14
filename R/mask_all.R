@@ -1,5 +1,5 @@
 #' @title Mask all
-#' @details Masks all `NA` cells across all layers, such that returned layers
+#' @description Masks all `NA` cells across all layers, such that returned layers
 #' have matching `NA` cells.
 #'
 #' @param rasts `SpatRaster` with `nlyr(rasts)` > 1 to mask
@@ -20,7 +20,7 @@
 #'   example_raster(seed = 2),
 #'   example_raster(seed = 3)
 #' )
-#' rvals <- terra::values(rasts)
+#' rvals <- terra::values(r)
 #' nas <- c(1:10, 105:120, 215:240)
 #' rvals[nas] <- NA
 #' r[] <- rvals

@@ -17,9 +17,6 @@ mask_all(rasts, filename = NULL, overwrite = FALSE)
 \code{SpatRaster}
 }
 \description{
-Mask all
-}
-\details{
 Masks all \code{NA} cells across all layers, such that returned layers
 have matching \code{NA} cells.
 }
@@ -34,7 +31,7 @@ r <- c(
   example_raster(seed = 2),
   example_raster(seed = 3)
 )
-rvals <- terra::values(rasts)
+rvals <- terra::values(r)
 nas <- c(1:10, 105:120, 215:240)
 rvals[nas] <- NA
 r[] <- rvals
