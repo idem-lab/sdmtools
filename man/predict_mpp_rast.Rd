@@ -4,7 +4,14 @@
 \alias{predict_mpp_rast}
 \title{Raster predictions from \code{multispeciesPP}}
 \usage{
-predict_mpp_rast(model, data, sp, type = c("response", "link"))
+predict_mpp_rast(
+  model,
+  data,
+  sp,
+  type = c("response", "link"),
+  filename = NULL,
+  overwrite = FALSE
+)
 }
 \arguments{
 \item{model}{A \code{multispeciesPP} model object}
@@ -14,6 +21,10 @@ predict_mpp_rast(model, data, sp, type = c("response", "link"))
 \item{sp}{\code{character} Species name to predict}
 
 \item{type}{\code{character}. Prediction scale — \code{"response"} or \code{"link"}.}
+
+\item{filename}{\code{character}to save output}
+
+\item{overwrite}{\code{logical} overwrite existing \code{filename}?}
 }
 \value{
 \code{SpatRaster}
