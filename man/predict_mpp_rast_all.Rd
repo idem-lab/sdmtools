@@ -4,7 +4,13 @@
 \alias{predict_mpp_rast_all}
 \title{Raster predictions from \code{multispeciesPP} for all species}
 \usage{
-predict_mpp_rast_all(model, data, type = c("response", "link"))
+predict_mpp_rast_all(
+  model,
+  data,
+  type = c("response", "link"),
+  filename = NULL,
+  overwrite = FALSE
+)
 }
 \arguments{
 \item{model}{A \code{multispeciesPP} model object}
@@ -12,6 +18,10 @@ predict_mpp_rast_all(model, data, type = c("response", "link"))
 \item{data}{\code{SpatRaster} object with covariate and bias layers}
 
 \item{type}{\code{character}. Prediction scale — \code{"response"} or \code{"link"}.}
+
+\item{filename}{\code{character}to save output}
+
+\item{overwrite}{\code{logical} overwrite existing \code{filename}?}
 }
 \value{
 \code{SpatRaster}
