@@ -27,7 +27,7 @@ knitr::opts_chunk$set(
 ![GitHub commits since latest release](https://img.shields.io/github/commits-since/idem-lab/sdmtools/latest)
 <!-- badges: end -->
 
-`sdmtools` — a set of helper functions to facilitate species distribution modelling.
+A set of helper functions to facilitate species distribution modelling.
 
 ## Installation
 
