@@ -34,7 +34,7 @@ inside_mask <- function(points, mask){
 
     # get indexes of points which fall inside the mask
     inside_idx <- which(
-      !(is.na(extract(mask, points[,c('longitude', 'latitude')], ID=FALSE)))
+      !(is.na(terra::extract(mask, points[,c('longitude', 'latitude')], ID=FALSE)))
       )
 
     # subset these points

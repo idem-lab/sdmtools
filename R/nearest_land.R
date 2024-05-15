@@ -28,7 +28,7 @@ nearest_land <- function (points, raster, max_distance) {
       return (c(NA, NA))
     } else{
       # otherwise get the land cell coordinates
-      coords <- xyFromCell(raster, neighbours[land, 2]) # get XY from cell num
+      coords <- terra::xyFromCell(raster, neighbours[land, 2]) # get XY from cell num
 
       if (nrow(coords) == 1) {
         # if there's only one, return it
@@ -50,7 +50,7 @@ nearest_land <- function (points, raster, max_distance) {
     )
 
   # extract cell numbers within max_distance of the points
-  neighbour_list <- extract(
+  neighbour_list <- terra::extract(
     raster,
     buffer_points,
     cells = TRUE
@@ -61,7 +61,7 @@ nearest_land <- function (points, raster, max_distance) {
                            function(i) {
                              list(
                                neighbours = neighbour_list[neighbour_list$ID==i, 2:3 ],
-                               point = st_coordinates(points[i, ]) #c("X","Y")
+                               point = sf::st_coordinates(points[i, ]) #c("X","Y")
                               )
                            })
 
