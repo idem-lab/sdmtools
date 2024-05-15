@@ -30,6 +30,7 @@ Makes a \code{SpatRaster} or \code{SpatVector} mask layer of Africa, based on sh
 Raster layers creates with extent of \code{terra::ext(-18.0000019073486, 52.0416647593181, -34.9999987284343, 37.5416679382324)}
 }
 \examples{
+\dontrun{
 # Create an object in workspace
 africa_mask_v <- make_africa_mask(type = "vector")
 
@@ -38,4 +39,5 @@ make_africa_mask(file_name = "africa_mask.tif", type = "raster")
 
 # or do both at once
 africa_mask_r <- make_africa_mask("africa_mask.tif")
+}
 }

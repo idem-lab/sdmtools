@@ -8,7 +8,7 @@
 #' @export
 #'
 #' @examples
-#' r <- example_rast()
+#' r <- example_raster()
 #'
 #' standardise_rast(r)
 #'

@@ -10,7 +10,7 @@
 #' @export
 #'
 #' @examples
-#' #' \dontrun{
+#' \dontrun{
 #'   source_R("/Users/frankenstein/project/R")
 #' }
 source_R <- function(
