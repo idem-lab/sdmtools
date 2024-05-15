@@ -23,20 +23,19 @@ package data-raw directory.
 \code{un-regions.csv} manually created from tables on "Regional groups of Member
 States"
 
-https://www.un.org/dgacm/en/content/regional-groups
+\url{https://www.un.org/dgacm/en/content/regional-groups}
 
 2024-02-02
 
 \code{who-regions.csv} was downloaded from
 
-https://ourworldindata.org/grapher/who-regions
+\url{https://ourworldindata.org/grapher/who-regions}
 
 2024-02-02
 
-World Health Organization – processed by Our World in Data. “WHO region”
-\link{dataset}. World Health Organization \link{original data}.
+World Health Organization – processed by Our World in Data & World Health Organization.
 
-\code{continent} defined bty \code{countrycode::codelist$continent}, (largely?) by
+\code{continent} defined by \code{countrycode::codelist$continent}, (largely?) by
 World Bank.
 }
 \usage{

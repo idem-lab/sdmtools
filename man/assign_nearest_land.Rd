@@ -7,7 +7,13 @@
 assign_nearest_land(dat_object, mask_object, max_distance, verbose = TRUE)
 }
 \arguments{
-\item{verbose}{}
+\item{dat_object}{data.frame}
+
+\item{mask_object}{'SpatRaster'}
+
+\item{max_distance}{map units if raster is projected}
+
+\item{verbose}{provide verbose output. Default is TRUE}
 }
 \value{
 modified data object minus observations not within specified maximum distance of mask

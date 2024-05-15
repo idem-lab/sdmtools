@@ -5,10 +5,10 @@
 #' Reposition observations to a location within mask if within a specified distance.
 #' Useful for when coastal observations drop off jagged mask and similar
 #'
-#' @param dat_object
-#' @param mask_object
-#' @param max_distance
-#' @param verbose
+#' @param dat_object data.frame
+#' @param mask_object 'SpatRaster'
+#' @param max_distance map units if raster is projected
+#' @param verbose provide verbose output. Default is TRUE
 #'
 #' @return modified data object minus observations not within specified maximum distance of mask
 #' @export
@@ -23,20 +23,20 @@ assign_nearest_land <- function(dat_object,
   message("dat_object object must contain columns 'longitude' and 'latitude'.")
 
   # ensure that data object is spatial data frame
-  spat_dat <- st_as_sf(dat_object)
+  spat_dat <- sf::st_as_sf(dat_object)
 
   # assert that mask is SpatRaster
-  stopifnot(inherits(mask, 'SpatRaster'))
+  stopifnot(inherits(mask_object, 'SpatRaster'))
   message("mask must be a SpatRaster")
 
   # isolate coord info from spatial data frame
-  data_coords <- st_coordinates(spat_dat)
+  data_coords <- sf::st_coordinates(spat_dat)
 
-  spat_dat <- spat_dat %>% mutate(
+  spat_dat <- spat_dat %>% dplyr::mutate(
     longitude = data_coords[,1],
     latitude = data_coords[,2]
   ) %>%
-    select(-geometry)
+    dplyr::select(-geometry)
 
   # find points outside mask
 

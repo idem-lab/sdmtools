@@ -16,7 +16,7 @@ A \code{SpatRaster} objects with mean of zero and standard deviation of one.
 Standardises \code{SpatRaster} objects to mean of zero and standard deviation of one.
 }
 \examples{
-r <- example_rast()
+r <- example_raster()
 
 standardise_rast(r)
 

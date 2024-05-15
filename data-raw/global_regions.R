@@ -4,7 +4,7 @@ library(stringr)
 library(countrycode)
 
 
-iso_countries <- read_csv(
+iso_countries <- readr::read_csv(
   file = "data-raw/tabular/iso3166_countries.csv",
   na = c("") # otherwise mucks up Namibia iso2 NA
 )
@@ -18,8 +18,8 @@ who <- read_csv(
   select(-year)
 
 
-un <- read_csv("data-raw/tabular/un-regions.csv") |>
-  mutate(
+un <- readr::read_csv("data-raw/tabular/un-regions.csv") |>
+  dplyr::mutate(
     country = str_trim(country), # remove trailing whitespace
     iso3 = countrycode::countrycode(
       country,

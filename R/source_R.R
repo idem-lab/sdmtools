@@ -10,7 +10,7 @@
 #' @export
 #'
 #' @examples
-#' #' \dontrun{
+#' \dontrun{
 #'   source_R("/Users/frankenstein/project/R")
 #' }
 source_R <- function(
@@ -23,7 +23,7 @@ source_R <- function(
     full.names = TRUE
   )
 
-  for (i in seq_length(files)){
+  for (i in seq(length(files))){
     source(files[i])
     if(print.names){
       cat(

@@ -6,13 +6,13 @@
 #' @param p A plot object
 #' @param filename `character` to save plot
 #' @param width In `units`
-#' @param height In `units`. If missing, `height` will be scaled to `width` at the
-#' golden ratio.
+#' @param height In `units`. If missing, `height` will be scaled to `width`
+#'   at the golden ratio.
 #' @param units  Units of `width` and `height`. `"px"` — pixels, the default,
-#' `"cm"`, or `"mm"`. `"in"` are not allowed on principle.
-#' @param res
+#'   `"cm"`, or `"mm"`. `"in"` are not allowed on principle.
+#' @param res resolution, default 300px
 #'
-#' @return
+#' @return nothing. Writes a plot to `filename`
 #' @export
 #'
 #' @examples
@@ -20,7 +20,7 @@
 #'
 #' lovely_plot <- plot(1:10)
 #' # why use three lines
-#' png("lovely_plot.png)
+#' png("lovely_plot.png")
 #' lovely_plot
 #' dev.off()
 #'
@@ -43,7 +43,7 @@ save_plot <- function(
     height <- round(width/1.62)
   }
 
-  png(
+  grDevices::png(
     filename = filename,
     width = width,
     height = height,
@@ -51,6 +51,6 @@ save_plot <- function(
     res = res
   )
   print(p)
-  dev.off()
+  grDevices::dev.off()
 
 }

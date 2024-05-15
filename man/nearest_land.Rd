@@ -7,7 +7,11 @@
 nearest_land(points, raster, max_distance)
 }
 \arguments{
-\item{max_distance}{}
+\item{points}{anything \code{\link[terra:extract]{terra::extract()}} accepts as the y argument}
+
+\item{raster}{raster}
+
+\item{max_distance}{the map units if raster is projected}
 }
 \value{
 matrix of XY coordinates of nearest cell on mask, or NAs

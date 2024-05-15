@@ -8,10 +8,12 @@
 #' non-missing pixels. If all points fall on missing pixels,
 #' the function throws an error.
 #'
-#' @param points
-#' @param raster
+#' @param points dataframe containing columns named 'longitude' and 'latitude'
+#' @param mask a raster
 #'
-#' @return
+#' @return dataframe of longitude and latitude only those rows with
+#'   points falling on non-missing pixels. If all points fall on missing
+#'   pixels, the function throws an error.
 #' @export
 #'
 #' @examples
@@ -32,7 +34,7 @@ inside_mask <- function(points, mask){
 
     # get indexes of points which fall inside the mask
     inside_idx <- which(
-      !(is.na(extract(mask, points[,c('longitude', 'latitude')], ID=FALSE)))
+      !(is.na(terra::extract(mask, points[,c('longitude', 'latitude')], ID=FALSE)))
       )
 
     # subset these points

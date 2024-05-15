@@ -1,9 +1,9 @@
 #' Title
 #'
-#' @param df
-#' @param msk
+#' @param df data.frame
+#' @param msk mask
 #'
-#' @return
+#' @return tibble of two columsn, lon and lat
 #' @export
 #'
 #' @examples
@@ -19,8 +19,8 @@ maskpointsdf <- function(df, msk){
   vct <- terra::mask(vctraw, pol)
 
   terra::geom(vct) %>%
-    as_tibble %>%
-    select(
+    tibble::as_tibble() %>%
+    dplyr::select(
       lon = x,
       lat = y
     )

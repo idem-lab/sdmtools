@@ -15,6 +15,7 @@
 #' Raster layers creates with extent of `terra::ext(-18.0000019073486, 52.0416647593181, -34.9999987284343, 37.5416679382324)`
 #'
 #' @examples
+#' \dontrun{
 #' # Create an object in workspace
 #' africa_mask_v <- make_africa_mask(type = "vector")
 #'
@@ -23,6 +24,7 @@
 #'
 #' # or do both at once
 #' africa_mask_r <- make_africa_mask("africa_mask.tif")
+#' }
 make_africa_mask <- function(
     file_name = NULL,
     type = c("raster", "vector"),

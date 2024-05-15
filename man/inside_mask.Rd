@@ -7,7 +7,14 @@
 inside_mask(points, mask)
 }
 \arguments{
-\item{raster}{}
+\item{points}{dataframe containing columns named 'longitude' and 'latitude'}
+
+\item{mask}{a raster}
+}
+\value{
+dataframe of longitude and latitude only those rows with
+points falling on non-missing pixels. If all points fall on missing
+pixels, the function throws an error.
 }
 \description{
 Checks whether longitude and latitude coincide with

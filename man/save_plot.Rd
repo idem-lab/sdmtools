@@ -20,14 +20,31 @@ save_plot(
 
 \item{width}{In \code{units}}
 
-\item{height}{In \code{units}. If missing, \code{height} will be scaled to \code{width} at the
-golden ratio.}
+\item{height}{In \code{units}. If missing, \code{height} will be scaled to \code{width}
+at the golden ratio.}
 
 \item{units}{Units of \code{width} and \code{height}. \code{"px"} — pixels, the default,
 \code{"cm"}, or \code{"mm"}. \code{"in"} are not allowed on principle.}
 
-\item{res}{}
+\item{res}{resolution, default 300px}
+}
+\value{
+nothing. Writes a plot to \code{filename}
 }
 \description{
 Single line wrapper to save plot as png
+}
+\examples{
+\dontrun{
+
+lovely_plot <- plot(1:10)
+# why use three lines
+png("lovely_plot.png")
+lovely_plot
+dev.off()
+
+#when you could use one
+save_plot(p = lovely_plot, "lovely_plot.png")
+
+}
 }

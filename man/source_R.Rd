@@ -18,7 +18,7 @@ Scripts are sourced to local environment. \code{NULL} returned.
 Sources all scripts in a specified directory and optionally prints paths.
 }
 \examples{
-#' \dontrun{
+\dontrun{
   source_R("/Users/frankenstein/project/R")
 }
 }
