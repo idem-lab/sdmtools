@@ -23,7 +23,7 @@ assign_nearest_land <- function(dat_object,
   message("dat_object object must contain columns 'longitude' and 'latitude'.")
 
   # ensure that data object is spatial data frame
-  sf::spat_dat <- st_as_sf(dat_object)
+  spat_dat <- sf::st_as_sf(dat_object)
 
   # assert that mask is SpatRaster
   stopifnot(inherits(mask_object, 'SpatRaster'))
