@@ -4,7 +4,7 @@
 #'
 #'@param x A `SpatRaster`
 #'@param grain Grain of splitting.
-#'@param write_temp
+#'@param write_temp write to a tempfile. Default is FALSE
 #'
 #'@return A list of `SpatRaster`s of length `grain^2`.
 #'@export
@@ -12,6 +12,7 @@
 #' @examples
 #'
 #'# Split a raster into four
+#' library(terra)
 #' r <- example_raster()
 #' s <- split_rast(r, grain = 2)
 #' s

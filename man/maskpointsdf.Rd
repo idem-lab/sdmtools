@@ -7,7 +7,12 @@
 maskpointsdf(df, msk)
 }
 \arguments{
-\item{msk}{}
+\item{df}{data.frame}
+
+\item{msk}{mask}
+}
+\value{
+tibble of two columsn, lon and lat
 }
 \description{
 Title

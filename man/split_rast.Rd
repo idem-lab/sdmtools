@@ -11,7 +11,7 @@ split_rast(x, grain = 4, write_temp = FALSE)
 
 \item{grain}{Grain of splitting.}
 
-\item{write_temp}{}
+\item{write_temp}{write to a tempfile. Default is FALSE}
 }
 \value{
 A list of \code{SpatRaster}s of length \code{grain^2}.
@@ -26,6 +26,7 @@ geographic sized rasters covering the extent of  \code{x}
 \examples{
 
 # Split a raster into four
+library(terra)
 r <- example_raster()
 s <- split_rast(r, grain = 2)
 s

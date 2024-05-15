@@ -8,10 +8,12 @@
 #' non-missing pixels. If all points fall on missing pixels,
 #' the function throws an error.
 #'
-#' @param points
-#' @param raster
+#' @param points dataframe containing columns named 'longitude' and 'latitude'
+#' @param mask a raster
 #'
-#' @return
+#' @return dataframe of longitude and latitude only those rows with
+#'   points falling on non-missing pixels. If all points fall on missing
+#'   pixels, the function throws an error.
 #' @export
 #'
 #' @examples

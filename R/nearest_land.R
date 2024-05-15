@@ -3,9 +3,9 @@
 #' Adapted from seegSDM
 #' Identify closest neighbouring cell that does not return NA on raster mask
 #'
-#' @param points
-#' @param raster
-#' @param max_distance
+#' @param points anything [terra::extract()] accepts as the y argument
+#' @param raster raster
+#' @param max_distance the map units if raster is projected
 #'
 #' @return matrix of XY coordinates of nearest cell on mask, or NAs
 #' @export
