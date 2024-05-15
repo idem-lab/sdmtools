@@ -13,7 +13,7 @@ example_mask <- function(raster, pc_threshold = NULL) {
   ecdf <- ecdf(terra::values(raster))
 
   # identify the value corresponding to desired
-  threshold_value <- quantile(values(raster),
+  threshold_value <- stats::quantile(terra::values(raster),
                               pc_threshold,
                               na.rm=TRUE)
 

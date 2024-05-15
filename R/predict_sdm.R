@@ -33,7 +33,7 @@ predict_sdm <- function(
     }
   }
 
-  prediction <- predict(covariates, model, na.rm = TRUE, type = type)
+  prediction <- stats::predict(covariates, model, na.rm = TRUE, type = type)
   names(prediction) <- layer_name
 
   return(prediction)

@@ -36,7 +36,7 @@ https://ourworldindata.org/grapher/who-regions
 World Health Organization – processed by Our World in Data. “WHO region”
 \link{dataset}. World Health Organization \link{original data}.
 
-\code{continent} defined bty \code{countrycode::codelist$continent}, (largely?) by
+\code{continent} defined by \code{countrycode::codelist$continent}, (largely?) by
 World Bank.
 }
 \usage{

@@ -33,7 +33,7 @@
 #'  [dataset]. World Health Organization [original data].
 #'
 #'
-#'  `continent` defined bty `countrycode::codelist$continent`, (largely?) by
+#'  `continent` defined by `countrycode::codelist$continent`, (largely?) by
 #'  World Bank.
 #'
 #'

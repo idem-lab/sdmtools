@@ -24,12 +24,12 @@ example_raster <- function(
   }
 
   raster_log_norm <- matrix(
-  data = rlnorm(100),
+  data = stats::rlnorm(100),
   nrow = 10,
   ncol = 10
 ) %>%
   terra::rast() %>%
-  setNames("example")
+  stats::setNames("example")
 
 
   if(!is.null(layername)){
@@ -56,7 +56,7 @@ example_vector <- function(seed = NULL){
   }
 
   vector_unif <- matrix(
-    data = runif(20, 0, 10),
+    data = stats::runif(20, 0, 10),
     nrow = 10) %>%
     terra::vect(type = "points")
 
