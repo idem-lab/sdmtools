@@ -20,7 +20,7 @@
 #'
 #' lovely_plot <- plot(1:10)
 #' # why use three lines
-#' png("lovely_plot.png)
+#' png("lovely_plot.png")
 #' lovely_plot
 #' dev.off()
 #'
