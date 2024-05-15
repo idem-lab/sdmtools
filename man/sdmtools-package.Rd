@@ -11,8 +11,8 @@ What the package does (one paragraph).
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/geryan/sdmtools}
-  \item Report bugs at \url{https://github.com/geryan/sdmtools/issues}
+  \item \url{https://github.com/idem-lab/sdmtools}
+  \item Report bugs at \url{https://github.com/idem-lab/sdmtools/issues}
 }
 
 }

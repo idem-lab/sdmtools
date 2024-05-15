@@ -8,8 +8,8 @@ Authors@R: c(
   )
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
-URL: https://github.com/geryan/sdmtools
-BugReports: https://github.com/geryan/sdmtools/issues
+URL: https://github.com/idem-lab/sdmtools
+BugReports: https://github.com/idem-lab/sdmtools/issues
 Depends: 
     R (>= 4.1.0)
 Imports:
