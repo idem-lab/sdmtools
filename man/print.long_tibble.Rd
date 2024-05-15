@@ -4,10 +4,12 @@
 \alias{print.long_tibble}
 \title{Print method for class \code{long_tibble}}
 \usage{
-\method{print}{long_tibble}(x)
+\method{print}{long_tibble}(x, ...)
 }
 \arguments{
 \item{x}{An object of class \code{long_tibble}.}
+
+\item{...}{extra arguments for printing}
 }
 \description{
 Prints data tables stored in \code{sdmtools} for their entire length*, but maintains other nice print features

@@ -17,6 +17,7 @@ new_long_tibble <- function(x){
 #' of `tbl_df`, i.e., tibbles.
 #'
 #' @param x An object of class `long_tibble`.
+#' @param ... extra arguments for printing
 #'
 #' @export
 #'
@@ -28,7 +29,7 @@ new_long_tibble <- function(x){
 #' 999 lines, which none currently are.
 #'
 #'
-print.long_tibble <- function(x){
+print.long_tibble <- function(x, ...){
   x |>
     tibble::as_tibble() |>
     print(n = 999)
