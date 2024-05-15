@@ -19,18 +19,17 @@
 #'  `un-regions.csv` manually created from tables on "Regional groups of Member
 #'  States"
 #'
-#'  \link{https://www.un.org/dgacm/en/content/regional-groups}
+#'  \url{https://www.un.org/dgacm/en/content/regional-groups}
 #'
 #'  2024-02-02
 #'
 #'  `who-regions.csv` was downloaded from
 #'
-#'  \link{https://ourworldindata.org/grapher/who-regions}
+#'  \url{https://ourworldindata.org/grapher/who-regions}
 #'
 #'  2024-02-02
 #'
-#'  World Health Organization – processed by Our World in Data. “WHO region”
-#'  [dataset]. World Health Organization [original data].
+#'  World Health Organization – processed by Our World in Data & World Health Organization.
 #'
 #'
 #'  `continent` defined by `countrycode::codelist$continent`, (largely?) by
