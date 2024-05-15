@@ -1,7 +1,6 @@
-testthat::test_that(
+test_that(
   "is SpatVector",
   {
-
     library(terra)
 
     mv <- make_africa_mask(
@@ -9,11 +8,11 @@ testthat::test_that(
       countries = "NGA"
     )
 
-    testthat::expect_s4_class(mv, "SpatVector")
+    expect_s4_class(mv, "SpatVector")
   }
 )
 
-testthat::test_that(
+test_that(
   "low is SpatRaster",
   {
     library(terra)
@@ -23,14 +22,13 @@ testthat::test_that(
       countries = "UGA"
     )
 
-    testthat::expect_s4_class(ml, "SpatRaster")
+    expect_s4_class(ml, "SpatRaster")
 
-    testthat::expect_equal(terra::res(ml), c(0.04166667, 0.04166667))
-
+    expect_equal(res(ml), c(0.04166667, 0.04166667))
   }
 )
 
-testthat::test_that(
+test_that(
   "high is SpatRaster",
   {
     library(terra)
@@ -40,8 +38,8 @@ testthat::test_that(
       countries = "MOZ"
     )
 
-    testthat::expect_s4_class(mh, "SpatRaster")
+    expect_s4_class(mh, "SpatRaster")
 
-    testthat::expect_equal(terra::res(mh), c(0.008333333, 0.008333333))
+    expect_equal(res(mh), c(0.008333333, 0.008333333))
   }
 )
