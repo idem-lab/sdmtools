@@ -19,13 +19,13 @@
 #'  `un-regions.csv` manually created from tables on "Regional groups of Member
 #'  States"
 #'
-#'  https://www.un.org/dgacm/en/content/regional-groups
+#'  \link{https://www.un.org/dgacm/en/content/regional-groups}
 #'
 #'  2024-02-02
 #'
 #'  `who-regions.csv` was downloaded from
 #'
-#'  https://ourworldindata.org/grapher/who-regions
+#'  \link{https://ourworldindata.org/grapher/who-regions}
 #'
 #'  2024-02-02
 #'
@@ -76,4 +76,5 @@
 #'purposes.
 #'
 #'
+
 "global_regions"
