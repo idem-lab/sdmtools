@@ -56,7 +56,7 @@ mask_all <- function(
 
   naidx <- apply(rvs, 1, FUN = anyNA)
 
-  rvs[naidx, 1:3] <- NA
+  rvs[naidx, 1:ncol(rvs)] <- NA
 
   rasts[] <- rvs
 
