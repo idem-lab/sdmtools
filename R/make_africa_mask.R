@@ -3,7 +3,7 @@
 #' Makes a `SpatRaster` or `SpatVector` mask layer of Africa, based on shapefiles for African nations from the `malaraAtlas` package.
 #'
 #'
-#' @param file_name Character of file path and name if  mask is to be written to disc.
+#' @param filename Character of file path and name if  mask is to be written to disc.
 #' @param type Character `raster` or `vector`; to return mask as either `SpatRaster` or `SpatVector`.
 #' @param res Character `"high"` or `"low"`; corresponding to resolution of 0.008333333 or 0.04166667 decimal degrees
 #' @param countries Character of ISO3 country names. If `NULL` returns all countries in Africa.
@@ -20,31 +20,31 @@
 #' africa_mask_v <- make_africa_mask(type = "vector")
 #'
 #' # Save to disk
-#' make_africa_mask(file_name = "africa_mask.tif", type = "raster")
+#' make_africa_mask(filename = "africa_mask.tif", type = "raster")
 #'
 #' # or do both at once
 #' africa_mask_r <- make_africa_mask("africa_mask.tif")
 #' }
 make_africa_mask <- function(
-    file_name = NULL,
+    filename = NULL,
     type = c("raster", "vector"),
     res = c("high", "low"),
     countries = NULL
   ){
 
-  if(!is.null(file_name)){
-    if(file.exists(file_name)){
+  if(!is.null(filename)){
+    if(file.exists(filename)){
 
       warning(sprintf(
         "%s exists\nUsing existing file\nto re-generate, delete existing %s",
-        file_name,
-        file_name
+        filename,
+        filename
       ))
 
       if(type == "raster") {
-        return(terra::rast(file_name))
+        return(terra::rast(filename))
       } else if(type == "vector"){
-        return(terra::vect(file_name))
+        return(terra::vect(filename))
       }
 
 
@@ -75,13 +75,13 @@ make_africa_mask <- function(
 
   if(type == "vector"){
 
-    if(!is.null(file_name)){
+    if(!is.null(filename)){
       terra::writeVector(
         x = afvect,
-        filename = file_name
+        filename = filename
       )
 
-      afvect <- terra::vect(file_name)
+      afvect <- terra::vect(filename)
     }
 
     return(afvect)
@@ -114,14 +114,14 @@ make_africa_mask <- function(
       terra::mask(afvect)
   }
 
-  if(!is.null(file_name)){
+  if(!is.null(filename)){
     terra::writeRaster(
       x = afrast,
-      filename = file_name,
+      filename = filename,
       overwrite = TRUE
     )
 
-    afrast <- terra::rast(file_name)
+    afrast <- terra::rast(filename)
   }
 
   gc()

@@ -5,14 +5,14 @@
 \title{Make Africa Mask}
 \usage{
 make_africa_mask(
-  file_name = NULL,
+  filename = NULL,
   type = c("raster", "vector"),
   res = c("high", "low"),
   countries = NULL
 )
 }
 \arguments{
-\item{file_name}{Character of file path and name if  mask is to be written to disc.}
+\item{filename}{Character of file path and name if  mask is to be written to disc.}
 
 \item{type}{Character \code{raster} or \code{vector}; to return mask as either \code{SpatRaster} or \code{SpatVector}.}
 
@@ -35,7 +35,7 @@ Raster layers creates with extent of \code{terra::ext(-18.0000019073486, 52.0416
 africa_mask_v <- make_africa_mask(type = "vector")
 
 # Save to disk
-make_africa_mask(file_name = "africa_mask.tif", type = "raster")
+make_africa_mask(filename = "africa_mask.tif", type = "raster")
 
 # or do both at once
 africa_mask_r <- make_africa_mask("africa_mask.tif")
