@@ -31,11 +31,13 @@ A set of helper functions to facilitate species distribution modelling.
 
 ## Installation
 
-You can install the development version of sdmtools from [GitHub](https://github.com/) with:
+You can install  `sdmtools` with:
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("idem-lab/sdmtools")
+install.packages(
+"sdmtools",
+repos = "https://idem-lab.r-universe.dev"
+)
 ```
 
 ## Data

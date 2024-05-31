@@ -27,12 +27,13 @@ A set of helper functions to facilitate species distribution modelling.
 
 ## Installation
 
-You can install the development version of sdmtools from
-[GitHub](https://github.com/) with:
+You can install `sdmtools` with:
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("idem-lab/sdmtools")
+install.packages(
+"sdmtools",
+repos = "https://idem-lab.r-universe.dev"
+)
 ```
 
 ## Data
@@ -257,7 +258,10 @@ functions, rather than storing it.
 
 ``` r
 library(terra)
-#> terra 1.7.71
+#> terra 1.7.79
+```
+
+``` r
 r <- example_raster()
 r
 #> class       : SpatRaster 
@@ -269,6 +273,9 @@ r
 #> name        :   example 
 #> min value   : 0.0627102 
 #> max value   : 7.3352526
+```
+
+``` r
 plot(r)
 ```
 
@@ -285,6 +292,9 @@ v
 #>  dimensions  : 10, 0  (geometries, attributes)
 #>  extent      : 0.2293562, 8.00672, 1.375653, 8.951683  (xmin, xmax, ymin, ymax)
 #>  coord. ref. :
+```
+
+``` r
 plot(v)
 ```
 
@@ -304,6 +314,9 @@ africa_mask <- make_africa_mask(type = "vector")
 #> planar
 #> Warning: [crs<-] not all geometries were transferred, use svc for a geometry
 #> collection
+```
+
+``` r
 plot(africa_mask)
 ```
 
@@ -438,6 +451,9 @@ covs
 #> names       :      cov1,       cov2 
 #> min values  : -1.038908, -0.8272874 
 #> max values  :  4.216948,  4.9053485
+```
+
+``` r
 
 plot(covs)
 ```
