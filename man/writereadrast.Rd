@@ -4,7 +4,7 @@
 \alias{writereadrast}
 \title{Write and read back \code{spatRaster}}
 \usage{
-writereadrast(x, filename, overwrite = TRUE)
+writereadrast(x, filename, overwrite = TRUE, layernames = NULL)
 }
 \arguments{
 \item{x}{A \code{terra::SpatRaster}}
@@ -12,6 +12,8 @@ writereadrast(x, filename, overwrite = TRUE)
 \item{filename}{A \code{character} file path and name to save \code{x} to disc.}
 
 \item{overwrite}{\code{logical}; overwrite existing raster.}
+
+\item{layernames}{\code{character} of length \code{nlyr(x)}}
 }
 \value{
 A \code{terra::SpatRaster} object reading from disc at \code{filename}.

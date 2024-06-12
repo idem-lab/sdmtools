@@ -7,6 +7,7 @@
 #' @param x A `terra::SpatRaster`
 #' @param filename A `character` file path and name to save `x` to disc.
 #' @param overwrite `logical`; overwrite existing raster.
+#' @param layernames `character` of length `nlyr(x)`
 #'
 #' @return A `terra::SpatRaster` object reading from disc at `filename`.
 #' @export
@@ -24,8 +25,18 @@
 writereadrast <- function(
     x,
     filename,
-    overwrite = TRUE
+    overwrite = TRUE,
+    layernames = NULL
   ){
+
+  if(!is.null(layernames)){
+    if(length(layernames) != terra::nlyr(x)){
+      stop("length(layernames) != terra::nlyr(x)")
+    }
+
+    names(x) <- layernames
+
+  }
 
   terra::writeRaster(
     x = x,
