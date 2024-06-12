@@ -22,6 +22,7 @@ Useful links:
 Other contributors:
 \itemize{
   \item David Duncan [contributor]
+  \item Nick Tierney [contributor]
 }
 
 }
