@@ -4,14 +4,16 @@
 \alias{import_rasts}
 \title{Import rasters from directory}
 \usage{
-import_rasts(path, ext = ".grd", as_list = c(FALSE, TRUE))
+import_rasts(path, ext = ".grd", as_list = FALSE)
 }
 \arguments{
 \item{path}{Directory path containing rasters}
 
 \item{ext}{Extension type}
 
-\item{as_list}{Should the \code{spatRaster} objects be returned as a \code{list} (\code{TRUE}) or concatenated as layers in a single \code{spatRaster} object (\code{FALSE}; default)}
+\item{as_list}{\code{logical} Should the \code{spatRaster} objects be returned as a
+\code{list} (\code{TRUE}) or concatenated as layers in a single \code{SpatRaster} object
+(\code{FALSE}; default)}
 }
 \value{
 A \code{SpatRaster} if \code{as_list = FALSE}, or list of \code{SpatRaster} objects.
