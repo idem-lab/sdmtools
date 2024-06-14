@@ -7,6 +7,9 @@
 #' @param missing_val If `NULL` missing value are left as is. Otherwise any
 #' `NA` or `NaN` values in `x` that are not `NA` in ref will be replaced by
 #' `missing_val`
+#' @param filename If not `NULL` output will be written to filename
+#' @param overwrite `logical`. If `filename` not `NULL`, then if `TRUE`,
+#' `filename` will be overwritten.
 #'
 #' @return `SpatRaster` of `nlyrs(x)` trimmed to extent and resolution of `ref`.
 #' @export
@@ -15,9 +18,9 @@
 #' #placeholder example
 match_ref <- function(x, ref, missing_val = NULL, filename = NULL, overwrite = TRUE){
 
-  z <- crop(x, ref) |>
-    resample(x = _, ref) |>
-    mask(x = _, mask = ref)
+  z <- terra::crop(x, ref) |>
+    terra::resample(x = _, ref) |>
+    terra::mask(x = _, mask = ref)
 
   if(is.null(missing_val)){
 
@@ -28,7 +31,7 @@ match_ref <- function(x, ref, missing_val = NULL, filename = NULL, overwrite = T
     return(z)
   }
 
-  idx <- which(!is.na(values(ref)))
+  idx <- which(!is.na(terra::values(ref)))
 
   zidx <- values(z)
 

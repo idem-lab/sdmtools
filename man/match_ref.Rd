@@ -14,6 +14,11 @@ match_ref(x, ref, missing_val = NULL, filename = NULL, overwrite = TRUE)
 \item{missing_val}{If \code{NULL} missing value are left as is. Otherwise any
 \code{NA} or \code{NaN} values in \code{x} that are not \code{NA} in ref will be replaced by
 \code{missing_val}}
+
+\item{filename}{If not \code{NULL} output will be written to filename}
+
+\item{overwrite}{\code{logical}. If \code{filename} not \code{NULL}, then if \code{TRUE},
+\code{filename} will be overwritten.}
 }
 \value{
 \code{SpatRaster} of \code{nlyrs(x)} trimmed to extent and resolution of \code{ref}.
