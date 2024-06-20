@@ -13,9 +13,12 @@ std_rast(x, filename = NULL, overwrite = TRUE)
 
 \item{overwrite}{\code{logical} if \code{TRUE} will overwrite \code{filename}}
 }
+\value{
+A \code{SpatRaster} with range 0-1
+}
 \description{
 Standardises all layers in a \code{SpatRaster} to a scale of 0-1,
-by dividing by the maximum value in each layer.
+by dividing by the maximum value in each layer. \emph{Only operates by layer}
 }
 \details{
 Will break for non-numeric rasters
