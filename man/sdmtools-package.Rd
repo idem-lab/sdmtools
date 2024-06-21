@@ -17,7 +17,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Gerry Ryan \email{first.last@example.com} (\href{https://orcid.org/0000-0003-0183-7630}{ORCID})
+\strong{Maintainer}: Gerry Ryan \email{gerard.ryan@telethonkids.org.au} (\href{https://orcid.org/0000-0003-0183-7630}{ORCID})
 
 Other contributors:
 \itemize{
