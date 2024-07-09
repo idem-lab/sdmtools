@@ -163,18 +163,15 @@ cov2 <- example_raster(
   seed = 15.3,
   layername = "cov2"
 )
+
+covs <- c(cov1, cov2)
 ```
 
-`standardise_rast` — standardise a `spatRaster` by transforming it to have a mean of zero and standard deviation of one
+`std_rast` — standardise a `spatRaster` by transforming it to have a range of 0—1
 ```{r}
-cov1_st <- standardise_rast(cov1)
-cov2_st <- standardise_rast(cov2)
+cov1_st <- std_rast(cov1)
 
-covs <- c(cov1_st, cov2_st)
-
-covs
-
-plot(covs)
+plot(cov1_st)
 ```
 
 

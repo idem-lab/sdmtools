@@ -430,32 +430,17 @@ cov2 <- example_raster(
   seed = 15.3,
   layername = "cov2"
 )
+
+covs <- c(cov1, cov2)
 ```
 
-`standardise_rast` — standardise a `spatRaster` by transforming it to
-have a mean of zero and standard deviation of one
+`std_rast` — standardise a `spatRaster` by transforming it to have a
+range of 0—1
 
 ``` r
-cov1_st <- standardise_rast(cov1)
-cov2_st <- standardise_rast(cov2)
+cov1_st <- std_rast(cov1)
 
-covs <- c(cov1_st, cov2_st)
-
-covs
-#> class       : SpatRaster 
-#> dimensions  : 10, 10, 2  (nrow, ncol, nlyr)
-#> resolution  : 1, 1  (x, y)
-#> extent      : 0, 10, 0, 10  (xmin, xmax, ymin, ymax)
-#> coord. ref. :  
-#> source(s)   : memory
-#> names       :      cov1,       cov2 
-#> min values  : -1.038908, -0.8272874 
-#> max values  :  4.216948,  4.9053485
-```
-
-``` r
-
-plot(covs)
+plot(cov1_st)
 ```
 
 <img src="man/figures/README-unnamed-chunk-12-1.png" width="100%" />

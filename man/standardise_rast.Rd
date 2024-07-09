@@ -20,8 +20,9 @@ DO NOT USE THIS FUNCTION
 Instead use \code{terra::scale}
 }
 \examples{
+\dontrun{
 r <- example_raster()
 
 standardise_rast(r)
-
+}
 }

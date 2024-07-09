@@ -13,10 +13,11 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' r <- example_raster()
 #'
 #' standardise_rast(r)
-#'
+#'}
 standardise_rast <- function(x){
 
   stop("This function will shortly be removed from sdmtools\nUse terra::scale instead")
