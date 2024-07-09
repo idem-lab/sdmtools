@@ -2,6 +2,10 @@
 #' @description Masks all `NA` cells across all layers, such that returned layers
 #' have matching `NA` cells.
 #'
+#' @details
+#' **Uses a ton of RAM and will break for larger rasters.**
+#'
+#'
 #' @param rasts `SpatRaster` with `nlyr(rasts)` > 1 to mask
 #' @param filename `character`to save output
 #' @param overwrite `logical` overwrite existing `filename`?

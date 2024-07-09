@@ -20,6 +20,9 @@ mask_all(rasts, filename = NULL, overwrite = FALSE)
 Masks all \code{NA} cells across all layers, such that returned layers
 have matching \code{NA} cells.
 }
+\details{
+\strong{Uses a ton of RAM and will break for larger rasters.}
+}
 \examples{
 
 # Create some SpatRaster layers with non-matching NA cells
