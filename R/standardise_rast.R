@@ -1,6 +1,11 @@
 #' @title Standardise Raster
 #' @description
-#' Standardises `SpatRaster` objects to mean of zero and standard deviation of one.
+#'
+#' **Defunct**.
+#'
+#' DO NOT USE THIS FUNCTION
+#'
+#' Instead use `terra::scale`
 #'
 #' @param x A `SpatRaster` object.
 #'
@@ -14,10 +19,6 @@
 #'
 standardise_rast <- function(x){
 
-  vals <- terra::values(x)
-  meanx <- mean(vals, na.rm = TRUE)
-  sdx <- stats::sd(vals, na.rm = TRUE)
-
-  (x - meanx)/sdx
+  stop("This function will shortly be removed from sdmtools\nUse terra::scale instead")
 
 }
