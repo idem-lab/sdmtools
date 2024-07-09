@@ -13,7 +13,11 @@ standardise_rast(x)
 A \code{SpatRaster} objects with mean of zero and standard deviation of one.
 }
 \description{
-Standardises \code{SpatRaster} objects to mean of zero and standard deviation of one.
+\strong{Defunct}.
+
+DO NOT USE THIS FUNCTION
+
+Instead use \code{terra::scale}
 }
 \examples{
 r <- example_raster()
