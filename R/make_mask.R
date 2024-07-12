@@ -25,7 +25,7 @@
 #' # or do both at once
 #' africa_mask_r <- make_africa_mask("africa_mask.tif")
 #' }
-make_africa_mask <- function(
+make_mask <- function(
     filename = NULL,
     type = c("raster", "vector"),
     res = c("high", "low"),
@@ -52,13 +52,6 @@ make_africa_mask <- function(
   }
 
   type <- match.arg(type)
-
-  # get list of African countries
-  if(is.null(countries)){
-    countries <- sdmtools::global_regions %>%
-      dplyr::filter(continent == "Africa") %>%
-      dplyr::pull(iso3)
-  }
 
   # make using MAP data
   # has issue with validity, st_make_valid 'fixes' this however...?
@@ -127,6 +120,42 @@ make_africa_mask <- function(
   gc()
 
   afrast
+
+}
+
+
+make_africa_mask <- function(
+    filename = NULL,
+    type = c("raster", "vector"),
+    res = c("high", "low")
+){
+
+  # get list of African countries
+  african_countries <- sdmtools::global_regions %>%
+      dplyr::filter(continent == "Africa") %>%
+      dplyr::pull(iso3)
+
+  make_mask(
+    filename = filename,
+    type = type,
+    res = res,
+    countries = african_countries
+  )
+
+}
+
+make_vector_mask <- function(
+    filename = NULL,
+    res = c("high", "low"),
+    countries = NULL
+){
+
+  make_mask(
+    filename = filename,
+    type = "vector",
+    res = res,
+    countries = countries
+  )
 
 }
 
