@@ -1,6 +1,6 @@
-#' @title Make Africa Mask
+#' @title Make Mask
 #' @description
-#' Makes a `SpatRaster` or `SpatVector` mask layer of Africa, based on shapefiles for African nations from the `malaraAtlas` package.
+#' Makes a `SpatRaster` or `SpatVector` mask layer of countries, based on shapefiles for from the `malaraAtlas` package.
 #'
 #'
 #' @param filename Character of file path and name if  mask is to be written to disc.
@@ -8,19 +8,30 @@
 #' @param res Character `"high"` or `"low"`; corresponding to resolution of 0.008333333 or 0.04166667 decimal degrees
 #' @param countries Character of ISO3 country names. If `NULL` returns all countries in Africa.
 #'
+#' @aliases make_africa_mask make_vector_mask
+#' @usage
+#' # standard usage
+#' make_mask(filename = NULL, type = c("raster", "vector"), res = c("high", "low"), countries = NULL)
+#'
+#' # `make_africa_mask` is intended for backward compatibility but is a simple alias for `make_mask`
+#' make_africa_mask(filename = NULL, type = c("raster", "vector"), res = c("high", "low"), countries = NULL)
+#'
+#' # `make_vector_mask` sets `type = "vector"`
+#' make_mask(filename = NULL, res = c("high", "low"), countries = NULL)
+#'
 #' @return `SpatRaster` or `SpatVector` in WGS 84 (EPSG:4326).
 #' @export
 #'
 #' @details
-#' Raster layers creates with extent of `terra::ext(-18.0000019073486, 52.0416647593181, -34.9999987284343, 37.5416679382324)`
+#' If `countries = NULL`, raster layers have extent of `terra::ext(-18.0000019073486, 52.0416647593181, -34.9999987284343, 37.5416679382324)`
 #'
 #' @examples
 #' \dontrun{
 #' # Create an object in workspace
-#' africa_mask_v <- make_africa_mask(type = "vector")
+#' africa_mask_v <- make_mask(type = "vector")
 #'
 #' # Save to disk
-#' make_africa_mask(filename = "africa_mask.tif", type = "raster")
+#' make_mask(filename = "africa_mask.tif", type = "raster")
 #'
 #' # or do both at once
 #' africa_mask_r <- make_africa_mask("africa_mask.tif")
@@ -49,6 +60,13 @@ make_mask <- function(
 
 
     }
+  }
+
+  if(is.null(countries)){
+    # get list of African countries
+    african_countries <- sdmtools::global_regions %>%
+      dplyr::filter(continent == "Africa") %>%
+      dplyr::pull(iso3)
   }
 
   type <- match.arg(type)
@@ -127,19 +145,15 @@ make_mask <- function(
 make_africa_mask <- function(
     filename = NULL,
     type = c("raster", "vector"),
-    res = c("high", "low")
+    res = c("high", "low"),
+    countries = NULL
 ){
-
-  # get list of African countries
-  african_countries <- sdmtools::global_regions %>%
-      dplyr::filter(continent == "Africa") %>%
-      dplyr::pull(iso3)
 
   make_mask(
     filename = filename,
     type = type,
     res = res,
-    countries = african_countries
+    countries = countries
   )
 
 }
