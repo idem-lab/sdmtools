@@ -15,9 +15,7 @@ A \code{SpatRaster} objects with mean of zero and standard deviation of one.
 \description{
 \strong{Defunct}.
 
-DO NOT USE THIS FUNCTION
-
-Instead use \code{terra::scale}
+DO NOT USE THIS FUNCTION; use \code{terra::scale} instead
 }
 \examples{
 \dontrun{
