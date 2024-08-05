@@ -28,6 +28,12 @@ steps: \code{terra::writeRaster} then reading and re-assigning via \code{terra::
 \dontrun{
 # create raster then assign
 r <- sdmtools::example_raster()
+
+# usual workflow in two slow tedious boring steps
+terra::writeRaster(r, "LowerSpringvale.tif")
+s <- terra::rast("LowerSpringvale.tif")
+
+Better workflow in one fast enjoyable lithesome step with `sdmtools`
 r <- writereadrast(r, "tootgarook.tif")
 
 # or roll into single step with pipe
