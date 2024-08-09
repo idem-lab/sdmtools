@@ -19,7 +19,8 @@ as \code{NA}.
 \details{
 Similar in intention to \code{mask_all}, but (a) will work on larger rasters
 because it only holds the values of a single layer in memory at a time, and
-(b) returns a mask layer, rather than masking each layer in \code{r}
+(b) returns a mask layer, rather than masking each layer in \code{r}.
+\strong{Can be very slow}
 }
 \examples{
 r <- example_raster(seed = 10)

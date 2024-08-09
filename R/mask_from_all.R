@@ -6,7 +6,8 @@
 #' @details
 #' Similar in intention to `mask_all`, but (a) will work on larger rasters
 #' because it only holds the values of a single layer in memory at a time, and
-#' (b) returns a mask layer, rather than masking each layer in `r`
+#' (b) returns a mask layer, rather than masking each layer in `r`.
+#' **Can be very slow**
 #'
 #'
 #' @param r `SpatRaster` with >1 layer.
