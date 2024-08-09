@@ -1,0 +1,53 @@
+#' @title Create mask from raster layers
+#' @description
+#' Creates a mask where a cell in any layer of `r` that is `NA` will be returned
+#' as `NA`. Similar in intention to `mask_all` but will work on larger rasters
+#' because it only holds the values of a single layer in memory at a time, and
+#' returns a mask layer, rather than masking each layer in `r`
+#'
+#' @param r
+#'
+#' @return `SpatRaster` with values `NA` or 1.
+#' @export
+#'
+#' @examples
+#' r <- example_raster(seed = 10)
+#' s <- example_raster(seed = 11)
+#'
+#' r[10:20] <- NA
+#'
+#' s[5:15] <- NA
+#'
+#' q <- mask_from_all(c(r,s))
+#'
+#' library("terra")
+#' plot(c(r,s,q))
+#'
+mask_from_all <- function(r){
+
+  j <- nlyr(r)
+
+  if(j == 1){stop("Must have >1 layer")}
+
+  k <- which(is.na(values(r[[1]])))
+
+  for(i in 2:j){
+
+    a <- which(is.na(values(r[[i]])))
+
+    b <- c(k, a)
+
+    d <- duplicated(b)
+
+    k <- b[!d]
+
+  }
+
+  z <- r[[1]]
+
+  z[] <- 1
+  z[k] <- NA
+
+  z
+
+}
