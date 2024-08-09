@@ -14,9 +14,12 @@ mask_from_all(r)
 }
 \description{
 Creates a mask where a cell in any layer of \code{r} that is \code{NA} will be returned
-as \code{NA}. Similar in intention to \code{mask_all} but will work on larger rasters
+as \code{NA}.
+}
+\details{
+Similar in intention to \code{mask_all}, but (a) will work on larger rasters
 because it only holds the values of a single layer in memory at a time, and
-returns a mask layer, rather than masking each layer in \code{r}
+(b) returns a mask layer, rather than masking each layer in \code{r}
 }
 \examples{
 r <- example_raster(seed = 10)
