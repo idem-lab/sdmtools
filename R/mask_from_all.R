@@ -1,9 +1,13 @@
 #' @title Create mask from raster layers
 #' @description
 #' Creates a mask where a cell in any layer of `r` that is `NA` will be returned
-#' as `NA`. Similar in intention to `mask_all` but will work on larger rasters
+#' as `NA`.
+#'
+#' @details
+#' Similar in intention to `mask_all`, but (a) will work on larger rasters
 #' because it only holds the values of a single layer in memory at a time, and
-#' returns a mask layer, rather than masking each layer in `r`
+#' (b) returns a mask layer, rather than masking each layer in `r`
+#'
 #'
 #' @param r
 #'
