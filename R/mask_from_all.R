@@ -9,7 +9,7 @@
 #' (b) returns a mask layer, rather than masking each layer in `r`
 #'
 #'
-#' @param r
+#' @param r `SpatRaster` with >1 layer.
 #'
 #' @return `SpatRaster` with values `NA` or 1.
 #' @export
@@ -29,15 +29,15 @@
 #'
 mask_from_all <- function(r){
 
-  j <- nlyr(r)
+  j <- terra::nlyr(r)
 
   if(j == 1){stop("Must have >1 layer")}
 
-  k <- which(is.na(values(r[[1]])))
+  k <- which(is.na(terra::values(r[[1]])))
 
   for(i in 2:j){
 
-    a <- which(is.na(values(r[[i]])))
+    a <- which(is.na(terra::values(r[[i]])))
 
     b <- c(k, a)
 

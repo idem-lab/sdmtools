@@ -7,7 +7,7 @@
 mask_from_all(r)
 }
 \arguments{
-\item{r}{}
+\item{r}{\code{SpatRaster} with >1 layer.}
 }
 \value{
 \code{SpatRaster} with values \code{NA} or 1.
