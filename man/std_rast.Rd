@@ -4,10 +4,12 @@
 \alias{std_rast}
 \title{Standardise raster}
 \usage{
-std_rast(x, filename = NULL, overwrite = TRUE)
+std_rast(x, reverse, filename = NULL, overwrite = TRUE)
 }
 \arguments{
 \item{x}{\code{SpatRaster} to standardise}
+
+\item{reverse}{\code{logical} if \code{TRUE} will subtract standardised values from 1}
 
 \item{filename}{Optional \code{character} path and filename to write output}
 
@@ -24,6 +26,6 @@ by dividing by the maximum value in each layer. \emph{Only operates by layer}
 Will break for non-numeric rasters
 }
 \examples{
-example_raster() |>
-  std_rast()
+example_raster(seed = 3010) |>
+  std_rast(reverse = TRUE)
 }
