@@ -6,7 +6,9 @@
 #'
 #' @param x A `terra::SpatRaster`
 #' @param filename A `character` file path and name to save `x` to disc.
-#' @param overwrite `logical`; overwrite existing raster.
+#' @param overwrite `logical`; overwrite existing raster. **NB:** by default,
+#' `overwrite = TRUE`, this is the opposite of the default behaviour of
+#' `terra::writeRaster`
 #' @param layernames `character` of length `nlyr(x)`
 #'
 #' @return A `terra::SpatRaster` object reading from disc at `filename`.

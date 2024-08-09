@@ -11,7 +11,9 @@ writereadrast(x, filename, overwrite = TRUE, layernames = NULL)
 
 \item{filename}{A \code{character} file path and name to save \code{x} to disc.}
 
-\item{overwrite}{\code{logical}; overwrite existing raster.}
+\item{overwrite}{\code{logical}; overwrite existing raster. \strong{NB:} by default,
+\code{overwrite = TRUE}, this is the opposite of the default behaviour of
+\code{terra::writeRaster}}
 
 \item{layernames}{\code{character} of length \code{nlyr(x)}}
 }
