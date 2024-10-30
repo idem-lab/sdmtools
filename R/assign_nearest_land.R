@@ -2,7 +2,7 @@
 #' @title Assign to nearest raster cell on mask
 #' @description
 #' Adapted from seegSDM.
-#' Reposition observations to a location within mask if within a specified distance.
+#' Reposition point observations to a location within mask if within a specified distance.
 #' Useful for when coastal observations drop off jagged mask and similar
 #'
 #' @param dat_object data.frame
@@ -19,15 +19,21 @@ assign_nearest_land <- function(dat_object,
                                 max_distance,
                                 verbose=TRUE) {
 
-  stopifnot(sum(colnames(dat_object) %in% c("longitude", "latitude"))==2)
-  message("dat_object object must contain columns 'longitude' and 'latitude'.")
+  if(!sum(colnames(dat_object) %in% c("longitude", "latitude"))==2) {
 
-  # ensure that data object is spatial data frame
-  spat_dat <- sf::st_as_sf(dat_object)
+    stop("Error: dat_object object must contain columns 'longitude' and 'latitude'.")
+
+    }
+
+  # ensure that data object is a simple features spatial data frame
+  spat_dat <- sf::st_as_sf(dat_object, coords = c("longitude", "latitude"))
 
   # assert that mask is SpatRaster
-  stopifnot(inherits(mask_object, 'SpatRaster'))
-  message("mask must be a SpatRaster")
+  if(!inherits(mask_object, 'SpatRaster')) {
+
+    stop("Error: mask must be a SpatRaster")
+
+  }
 
   # isolate coord info from spatial data frame
   data_coords <- sf::st_coordinates(spat_dat)
