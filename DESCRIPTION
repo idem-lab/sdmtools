@@ -9,7 +9,7 @@ Authors@R: c(
   )
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
-URL: https://github.com/idem-lab/sdmtools
+URL: https://github.com/idem-lab/sdmtools, https://idem-lab.github.io/sdmtools/
 BugReports: https://github.com/idem-lab/sdmtools/issues
 Depends: 
     R (>= 4.1.0)
