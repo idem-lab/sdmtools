@@ -12,6 +12,7 @@ What the package does (one paragraph).
 Useful links:
 \itemize{
   \item \url{https://github.com/idem-lab/sdmtools}
+  \item \url{https://idem-lab.github.io/sdmtools/}
   \item Report bugs at \url{https://github.com/idem-lab/sdmtools/issues}
 }
 

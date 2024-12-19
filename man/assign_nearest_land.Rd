@@ -20,6 +20,6 @@ modified data object minus observations not within specified maximum distance of
 }
 \description{
 Adapted from seegSDM.
-Reposition observations to a location within mask if within a specified distance.
+Reposition point observations to a location within mask if within a specified distance.
 Useful for when coastal observations drop off jagged mask and similar
 }

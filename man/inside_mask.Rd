@@ -19,9 +19,10 @@ pixels, the function throws an error.
 \description{
 Checks whether longitude and latitude coincide with
 non-missing pixels of a raster. The function takes two arguments:
-points, a dataframe containing columns named
-longitude' and 'latitude', and mask is a raster. Returns a dataframe
-of longitude and latitude only those rows with points falling on
+points, a dataframe containing at a minimum columns named
+longitude' and 'latitude' (but could include other attributes),
+and mask is a raster. Returns a dataframe of the same dimensions as the
+input object, containing only those rows with points falling on
 non-missing pixels. If all points fall on missing pixels,
 the function throws an error.
 }
