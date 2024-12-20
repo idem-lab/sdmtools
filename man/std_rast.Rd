@@ -4,7 +4,7 @@
 \alias{std_rast}
 \title{Standardise raster}
 \usage{
-std_rast(x, reverse, filename = NULL, overwrite = TRUE)
+std_rast(x, reverse = FALSE, filename = NULL, overwrite = TRUE)
 }
 \arguments{
 \item{x}{\code{SpatRaster} to standardise}
