@@ -6,7 +6,9 @@
 #'
 #' @param x A `terra::SpatRaster`
 #' @param filename A `character` file path and name to save `x` to disc.
-#' @param overwrite `logical`; overwrite existing raster.
+#' @param overwrite `logical`; overwrite existing raster. **NB:** by default,
+#' `overwrite = TRUE`, this is the opposite of the default behaviour of
+#' `terra::writeRaster`
 #' @param layernames `character` of length `nlyr(x)`
 #'
 #' @return A `terra::SpatRaster` object reading from disc at `filename`.
@@ -16,6 +18,12 @@
 #' \dontrun{
 #' # create raster then assign
 #' r <- sdmtools::example_raster()
+#'
+#' # usual workflow in two slow tedious boring steps
+#' terra::writeRaster(r, "LowerSpringvale.tif")
+#' s <- terra::rast("LowerSpringvale.tif")
+#'
+#' Better workflow in one fast enjoyable lithesome step with `sdmtools`
 #' r <- writereadrast(r, "tootgarook.tif")
 #'
 #' # or roll into single step with pipe

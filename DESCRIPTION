@@ -9,7 +9,7 @@ Authors@R: c(
   )
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
-URL: https://github.com/idem-lab/sdmtools
+URL: https://github.com/idem-lab/sdmtools, https://idem-lab.github.io/sdmtools/
 BugReports: https://github.com/idem-lab/sdmtools/issues
 Depends: 
     R (>= 4.1.0)
@@ -30,7 +30,7 @@ Imports:
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 Suggests: 
     testthat (>= 3.0.0)
 Remotes: 

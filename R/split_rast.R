@@ -82,7 +82,7 @@ split_rast <- function(
     ) |>
     dplyr::mutate(
       r = purrr::pmap(
-        .l = list(xmin, xmax, ymin, ymax, x, write_temp),
+        .l = list(xmin, xmax, ymin, ymax),
         .f = function(xmin, xmax, ymin, ymax, x, write_temp){
 
           xt <- terra::ext(c(xmin, xmax, ymin, ymax))
@@ -97,7 +97,9 @@ split_rast <- function(
 
           z
 
-        }
+        },
+        x,
+        write_temp
       )
     ) |>
     dplyr::pull(r)

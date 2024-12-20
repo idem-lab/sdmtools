@@ -3,9 +3,7 @@
 #'
 #' **Defunct**.
 #'
-#' DO NOT USE THIS FUNCTION
-#'
-#' Instead use `terra::scale`
+#' DO NOT USE THIS FUNCTION; use `terra::scale` instead
 #'
 #' @param x A `SpatRaster` object.
 #'

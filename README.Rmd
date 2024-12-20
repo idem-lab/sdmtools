@@ -25,6 +25,7 @@ knitr::opts_chunk$set(
 ![GitHub last commit](https://img.shields.io/github/last-commit/idem-lab/sdmtools)
 ![GitHub R package version](https://img.shields.io/github/r-package/v/idem-lab/sdmtools)
 ![GitHub commits since latest release](https://img.shields.io/github/commits-since/idem-lab/sdmtools/latest)
+[![Codecov test coverage](https://codecov.io/gh/idem-lab/sdmtools/graph/badge.svg)](https://app.codecov.io/gh/idem-lab/sdmtools)
 <!-- badges: end -->
 
 A set of helper functions to facilitate species distribution modelling.
