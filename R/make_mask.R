@@ -1,6 +1,6 @@
 #' @title Make Mask
 #' @description Makes a `SpatRaster` or `SpatVector` mask layer of countries,
-#' based on shapefiles for from the `malaraAtlas` package.
+#'   based on shapefiles for from the `malaraAtlas` package.
 #'
 #'
 #' @param filename Character of file path and name if  mask is to be written to
@@ -19,14 +19,15 @@
 #' @export
 #'
 #' @details # standard usage make_mask(filename = NULL, type = c("raster",
-#' "vector"), res = c("high", "low"), countries = NULL)
+#'   "vector"), res = c("high", "low"), countries = NULL)
 #'
-#' `make_africa_mask` is intended for backward compatibility but is a simple
-#' alias for `make_mask` make_africa_mask(filename = NULL, type = c("raster",
-#' "vector"), res = c("high", "low"), countries = NULL)
+#'   `make_africa_mask` is deprecated, and is intended for backward
+#'   compatibility. It is a simple alias for `make_mask`:
+#'   `make_africa_mask(filename = NULL, type = c("raster", "vector"), res =
+#'   c("high", "low"), countries = NULL)`
 #'
-#' `make_vector_mask` sets `type = "vector"` make_mask(filename = NULL, res =
-#' c("high", "low"), countries = NULL)
+#'   `make_vector_mask` sets `type = "vector"`: `make_mask(filename = NULL, type
+#'   = "vector", res =' c("high", "low"), countries = NULL)`
 #' @examples
 #' \dontrun{
 #' # Create an object in workspace

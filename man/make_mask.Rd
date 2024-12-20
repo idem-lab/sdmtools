@@ -39,12 +39,11 @@ based on shapefiles for from the \code{malaraAtlas} package.
 \section{standard usage make_mask(filename = NULL, type = c("raster",}{
 "vector"), res = c("high", "low"), countries = NULL)
 
-\code{make_africa_mask} is intended for backward compatibility but is a simple
-alias for \code{make_mask} make_africa_mask(filename = NULL, type = c("raster",
-"vector"), res = c("high", "low"), countries = NULL)
+\code{make_africa_mask} is deprecated, and is intended for backward
+compatibility. It is a simple alias for \code{make_mask}:
+\code{make_africa_mask(filename = NULL, type = c("raster", "vector"), res = c("high", "low"), countries = NULL)}
 
-\code{make_vector_mask} sets \code{type = "vector"} make_mask(filename = NULL, res =
-c("high", "low"), countries = NULL)
+\code{make_vector_mask} sets \code{type = "vector"}: \verb{make_mask(filename = NULL, type = "vector", res =' c("high", "low"), countries = NULL)}
 }
 
 \examples{
