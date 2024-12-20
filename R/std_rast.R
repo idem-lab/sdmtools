@@ -17,7 +17,7 @@
 #' @examples
 #' example_raster(seed = 3010) |>
 #'   std_rast(reverse = TRUE)
-std_rast <- function(x, reverse, filename = NULL, overwrite = TRUE){
+std_rast <- function(x, reverse = FALSE, filename = NULL, overwrite = TRUE){
   vals <- terra::values(x)
 
   nvs <- apply(

@@ -21,6 +21,8 @@ commit](https://img.shields.io/github/last-commit/idem-lab/sdmtools)
 version](https://img.shields.io/github/r-package/v/idem-lab/sdmtools)
 ![GitHub commits since latest
 release](https://img.shields.io/github/commits-since/idem-lab/sdmtools/latest)
+[![Codecov test
+coverage](https://codecov.io/gh/idem-lab/sdmtools/graph/badge.svg)](https://app.codecov.io/gh/idem-lab/sdmtools)
 <!-- badges: end -->
 
 A set of helper functions to facilitate species distribution modelling.
@@ -258,10 +260,7 @@ functions, rather than storing it.
 
 ``` r
 library(terra)
-#> terra 1.7.79
-```
-
-``` r
+#> terra 1.8.5
 r <- example_raster()
 r
 #> class       : SpatRaster 
@@ -273,9 +272,6 @@ r
 #> name        :   example 
 #> min value   : 0.0627102 
 #> max value   : 7.3352526
-```
-
-``` r
 plot(r)
 ```
 
@@ -292,9 +288,6 @@ v
 #>  dimensions  : 10, 0  (geometries, attributes)
 #>  extent      : 0.2293562, 8.00672, 1.375653, 8.951683  (xmin, xmax, ymin, ymax)
 #>  coord. ref. :
-```
-
-``` r
 plot(v)
 ```
 
@@ -310,13 +303,12 @@ africa_mask <- make_africa_mask(type = "vector")
 #> Loading ISO 19139 XML schemas...
 #> Loading ISO 19115 codelists...
 #> Please Note: Because you did not provide a version, by default the version being used is 202403 (This is the most recent version of admin unit shape data. To see other version options use function listShpVersions)
+#> Start tag expected, '<' not found
+#> Start tag expected, '<' not found
 #> although coordinates are longitude/latitude, st_union assumes that they are
 #> planar
 #> Warning: [crs<-] not all geometries were transferred, use svc for a geometry
 #> collection
-```
-
-``` r
 plot(africa_mask)
 ```
 
