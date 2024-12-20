@@ -269,9 +269,8 @@ Europe
 <p><code>example_raster</code> — an example <code>spatRaster</code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; terra 1.7.79</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/example_raster.html">example_raster</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; terra 1.8.5</span></span>
+<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/example_raster.html">example_raster</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">r</span></span>
 <span><span class="co">#&gt; class       : SpatRaster </span></span>
 <span><span class="co">#&gt; dimensions  : 10, 10, 1  (nrow, ncol, nlyr)</span></span>
@@ -281,12 +280,11 @@ Europe
 <span><span class="co">#&gt; source(s)   : memory</span></span>
 <span><span class="co">#&gt; name        :   example </span></span>
 <span><span class="co">#&gt; min value   : 0.0627102 </span></span>
-<span><span class="co">#&gt; max value   : 7.3352526</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt; max value   : 7.3352526</span></span>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-5-1.png" width="100%"></p>
 <p><code>example_vector</code> — an example <code>spatVector</code>.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/example_vector.html">example_vector</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">v</span></span>
@@ -294,23 +292,23 @@ Europe
 <span><span class="co">#&gt;  geometry    : points </span></span>
 <span><span class="co">#&gt;  dimensions  : 10, 0  (geometries, attributes)</span></span>
 <span><span class="co">#&gt;  extent      : 0.2293562, 8.00672, 1.375653, 8.951683  (xmin, xmax, ymin, ymax)</span></span>
-<span><span class="co">#&gt;  coord. ref. :</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt;  coord. ref. :</span></span>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-6-1.png" width="100%"></p>
 <p><code>make_africa_mask</code> — makes a mask layer of Africa based on shapefiles from <code><a href="https://rdrr.io/pkg/malariaAtlas/man/getShp.html" class="external-link">malariaAtlas::getShp</a></code>. Can produce either a <code>SpatRaster</code> or <code>SpatVector</code>.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="va">africa_mask</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/make_africa_mask.html">make_africa_mask</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"vector"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Loading ISO 19139 XML schemas...</span></span>
 <span><span class="co">#&gt; Loading ISO 19115 codelists...</span></span>
 <span><span class="co">#&gt; Please Note: Because you did not provide a version, by default the version being used is 202403 (This is the most recent version of admin unit shape data. To see other version options use function listShpVersions)</span></span>
+<span><span class="co">#&gt; Start tag expected, '&lt;' not found</span></span>
+<span><span class="co">#&gt; Start tag expected, '&lt;' not found</span></span>
 <span><span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are</span></span>
 <span><span class="co">#&gt; planar</span></span>
 <span><span class="co">#&gt; Warning: [crs&lt;-] not all geometries were transferred, use svc for a geometry</span></span>
-<span><span class="co">#&gt; collection</span></span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">africa_mask</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt; collection</span></span>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">africa_mask</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-7-1.png" width="100%"></p>
 </div>
 </div>
@@ -318,17 +316,17 @@ Europe
 <h2 id="function-examples">Function examples<a class="anchor" aria-label="anchor" href="#function-examples"></a>
 </h2>
 <p><code>rastpointplot</code> — simple utility to plot a raster with points over it.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/rastpointplot.html">rastpointplot</a></span><span class="op">(</span><span class="va">r</span>,<span class="va">v</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-8-1.png" width="100%"></p>
 <p><code>source_R</code> — source all R files in a target directory</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/source_R.html">source_R</a></span><span class="op">(</span><span class="st">"/Users/frankenstein/project/R"</span><span class="op">)</span> <span class="co"># do not run</span></span></code></pre></div>
 <p><code>import_rasts</code> — import all rasters from a directory into a single object</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rasters</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/import_rasts.html">import_rasts</a></span><span class="op">(</span><span class="st">"/data/grids/covariates"</span><span class="op">)</span> <span class="co"># do not run</span></span></code></pre></div>
 <p><code>split_rast</code> — split a raster.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/example_raster.html">example_raster</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/split_rast.html">split_rast</a></span><span class="op">(</span><span class="va">r</span>, grain <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
@@ -377,7 +375,7 @@ Europe
 <span><span class="co">#&gt; name        :   example </span></span>
 <span><span class="co">#&gt; min value   : 0.0627102 </span></span>
 <span><span class="co">#&gt; max value   : 5.7145289</span></span></code></pre></div>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ps</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span></span>
 <span>  <span class="va">s</span>,</span>
 <span>  FUN <span class="op">=</span> <span class="va">extend</span>,</span>
@@ -395,7 +393,7 @@ Europe
 <h3 id="functions-for-a-species-distribution-modelling-workflow">Functions for a species distribution modelling workflow<a class="anchor" aria-label="anchor" href="#functions-for-a-species-distribution-modelling-workflow"></a>
 </h3>
 <p>We have some covariate layers: <code>cov1</code> and <code>cov2</code></p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">cov1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/example_raster.html">example_raster</a></span><span class="op">(</span></span>
@@ -409,13 +407,13 @@ Europe
 <span></span>
 <span><span class="va">covs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">cov1</span>, <span class="va">cov2</span><span class="op">)</span></span></code></pre></div>
 <p><code>std_rast</code> — standardise a <code>spatRaster</code> by transforming it to have a range of 0—1</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cov1_st</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/std_rast.html">std_rast</a></span><span class="op">(</span><span class="va">cov1</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">cov1_st</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-12-1.png" width="100%"></p>
 <p>We have some presences and absences</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">presences</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/example_vector.html">example_vector</a></span><span class="op">(</span>seed <span class="op">=</span> <span class="fl">68</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"xy"</span><span class="op">)</span></span>
 <span><span class="va">absences</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/example_vector.html">example_vector</a></span><span class="op">(</span>seed <span class="op">=</span> <span class="fl">9.6</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
@@ -435,14 +433,14 @@ Europe
 <span><span class="co">#&gt; 10 1.365547 5.741829</span></span></code></pre></div>
 <p><code>extract_covariates</code> — extract covariate values from <code>spatRaster</code> or <code>raster</code> layers for a given set of points</p>
 <p>Pass in either <code>presences</code> and <code>absences</code> as a <code>data.frame</code> or <code>tibble</code> of with , or <code>presences_and_absences</code> as a single data frame points with a presence or ID column(s)</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sdm_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_covariates.html">extract_covariates</a></span><span class="op">(</span></span>
 <span>  covariates <span class="op">=</span> <span class="va">covs</span>,</span>
 <span>  presences <span class="op">=</span> <span class="va">presences</span>,</span>
 <span>  absences <span class="op">=</span> <span class="va">absences</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p>We can then make a spatial prediction of our model using <code>predict_sdm</code> and write and read it out in a single step with <code>writereadrast</code>, and write it to a temporary file with <code>temptif</code>:</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># first we make a simple model, using data from above</span></span>
 <span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span><span class="va">presence</span> <span class="op">~</span> <span class="va">cov1</span> <span class="op">+</span> <span class="va">cov2</span>, data <span class="op">=</span> <span class="va">sdm_data</span><span class="op">)</span></span>
 <span></span>
@@ -492,6 +490,7 @@ Europe
 <li><a href="https://github.com/idem-lab/sdmtools/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/idem-lab/sdmtools/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://app.codecov.io/gh/idem-lab/sdmtools?branch=main" class="external-link"><img src="https://codecov.io/gh/idem-lab/sdmtools/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle:"></a></li>
+<li><a href="https://app.codecov.io/gh/idem-lab/sdmtools" class="external-link"><img src="https://codecov.io/gh/idem-lab/sdmtools/graph/badge.svg" alt="Codecov test coverage"></a></li>
 </ul>
 </div>
 
