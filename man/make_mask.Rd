@@ -6,31 +6,47 @@
 \alias{make_vector_mask}
 \title{Make Mask}
 \usage{
-# standard usage
-make_mask(filename = NULL, type = c("raster", "vector"), res = c("high", "low"), countries = NULL)
-# `make_africa_mask`` is intended for backward compatibility but is a simple alias for `make_mask`
-make_africa_mask(filename = NULL, type = c("raster", "vector"), res = c("high", "low"), countries = NULL)
-# `make_vector_mask` sets `type = "vector"`
-make_mask(filename = NULL, type = c("raster", "vector"), res = c("high", "low"), countries = NULL)
+make_mask(
+  filename = NULL,
+  type = c("raster", "vector"),
+  res = c("high", "low"),
+  countries = NULL,
+  overwrite = FALSE
+)
 }
 \arguments{
-\item{filename}{Character of file path and name if  mask is to be written to disc.}
+\item{filename}{Character of file path and name if  mask is to be written to
+disc.}
 
-\item{type}{Character \code{raster} or \code{vector}; to return mask as either \code{SpatRaster} or \code{SpatVector}.}
+\item{type}{Character \code{raster} or \code{vector}; to return mask as either
+\code{SpatRaster} or \code{SpatVector}.}
 
-\item{res}{Character \code{"high"} or \code{"low"}; corresponding to resolution of 0.008333333 or 0.04166667 decimal degrees}
+\item{res}{Character \code{"high"} or \code{"low"}; corresponding to resolution of
+0.008333333 or 0.04166667 decimal degrees}
 
-\item{countries}{Character of ISO3 country names. If \code{NULL} returns all countries in Africa.}
+\item{countries}{Character of ISO3 country names. If \code{NULL} returns all
+countries in Africa.}
+
+\item{overwrite}{logical}
 }
 \value{
 \code{SpatRaster} or \code{SpatVector} in WGS 84 (EPSG:4326).
 }
 \description{
-Makes a \code{SpatRaster} or \code{SpatVector} mask layer of countries, based on shapefiles for from the \code{malaraAtlas} package.
+Makes a \code{SpatRaster} or \code{SpatVector} mask layer of countries,
+based on shapefiles for from the \code{malaraAtlas} package.
 }
-\details{
-If \code{countries = NULL}, raster layers have extent of \code{terra::ext(-18.0000019073486, 52.0416647593181, -34.9999987284343, 37.5416679382324)}
+\section{standard usage make_mask(filename = NULL, type = c("raster",}{
+"vector"), res = c("high", "low"), countries = NULL)
+
+\code{make_africa_mask} is intended for backward compatibility but is a simple
+alias for \code{make_mask} make_africa_mask(filename = NULL, type = c("raster",
+"vector"), res = c("high", "low"), countries = NULL)
+
+\code{make_vector_mask} sets \code{type = "vector"} make_mask(filename = NULL, res =
+c("high", "low"), countries = NULL)
 }
+
 \examples{
 \dontrun{
 # Create an object in workspace

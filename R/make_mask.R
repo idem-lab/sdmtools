@@ -1,30 +1,32 @@
 #' @title Make Mask
-#' @description
-#' Makes a `SpatRaster` or `SpatVector` mask layer of countries, based on shapefiles for from the `malaraAtlas` package.
+#' @description Makes a `SpatRaster` or `SpatVector` mask layer of countries,
+#' based on shapefiles for from the `malaraAtlas` package.
 #'
 #'
-#' @param filename Character of file path and name if  mask is to be written to disc.
-#' @param type Character `raster` or `vector`; to return mask as either `SpatRaster` or `SpatVector`.
-#' @param res Character `"high"` or `"low"`; corresponding to resolution of 0.008333333 or 0.04166667 decimal degrees
-#' @param countries Character of ISO3 country names. If `NULL` returns all countries in Africa.
+#' @param filename Character of file path and name if  mask is to be written to
+#'   disc.
+#' @param type Character `raster` or `vector`; to return mask as either
+#'   `SpatRaster` or `SpatVector`.
+#' @param res Character `"high"` or `"low"`; corresponding to resolution of
+#'   0.008333333 or 0.04166667 decimal degrees
+#' @param countries Character of ISO3 country names. If `NULL` returns all
+#'   countries in Africa.
+#' @param overwrite logical
 #'
 #' @aliases make_africa_mask make_vector_mask
-#' @usage
-#' # standard usage
-#' make_mask(filename = NULL, type = c("raster", "vector"), res = c("high", "low"), countries = NULL)
-#'
-#' # `make_africa_mask` is intended for backward compatibility but is a simple alias for `make_mask`
-#' make_africa_mask(filename = NULL, type = c("raster", "vector"), res = c("high", "low"), countries = NULL)
-#'
-#' # `make_vector_mask` sets `type = "vector"`
-#' make_mask(filename = NULL, res = c("high", "low"), countries = NULL)
 #'
 #' @return `SpatRaster` or `SpatVector` in WGS 84 (EPSG:4326).
 #' @export
 #'
-#' @details
-#' If `countries = NULL`, raster layers have extent of `terra::ext(-18.0000019073486, 52.0416647593181, -34.9999987284343, 37.5416679382324)`
+#' @details # standard usage make_mask(filename = NULL, type = c("raster",
+#' "vector"), res = c("high", "low"), countries = NULL)
 #'
+#' `make_africa_mask` is intended for backward compatibility but is a simple
+#' alias for `make_mask` make_africa_mask(filename = NULL, type = c("raster",
+#' "vector"), res = c("high", "low"), countries = NULL)
+#'
+#' `make_vector_mask` sets `type = "vector"` make_mask(filename = NULL, res =
+#' c("high", "low"), countries = NULL)
 #' @examples
 #' \dontrun{
 #' # Create an object in workspace
@@ -40,14 +42,15 @@ make_mask <- function(
     filename = NULL,
     type = c("raster", "vector"),
     res = c("high", "low"),
-    countries = NULL
+    countries = NULL,
+    overwrite = FALSE
   ){
 
   if(!is.null(filename)){
-    if(file.exists(filename)){
+    if(file.exists(filename) & !overwrite){
 
       warning(sprintf(
-        "%s exists\nUsing existing file\nto re-generate, delete existing %s",
+        "%s exists\nUsing existing file",
         filename,
         filename
       ))
@@ -64,7 +67,7 @@ make_mask <- function(
 
   if(is.null(countries)){
     # get list of African countries
-    african_countries <- sdmtools::global_regions %>%
+    countries <- sdmtools::global_regions %>%
       dplyr::filter(continent == "Africa") %>%
       dplyr::pull(iso3)
   }
@@ -73,8 +76,6 @@ make_mask <- function(
 
   # make using MAP data
   # has issue with validity, st_make_valid 'fixes' this however...?
-  #library(sf)
-  #library(malariaAtlas)
 
   afvect <- malariaAtlas::getShp(
     ISO = countries
@@ -99,31 +100,24 @@ make_mask <- function(
   }
 
   res <- match.arg(res)
-  if(res == "high"){
 
-    afrast <- terra::rast(
-      nlyrs=1,
-      crs = terra::crs("EPSG:4326"),
-      #extent = ext(-25.3583333333333, 63.5, -40.3666666666667, 37.5416666666667),
-      extent = terra::ext(-18.0000019073486, 52.0416647593181, -34.9999987284343, 37.5416679382324), # extent based on malariaAtlas::getRaster("Explorer__2020_Africa_ITN_Use")
-      resolution = c(0.008333333, 0.008333333),
-      vals = 1,
-      names = "mask"
-    ) |>
-      terra::mask(afvect)
+  resn <- ifelse(
+    res == "high",
+    0.008333333,
+    0.04166667
+  )
 
-  } else if (res == "low"){
-    afrast <- terra::rast(
-      nlyrs=1,
-      crs = terra::crs("EPSG:4326"),
-      #extent = ext(-25.3583333333333, 63.5, -40.3666666666667, 37.5416666666667),
-      extent = terra::ext(-18.0000019073486, 52.0416647593181, -34.9999987284343, 37.5416679382324),
-      resolution = c(0.04166667, 0.04166667),
-      vals = 1,
-      names = "mask"
-    ) |>
-      terra::mask(afvect)
-  }
+  xt <- terra::ext(afvect)
+
+  afrast <- terra::rast(
+    nlyrs=1,
+    crs = terra::crs("EPSG:4326"),
+    extent = xt,
+    resolution = c(resn, resn),
+    vals = 1,
+    names = "mask"
+  ) |>
+    terra::mask(afvect)
 
   if(!is.null(filename)){
     terra::writeRaster(
@@ -142,6 +136,7 @@ make_mask <- function(
 }
 
 
+#' @export
 make_africa_mask <- function(
     filename = NULL,
     type = c("raster", "vector"),
@@ -158,6 +153,7 @@ make_africa_mask <- function(
 
 }
 
+#' @export
 make_vector_mask <- function(
     filename = NULL,
     res = c("high", "low"),
