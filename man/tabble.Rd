@@ -11,6 +11,15 @@ tabble(x, usena = c("always", "no", "ifany"), n = 50)
 
 \item{n}{print how many rows eh?}
 }
+\value{
+\code{tibble} object.
+}
 \description{
 Make a single-variable table and display it nicely in console
+}
+\examples{
+tabble(iris$Species)
+# c.f.
+table(iris$Species)
+
 }

@@ -4,10 +4,14 @@
 #' @param usena per `?table`
 #' @param n print how many rows eh?
 #'
-#' @returns
+#' @returns `tibble` object.
 #' @export
 #'
 #' @examples
+#' tabble(iris$Species)
+#' # c.f.
+#' table(iris$Species)
+#'
 tabble <- function(
     x,
     usena = c("always", "no", "ifany"),
@@ -18,7 +22,7 @@ tabble <- function(
 
   table(x, useNA = usena) |>
     as.data.frame() |>
-    as_tibble() |>
+    tibble::as_tibble() |>
     print(n = n)
 
 }
